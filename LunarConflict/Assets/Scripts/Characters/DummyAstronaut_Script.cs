@@ -1,12 +1,13 @@
 using System.Collections;
 using UnityEngine;
 
-public class testscript : MonoBehaviour
+public class DummyAstronaut_Script : MonoBehaviour
 {
     [SerializeField] private Transform bulletParent;
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private GameObject blackhole;
     [SerializeField] private int speed;
+    [SerializeField] private bool russian = false;
     private Animator _animator;
     private Vector3 _startingPos;
     private bool _startAnimation;
@@ -29,14 +30,14 @@ public class testscript : MonoBehaviour
         
         if (_animator.GetCurrentAnimatorStateInfo(0).IsName("walking"))
             transform.Translate(Vector3.right * (speed * Time.deltaTime));
-        
-        
     }
 
     public void AstronautShoot()
     {
-        var bullet = Instantiate(bulletPrefab).transform;
-        bullet.position = bulletParent.position;
+        Instantiate(
+            bulletPrefab, 
+            bulletParent.position, 
+            (russian ? Quaternion.Euler(0,0,90) : Quaternion.Euler(0,0,-90)));
     }
 
     public void OpenBlackHole()
