@@ -131,7 +131,7 @@ GameObject:
   - component: {fileID: 874816796583786691}
   m_Layer: 0
   m_Name: Astronaut
-  m_TagString: Untagged
+  m_TagString: Unit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -284,8 +284,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97d929b312ba56f4ead2a0403b4896d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 0
+  speed: 2
+  russian: 0
+  attackMode: 0
   bulletParent: {fileID: 874816795870721204}
   bulletPrefab: {fileID: 4747252809770462573, guid: fb18d719ca9f0544497313eee22e751d, type: 3}
   blackhole: {fileID: 874816796547281655}
-  speed: 2
-  russian: 0

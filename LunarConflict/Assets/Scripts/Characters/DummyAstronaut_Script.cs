@@ -1,36 +1,31 @@
 using System.Collections;
 using UnityEngine;
 
-public class DummyAstronaut_Script : MonoBehaviour
+public class DummyAstronaut_Script : GenericUnit_Script
 {
     [SerializeField] private Transform bulletParent;
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private GameObject blackhole;
-    [SerializeField] private int speed;
-    [SerializeField] private bool russian = false;
     private Animator _animator;
-    private Vector3 _startingPos;
-    private bool _startAnimation;
 
     private void Start()
     {
         _animator = GetComponent<Animator>();
-        _startingPos = transform.position;
+        speed = russian ? speed * -1 : speed;
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && !_startAnimation)
-        {
-            _animator.SetBool("play", true);
-            _startAnimation = true;
-        }
-
-        if (!_startAnimation) return;
+        _animator.SetBool("play", true);
         
         if (_animator.GetCurrentAnimatorStateInfo(0).IsName("walking"))
             transform.Translate(Vector3.right * (speed * Time.deltaTime));
-    }
+
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.left);
+        
+        _animator.SetBool("attackMode", hit.collider.CompareTag("Unit") ? true : false);
+        _animator.SetBool("dying", health <= 0 ? true : false);
+        }
 
     public void AstronautShoot()
     {
@@ -64,8 +59,6 @@ public class DummyAstronaut_Script : MonoBehaviour
     
     public void AstronautDeath()
     {
-        transform.position = _startingPos;
-        blackhole.SetActive(false);
-        StopAllCoroutines();
+        GameObject.Destroy(this.gameObject);
     }
 }
