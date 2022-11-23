@@ -28,7 +28,7 @@ public class DummyAstronaut_Script : MonoBehaviour
 
         if (!_startAnimation) return;
         
-        if (_animator.GetCurrentAnimatorStateInfo(0).IsName("walking"))
+        if (_animator.GetCurrentAnimatorStateInfo(0).IsName("walking") || _animator.GetCurrentAnimatorStateInfo(0).IsName("driving"))
             transform.Translate(Vector3.right * (speed * Time.deltaTime));
     }
 
