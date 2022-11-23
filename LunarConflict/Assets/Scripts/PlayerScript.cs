@@ -28,7 +28,7 @@ public class PlayerScript : MonoBehaviour
     {
         if (money >= 100)
         {
-            Instantiate(astronaut, transform);
+            Instantiate(astronaut, new Vector2(transform.position.x - 5, transform.position.y), transform.rotation);
             money -= 100;
         }
     }

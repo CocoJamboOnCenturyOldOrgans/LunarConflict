@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -12,6 +13,7 @@ public class DummyAstronaut_Script : GenericUnit_Script
     {
         _animator = GetComponent<Animator>();
         speed = russian ? speed * -1 : speed;
+        attackRange = russian ? attackRange * -1 : attackRange;
     }
 
     private void Update()
@@ -20,10 +22,19 @@ public class DummyAstronaut_Script : GenericUnit_Script
         
         if (_animator.GetCurrentAnimatorStateInfo(0).IsName("walking"))
             transform.Translate(Vector3.right * (speed * Time.deltaTime));
-
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.left);
         
-        _animator.SetBool("attackMode", hit.collider.CompareTag("Unit") ? true : false);
+        RaycastHit2D[] hit = Physics2D.RaycastAll(transform.position, Vector2.right, attackRange);
+        Debug.DrawRay(transform.position, Vector2.right * attackRange, Color.green, Time.deltaTime);
+
+        _animator.SetBool("attackMode", false);
+        foreach (var x in hit)
+        {
+            if (x.collider.CompareTag(russian ? "Unit" : "EnemyUnit") && x.collider.gameObject != gameObject)
+            {
+                _animator.SetBool("attackMode", true);
+                break;
+            }
+        }
         _animator.SetBool("dying", health <= 0 ? true : false);
         }
 
