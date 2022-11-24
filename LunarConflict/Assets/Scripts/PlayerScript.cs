@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerScript : MonoBehaviour
 {
     [SerializeField] private GameObject astronaut;
+    [SerializeField] private GameObject spawner;
     
     public int money;
     
@@ -28,7 +29,7 @@ public class PlayerScript : MonoBehaviour
     {
         if (money >= 100)
         {
-            Instantiate(astronaut, new Vector2(transform.position.x - 5, transform.position.y), transform.rotation);
+            Instantiate(astronaut, spawner.transform.position, spawner.transform.rotation);
             money -= 100;
         }
     }

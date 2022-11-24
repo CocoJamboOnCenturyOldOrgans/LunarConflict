@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyAI_Script : MonoBehaviour
 {
     [SerializeField] private GameObject astronaut;
+    [SerializeField] private GameObject spawner;
     void Start()
     {
         StartCoroutine("SpawnRussianAstronaut");
@@ -13,8 +14,8 @@ public class EnemyAI_Script : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(1f);
-            Instantiate(astronaut, transform);
+            yield return new WaitForSeconds(20f);
+            Instantiate(astronaut, spawner.transform.position, spawner.transform.rotation);
         }
     }
 }

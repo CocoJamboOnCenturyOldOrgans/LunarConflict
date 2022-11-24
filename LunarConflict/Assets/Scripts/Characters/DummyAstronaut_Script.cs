@@ -29,7 +29,7 @@ public class DummyAstronaut_Script : GenericUnit_Script
         _animator.SetBool("attackMode", false);
         foreach (var x in hit)
         {
-            if (x.collider.CompareTag(russian ? "Unit" : "EnemyUnit") && x.collider.gameObject != gameObject)
+            if (x.collider.CompareTag(russian ? "PlayerUnit" : "EnemyUnit") && x.collider.gameObject != gameObject)
             {
                 _animator.SetBool("attackMode", true);
                 break;

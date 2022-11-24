@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class GameLogic : MonoBehaviour
 {
+    public GameObject Game;
     void Start()
     {
-        
+        Game = transform.gameObject;
     }
     
     void Update()

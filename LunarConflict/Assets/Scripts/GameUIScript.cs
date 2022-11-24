@@ -12,7 +12,7 @@ public class GameUIScript : MonoBehaviour
 
     void Start()
     {
-        _playerScript = GameObject.Find("Game").GetComponent<PlayerScript>();
+        _playerScript = GameObject.Find("GameLogic").GetComponent<PlayerScript>();
     }
     
     void Update()

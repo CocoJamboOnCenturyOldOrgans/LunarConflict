@@ -131,7 +131,7 @@ GameObject:
   - component: {fileID: 874816796583786691}
   m_Layer: 3
   m_Name: Astronaut
-  m_TagString: Unit
+  m_TagString: PlayerUnit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
