@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerScript : MonoBehaviour
 {
     [SerializeField] private GameObject astronaut;
-    
+    [SerializeField] private Text Budget;
+
     public int money;
     
     private GameObject _base;
@@ -21,15 +24,16 @@ public class PlayerScript : MonoBehaviour
         {
             yield return new WaitForSeconds(1f);
             money += 5;
+            Budget.text = money.ToString() + "$";
         }
     }
 
-    public void BuyAstronaut()
-    {
-        if (money >= 100)
-        {
-            Instantiate(astronaut, transform);
-            money -= 100;
-        }
-    }
+    //public void BuyAstronaut()
+    //{
+    //    if (money >= 100)
+    //    {
+    //        Instantiate(astronaut, transform);
+    //        money -= 100;
+    //    }
+    //}
 }
