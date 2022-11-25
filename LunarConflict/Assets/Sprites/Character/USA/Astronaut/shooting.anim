@@ -27,6 +27,22 @@ AnimationClip:
       value: {fileID: -4805711896050219392, guid: e28396a2fbd2da446a19a7e2063c87b4, type: 3}
     - time: 0.6
       value: {fileID: 8297146556704687755, guid: e28396a2fbd2da446a19a7e2063c87b4, type: 3}
+    - time: 0.8
+      value: {fileID: 1870619793308445695, guid: e28396a2fbd2da446a19a7e2063c87b4, type: 3}
+    - time: 1
+      value: {fileID: -166609919907805380, guid: e28396a2fbd2da446a19a7e2063c87b4, type: 3}
+    - time: 1.2
+      value: {fileID: -4805711896050219392, guid: e28396a2fbd2da446a19a7e2063c87b4, type: 3}
+    - time: 1.4
+      value: {fileID: 8297146556704687755, guid: e28396a2fbd2da446a19a7e2063c87b4, type: 3}
+    - time: 1.6
+      value: {fileID: 1870619793308445695, guid: e28396a2fbd2da446a19a7e2063c87b4, type: 3}
+    - time: 1.8
+      value: {fileID: -166609919907805380, guid: e28396a2fbd2da446a19a7e2063c87b4, type: 3}
+    - time: 2
+      value: {fileID: -4805711896050219392, guid: e28396a2fbd2da446a19a7e2063c87b4, type: 3}
+    - time: 2.2
+      value: {fileID: 8297146556704687755, guid: e28396a2fbd2da446a19a7e2063c87b4, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -50,12 +66,20 @@ AnimationClip:
     - {fileID: -166609919907805380, guid: e28396a2fbd2da446a19a7e2063c87b4, type: 3}
     - {fileID: -4805711896050219392, guid: e28396a2fbd2da446a19a7e2063c87b4, type: 3}
     - {fileID: 8297146556704687755, guid: e28396a2fbd2da446a19a7e2063c87b4, type: 3}
+    - {fileID: 1870619793308445695, guid: e28396a2fbd2da446a19a7e2063c87b4, type: 3}
+    - {fileID: -166609919907805380, guid: e28396a2fbd2da446a19a7e2063c87b4, type: 3}
+    - {fileID: -4805711896050219392, guid: e28396a2fbd2da446a19a7e2063c87b4, type: 3}
+    - {fileID: 8297146556704687755, guid: e28396a2fbd2da446a19a7e2063c87b4, type: 3}
+    - {fileID: 1870619793308445695, guid: e28396a2fbd2da446a19a7e2063c87b4, type: 3}
+    - {fileID: -166609919907805380, guid: e28396a2fbd2da446a19a7e2063c87b4, type: 3}
+    - {fileID: -4805711896050219392, guid: e28396a2fbd2da446a19a7e2063c87b4, type: 3}
+    - {fileID: 8297146556704687755, guid: e28396a2fbd2da446a19a7e2063c87b4, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.8
+    m_StopTime: 2.4
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -76,6 +100,20 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0.4
+    functionName: AstronautShoot
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 1.2
+    functionName: AstronautShoot
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 2
     functionName: AstronautShoot
     data: 
     objectReferenceParameter: {fileID: 0}

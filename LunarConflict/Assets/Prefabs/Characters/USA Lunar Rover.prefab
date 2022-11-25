@@ -98,9 +98,9 @@ GameObject:
   - component: {fileID: 6156361781352966719}
   - component: {fileID: 6156361781352966718}
   - component: {fileID: 6156361781352966705}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: USA Lunar Rover
-  m_TagString: PlayerUnit
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -113,8 +113,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6156361781352966704}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 4, y: 4, z: 4}
+  m_LocalPosition: {x: -4.73, y: 0.44962692, z: 1}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6156361782586493747}
@@ -191,14 +191,14 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 0.75}
+    oldSize: {x: 1.3333334, y: 1}
     newSize: {x: 1.3333334, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.75}
+  m_Size: {x: 1.3333334, y: 1}
   m_EdgeRadius: 0
 --- !u!50 &6156361781352966719
 Rigidbody2D:
@@ -231,7 +231,7 @@ Animator:
   m_GameObject: {fileID: 6156361781352966704}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 22100000, guid: 2ab39d40aaf1e1e44b509a2b76c062d4, type: 2}
+  m_Controller: {fileID: 9100000, guid: 6f312f930a1b49440b8ace49e178e3ac, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -253,15 +253,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97d929b312ba56f4ead2a0403b4896d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 50
-  speed: 4
-  attackRange: 10
-  russian: 0
-  attackMode: 0
-  unitCost: 200
   bulletParent: {fileID: 6156361782586493747}
   bulletPrefab: {fileID: 4747252809770462573, guid: fb18d719ca9f0544497313eee22e751d, type: 3}
   blackhole: {fileID: 6156361781292355394}
+  speed: 4
+  russian: 0
 --- !u!1 &6156361782586493746
 GameObject:
   m_ObjectHideFlags: 0

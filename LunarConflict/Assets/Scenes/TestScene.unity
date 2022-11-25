@@ -130,9 +130,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3813118679460145041, guid: 6f8cde85287a185889a7dba0ef72bd92, type: 3}
+      propertyPath: speed
+      value: -2
+      objectReference: {fileID: 0}
     - target: {fileID: 3813118679460145042, guid: 6f8cde85287a185889a7dba0ef72bd92, type: 3}
       propertyPath: m_RootOrder
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3813118679460145042, guid: 6f8cde85287a185889a7dba0ef72bd92, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3813118679460145042, guid: 6f8cde85287a185889a7dba0ef72bd92, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3813118679460145042, guid: 6f8cde85287a185889a7dba0ef72bd92, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3813118679460145042, guid: 6f8cde85287a185889a7dba0ef72bd92, type: 3}
       propertyPath: m_LocalPosition.x
@@ -174,13 +190,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3813118679460145045, guid: 6f8cde85287a185889a7dba0ef72bd92, type: 3}
+      propertyPath: m_FlipX
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3813118679460145047, guid: 6f8cde85287a185889a7dba0ef72bd92, type: 3}
       propertyPath: m_Name
       value: Soviet Astronaut
-      objectReference: {fileID: 0}
-    - target: {fileID: 3813118679460145047, guid: 6f8cde85287a185889a7dba0ef72bd92, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6f8cde85287a185889a7dba0ef72bd92, type: 3}
@@ -650,6 +666,18 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 874816796583786688, guid: 06753682be52dba80a8822d2c043999c, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 874816796583786688, guid: 06753682be52dba80a8822d2c043999c, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 874816796583786688, guid: 06753682be52dba80a8822d2c043999c, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 874816796583786688, guid: 06753682be52dba80a8822d2c043999c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -14
       objectReference: {fileID: 0}
@@ -689,13 +717,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 874816796583786691, guid: 06753682be52dba80a8822d2c043999c, type: 3}
+      propertyPath: speed
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 874816796583786693, guid: 06753682be52dba80a8822d2c043999c, type: 3}
       propertyPath: m_Name
       value: USA Astronaut
-      objectReference: {fileID: 0}
-    - target: {fileID: 874816796583786693, guid: 06753682be52dba80a8822d2c043999c, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 06753682be52dba80a8822d2c043999c, type: 3}
@@ -824,16 +852,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: USA Lunar Rover
       objectReference: {fileID: 0}
-    - target: {fileID: 6156361781352966705, guid: e68a40a4b389e2843b5634bd44eef477, type: 3}
-      propertyPath: health
-      value: 200
-      objectReference: {fileID: 0}
-    - target: {fileID: 6156361781352966705, guid: e68a40a4b389e2843b5634bd44eef477, type: 3}
-      propertyPath: attackRange
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 6156361781352966714, guid: e68a40a4b389e2843b5634bd44eef477, type: 3}
       propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6156361781352966714, guid: e68a40a4b389e2843b5634bd44eef477, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6156361781352966714, guid: e68a40a4b389e2843b5634bd44eef477, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6156361781352966714, guid: e68a40a4b389e2843b5634bd44eef477, type: 3}
+      propertyPath: m_LocalScale.z
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6156361781352966714, guid: e68a40a4b389e2843b5634bd44eef477, type: 3}
@@ -876,6 +908,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6156361781352966716, guid: e68a40a4b389e2843b5634bd44eef477, type: 3}
+      propertyPath: m_Size.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6156361781352966716, guid: e68a40a4b389e2843b5634bd44eef477, type: 3}
+      propertyPath: m_Size.y
+      value: 0.75
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e68a40a4b389e2843b5634bd44eef477, type: 3}
 --- !u!1001 &7798165556785193090
@@ -885,25 +925,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1622694353147758050, guid: b5b438097d2899d44b99f26c772e4d1f, type: 3}
-      propertyPath: health
-      value: 200
-      objectReference: {fileID: 0}
-    - target: {fileID: 1622694353147758050, guid: b5b438097d2899d44b99f26c772e4d1f, type: 3}
-      propertyPath: attackRange
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 1622694353147758051, guid: b5b438097d2899d44b99f26c772e4d1f, type: 3}
       propertyPath: m_Name
       value: Soviet Lunar Rover
       objectReference: {fileID: 0}
-    - target: {fileID: 1622694353147758051, guid: b5b438097d2899d44b99f26c772e4d1f, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1622694353147758057, guid: b5b438097d2899d44b99f26c772e4d1f, type: 3}
       propertyPath: m_RootOrder
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1622694353147758057, guid: b5b438097d2899d44b99f26c772e4d1f, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1622694353147758057, guid: b5b438097d2899d44b99f26c772e4d1f, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1622694353147758057, guid: b5b438097d2899d44b99f26c772e4d1f, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1622694353147758057, guid: b5b438097d2899d44b99f26c772e4d1f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -944,6 +984,22 @@ PrefabInstance:
     - target: {fileID: 1622694353147758057, guid: b5b438097d2899d44b99f26c772e4d1f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1622694353147758061, guid: b5b438097d2899d44b99f26c772e4d1f, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 01900cd5a0b57484bac11f5c997ed836, type: 2}
+    - target: {fileID: 1622694353147758062, guid: b5b438097d2899d44b99f26c772e4d1f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1008816691, guid: 89b61985da7f0174196319649d843920, type: 3}
+    - target: {fileID: 1622694353147758063, guid: b5b438097d2899d44b99f26c772e4d1f, type: 3}
+      propertyPath: m_Size.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1622694353147758063, guid: b5b438097d2899d44b99f26c772e4d1f, type: 3}
+      propertyPath: m_Size.y
+      value: 0.75
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5b438097d2899d44b99f26c772e4d1f, type: 3}
