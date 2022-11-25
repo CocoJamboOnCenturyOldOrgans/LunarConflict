@@ -14,7 +14,7 @@ public class EnemyAI_Script : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(20f);
+            yield return new WaitForSeconds(5f);
             Instantiate(astronaut, spawner.transform.position, spawner.transform.rotation);
         }
     }
