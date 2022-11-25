@@ -1,0 +1,15 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: USALunarRover
+  m_Controller: {fileID: 9100000, guid: 01900cd5a0b57484bac11f5c997ed836, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: a545ce9d04cf9be4893e9a3444500e12, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: a545ce9d04cf9be4893e9a3444500e12, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: a6292528251d9a546828c413fc4d5d03, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: a6292528251d9a546828c413fc4d5d03, type: 2}
