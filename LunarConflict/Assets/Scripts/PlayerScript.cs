@@ -1,12 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerScript : MonoBehaviour
 {
     [SerializeField] private GameObject astronaut;
     [SerializeField] private GameObject spawner;
     
+    [SerializeField] private Text Budget;
+
     public int money;
     
     private GameObject _base;
@@ -22,6 +26,7 @@ public class PlayerScript : MonoBehaviour
         {
             yield return new WaitForSeconds(1f);
             money += 5;
+            Budget.text = money.ToString() + "$";
         }
     }
 
