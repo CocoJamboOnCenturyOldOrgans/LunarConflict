@@ -20,7 +20,7 @@ public class DummyAstronaut_Script : GenericUnit_Script
     {
         _animator.SetBool("play", true);
         
-        if (_animator.GetCurrentAnimatorStateInfo(0).IsName("walking"))
+        if (_animator.GetCurrentAnimatorStateInfo(0).IsName("walking") || _animator.GetCurrentAnimatorStateInfo(0).IsName("driving"))
             transform.Translate(Vector3.right * (speed * Time.deltaTime));
         
         RaycastHit2D[] hit = Physics2D.RaycastAll(transform.position, Vector2.right, attackRange);
