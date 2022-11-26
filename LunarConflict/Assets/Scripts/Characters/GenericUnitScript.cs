@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GenericUnit_Script : MonoBehaviour
+public class GenericUnitScript : MonoBehaviour
 {
     public int health;
     public int speed;

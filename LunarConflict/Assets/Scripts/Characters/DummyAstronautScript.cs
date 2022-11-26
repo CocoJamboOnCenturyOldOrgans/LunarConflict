@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-public class DummyAstronaut_Script : GenericUnit_Script
+public class DummyAstronautScript : GenericUnitScript
 {
     [SerializeField] private Transform bulletParent;
     [SerializeField] private GameObject bulletPrefab;
@@ -12,31 +12,40 @@ public class DummyAstronaut_Script : GenericUnit_Script
     private void Start()
     {
         _animator = GetComponent<Animator>();
+        _animator.SetBool("play", true);
+        
         speed = russian ? speed * -1 : speed;
         attackRange = russian ? attackRange * -1 : attackRange;
     }
 
     private void Update()
-    {
-        _animator.SetBool("play", true);
-        
+    { 
+        Debug.DrawRay(transform.position, Vector2.right * attackRange, Color.green, Time.deltaTime);
         if (_animator.GetCurrentAnimatorStateInfo(0).IsName("walking") || _animator.GetCurrentAnimatorStateInfo(0).IsName("driving"))
             transform.Translate(Vector3.right * (speed * Time.deltaTime));
+        _animator.SetBool("attackMode", CanAttack());
         
-        RaycastHit2D[] hit = Physics2D.RaycastAll(transform.position, Vector2.right, attackRange);
-        Debug.DrawRay(transform.position, Vector2.right * attackRange, Color.green, Time.deltaTime);
+        _animator.SetBool("dying", health <= 0 ? true : false);
+    }
 
-        _animator.SetBool("attackMode", false);
+    private bool CanAttack()
+    {
+        RaycastHit2D[] hit = Physics2D.RaycastAll(transform.position, Vector2.right, attackRange);
         foreach (var x in hit)
         {
             if (x.collider.CompareTag(russian ? "PlayerUnit" : "EnemyUnit") && x.collider.gameObject != gameObject)
             {
-                _animator.SetBool("attackMode", true);
-                break;
+                return true;
             }
         }
-        _animator.SetBool("dying", health <= 0 ? true : false);
-        }
+
+        return false;
+    }
+
+    private bool CanWalk()
+    {
+        throw new NotImplementedException();
+    }
 
     public void AstronautShoot()
     {

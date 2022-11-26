@@ -16,7 +16,7 @@ public class PlayerScript : MonoBehaviour
     private GameObject _base;
     void Start()
     {
-        StartCoroutine("RaiseBudget");
+        StartCoroutine(RaiseBudget());
         _base = GameObject.Find("PlayerBase");
     }
 
@@ -25,7 +25,7 @@ public class PlayerScript : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(1f);
-            money += 5;
+            money += 10;
             Budget.text = money.ToString() + "$";
         }
     }
