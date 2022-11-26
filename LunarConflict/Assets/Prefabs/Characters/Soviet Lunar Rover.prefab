@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1622694353147758063}
   - component: {fileID: 1622694353147758060}
   - component: {fileID: 1622694353147758061}
-  - component: {fileID: 1622694353147758050}
+  - component: {fileID: -6819897368678102410}
   m_Layer: 3
   m_Name: Soviet Lunar Rover
   m_TagString: EnemyUnit
@@ -157,7 +157,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &1622694353147758050
+--- !u!114 &-6819897368678102410
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -166,7 +166,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1622694353147758051}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97d929b312ba56f4ead2a0403b4896d9, type: 3}
+  m_Script: {fileID: 11500000, guid: 36f80434f98702eaeb02d6593ccb9134, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
@@ -177,7 +177,6 @@ MonoBehaviour:
   unitCost: 0
   bulletParent: {fileID: 1622694353575732448}
   bulletPrefab: {fileID: 4747252809770462573, guid: fb18d719ca9f0544497313eee22e751d, type: 3}
-  blackhole: {fileID: 1622694353217183889}
 --- !u!1 &1622694353217183889
 GameObject:
   m_ObjectHideFlags: 0
@@ -286,7 +285,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1622694353575732449}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.539, y: 0.02, z: 0}
+  m_LocalPosition: {x: -0.55, y: 0.02, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
