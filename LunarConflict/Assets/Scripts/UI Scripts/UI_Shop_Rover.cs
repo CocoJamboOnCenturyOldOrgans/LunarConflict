@@ -2,28 +2,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UnitB : MonoBehaviour
+public class UI_Shop_Rover : MonoBehaviour
 {
     private GameUIScript UIScript;
 
     // Start is called before the first frame update
     void Start()
     {
-        UIScript = GameObject.Find("EventManagement").GetComponent<GameUIScript>();
+        UIScript = GameObject.Find("UI").GetComponent<GameUIScript>();
     }
 
     public void OnMouseEnter()
     {
         //Temp Test Values
-        UIScript.Attack.value = 50;
+        UIScript.Attack.value = Units_Statistics.rover_attack;
         UIScript.AttackValue.text = UIScript.Attack.value.ToString();
-        UIScript.FireRate.value = (float)0.75;
+        UIScript.FireRate.value = Units_Statistics.rover_fire_rate;
         UIScript.FireRateValue.text = UIScript.FireRate.value.ToString();
-        UIScript.HP.value = 400;
+        UIScript.HP.value = Units_Statistics.rover_max_HP;
         UIScript.HPValue.text = UIScript.HP.value.ToString();
-        UIScript.Speed.value = 1;
+        UIScript.Speed.value = Units_Statistics.rover_speed;
         UIScript.SpeedValue.text = UIScript.Speed.value.ToString();
-        UIScript.UnitName.text = "Unit Beta";
+        UIScript.UnitName.text = Settings_Script.Rover_Name.ToString();
     }
 
     public void OnMouseExit()

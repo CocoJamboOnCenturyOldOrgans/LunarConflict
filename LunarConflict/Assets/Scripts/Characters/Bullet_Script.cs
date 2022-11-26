@@ -15,7 +15,7 @@ public class Bullet_Script : MonoBehaviour
     {
         if (col.tag == "PlayerUnit" || col.tag == "EnemyUnit")
         {
-            col.gameObject.GetComponent<GenericUnit_Script>().GotHit(damage);
+            //col.gameObject.GetComponent<GenericUnit_Script>().GotHit(damage);
         }
         Destroy(this.gameObject);
     }

@@ -281,15 +281,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 874816796583786693}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97d929b312ba56f4ead2a0403b4896d9, type: 3}
+  m_Script: {fileID: 11500000, guid: d321ea1773003de47a28d575b557ee46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 50
-  speed: 2
-  attackRange: 2
-  russian: 0
-  attackMode: 0
-  unitCost: 100
   bulletParent: {fileID: 874816795870721204}
   bulletPrefab: {fileID: 4747252809770462573, guid: fb18d719ca9f0544497313eee22e751d, type: 3}
   blackhole: {fileID: 874816796547281655}

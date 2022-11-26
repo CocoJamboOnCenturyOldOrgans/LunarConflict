@@ -191,7 +191,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.3333334, y: 1}
+    oldSize: {x: 1, y: 0.75}
     newSize: {x: 1.3333334, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -250,14 +250,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 6156361781352966704}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97d929b312ba56f4ead2a0403b4896d9, type: 3}
+  m_Script: {fileID: 11500000, guid: d321ea1773003de47a28d575b557ee46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   bulletParent: {fileID: 6156361782586493747}
   bulletPrefab: {fileID: 4747252809770462573, guid: fb18d719ca9f0544497313eee22e751d, type: 3}
   blackhole: {fileID: 6156361781292355394}
-  speed: 4
-  russian: 0
 --- !u!1 &6156361782586493746
 GameObject:
   m_ObjectHideFlags: 0
