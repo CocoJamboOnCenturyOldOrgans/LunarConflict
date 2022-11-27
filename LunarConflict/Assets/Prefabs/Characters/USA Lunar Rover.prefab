@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 6156361781352966716}
   - component: {fileID: 6156361781352966719}
   - component: {fileID: 6156361781352966718}
-  - component: {fileID: 6156361781352966705}
+  - component: {fileID: 7779528170484288204}
   m_Layer: 3
   m_Name: USA Lunar Rover
   m_TagString: PlayerUnit
@@ -241,7 +241,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &6156361781352966705
+--- !u!114 &7779528170484288204
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -250,7 +250,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6156361781352966704}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97d929b312ba56f4ead2a0403b4896d9, type: 3}
+  m_Script: {fileID: 11500000, guid: 36f80434f98702eaeb02d6593ccb9134, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
@@ -258,10 +258,9 @@ MonoBehaviour:
   attackRange: 2
   russian: 0
   attackMode: 0
-  unitCost: 0
+  unitCost: 100
   bulletParent: {fileID: 6156361782586493747}
   bulletPrefab: {fileID: 4747252809770462573, guid: fb18d719ca9f0544497313eee22e751d, type: 3}
-  blackhole: {fileID: 6156361781292355394}
 --- !u!1 &6156361782586493746
 GameObject:
   m_ObjectHideFlags: 0
