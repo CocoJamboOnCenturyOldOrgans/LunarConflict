@@ -13,9 +13,9 @@ public class BulletScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.tag == "PlayerUnit" || col.tag == "EnemyUnit")
+        if (col.TryGetComponent(out GenericUnitScript unitScript))
         {
-            col.gameObject.GetComponent<GenericUnitScript>().GotHit(damage);
+            unitScript.GotHit(damage);
         }
         Destroy(this.gameObject);
     }
