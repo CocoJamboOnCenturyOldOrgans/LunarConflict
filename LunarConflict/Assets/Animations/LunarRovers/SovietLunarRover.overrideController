@@ -7,9 +7,11 @@ AnimatorOverrideController:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: SovietLunarRover
-  m_Controller: {fileID: 9100000, guid: 01900cd5a0b57484bac11f5c997ed836, type: 2}
+  m_Controller: {fileID: 9100000, guid: b0bcf15786b4c100bbb4d557d174b7c8, type: 2}
   m_Clips:
   - m_OriginalClip: {fileID: 7400000, guid: a545ce9d04cf9be4893e9a3444500e12, type: 2}
     m_OverrideClip: {fileID: 7400000, guid: 733eb52d206c66d4eafcc171e91dacff, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: d7bc42a1103d03212aba9ea9a036b94e, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 3f3857ee89fdc5a48955b933920326ba, type: 2}
   - m_OriginalClip: {fileID: 7400000, guid: a6292528251d9a546828c413fc4d5d03, type: 2}
     m_OverrideClip: {fileID: 7400000, guid: 91be6b4ee5764ef4ca7d745291643559, type: 2}
