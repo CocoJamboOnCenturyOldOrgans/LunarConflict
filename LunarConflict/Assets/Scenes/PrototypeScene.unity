@@ -1127,7 +1127,7 @@ GameObject:
   - component: {fileID: 438859683}
   - component: {fileID: 438859682}
   - component: {fileID: 438859684}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: PlayerBase
   m_TagString: PlayerUnit
   m_Icon: {fileID: 0}
@@ -4061,7 +4061,7 @@ GameObject:
   - component: {fileID: 1245053162}
   - component: {fileID: 1245053164}
   - component: {fileID: 1245053165}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: EnemyBase
   m_TagString: EnemyUnit
   m_Icon: {fileID: 0}
@@ -4148,7 +4148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16857c0292895188c82d6f024b9bc102, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  astronaut: {fileID: 1622694353147758051, guid: b5b438097d2899d44b99f26c772e4d1f, type: 3}
+  astronaut: {fileID: 3813118679460145047, guid: 6f8cde85287a185889a7dba0ef72bd92, type: 3}
   spawner: {fileID: 913502015}
   spawnEverySeconds: 8
 --- !u!61 &1245053165
