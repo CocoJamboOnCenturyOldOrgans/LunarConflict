@@ -15,4 +15,7 @@ public class Units_Statistics : MonoBehaviour
     public static float rover_fire_rate = 0.75f;
     public static int rover_max_HP = 400;
     public static float rover_speed = 1;
+
+    //Enemy
+    public static float stats_modifier = 1;
 }

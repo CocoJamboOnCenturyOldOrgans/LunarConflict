@@ -13,12 +13,14 @@ public class Settings_Script : MonoBehaviour
     public static Sprite Rover_Shop_Negative;
     public static string Rover_Name;
 
-    ////Gameplay Changers]
+    //Gameplay Changers]
+    public static int side;
     //public static Sprite Player_Astronaut;
     //public static Sprite Player_Rover;
     //public static Sprite Enemy_Astronaut;
     //public static Sprite Enemy_Rover;
 
     //Game Settings
+    public static int volume = 50;
 
 }

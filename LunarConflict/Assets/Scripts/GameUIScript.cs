@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameUIScript : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class GameUIScript : MonoBehaviour
     [SerializeField] private Button UnitsButton;
     [SerializeField] private Button BaseButton;
     [SerializeField] private Button SpecialButton;
+    [SerializeField] private Button SettingsButton;
 
     //UI SECTIONS
     [SerializeField] private GameObject UnitsPanel;
@@ -17,6 +19,7 @@ public class GameUIScript : MonoBehaviour
     [SerializeField] private GameObject SpecialPanel;
     [SerializeField] private GameObject StatsPanel;
     [SerializeField] private GameObject DescriptionPanel;
+    [SerializeField] private GameObject SettingsPanel;
 
     //UI CERTAIN ELEMENTS
     public Slider Attack;
@@ -30,6 +33,9 @@ public class GameUIScript : MonoBehaviour
     public Text UnitName;
     public Text BuildingName;
     public Text Description;
+
+    public Slider VolumeSlider;
+    public Text VolumeValue;
 
     public Sprite Astronaut_Can_Buy;
     public Sprite Astronaut_Cannot_Buy;
@@ -100,6 +106,7 @@ public class GameUIScript : MonoBehaviour
             Rover_Price.text = "100" + Settings_Script.UI_Money_Mark;
             EntityC_Price.text = "200" + Settings_Script.UI_Money_Mark;
             EntityD_Price.text = "350" + Settings_Script.UI_Money_Mark;
+            changed = false;
         }
 
         //Testing of locking feature - fix in next version/final release
@@ -259,4 +266,31 @@ public class GameUIScript : MonoBehaviour
     //    Debug.Log("Base Upgraded by Module B");
     //    _playerScript.money -= 350;
     //}
+
+    public void ShowSettings()
+    {
+        SettingsPanel.SetActive(true);
+        VolumeSlider.value = Settings_Script.volume;
+        VolumeValue.text = VolumeSlider.value.ToString() + "%";
+    }
+
+    public void ChangeVolume()
+    {
+        VolumeValue.text = VolumeSlider.value.ToString() + "%";
+        Settings_Script.volume = (int)VolumeSlider.value;
+    }
+
+    public void CloseSettings()
+    {
+        SettingsPanel.SetActive(false);
+    }
+
+    public void GoToMenu()
+    {
+        SceneManager.LoadSceneAsync("MainMenu");
+    }
+    public void ExitGame()
+    {
+        Application.Quit();
+    }
 }
