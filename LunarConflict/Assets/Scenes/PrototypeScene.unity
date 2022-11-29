@@ -1002,7 +1002,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Soviet Flag
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 45623aaf542f182419bbf642e8cb356a, type: 3}
 --- !u!1 &377370674
 GameObject:
@@ -1102,7 +1103,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.07493281}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -1113,7 +1114,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 5.4, y: 5.4}
+  m_Size: {x: 5.4, y: 5.250134}
   m_EdgeRadius: 0
 --- !u!1 &438859681
 GameObject:
@@ -3858,7 +3859,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16857c0292895188c82d6f024b9bc102, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  astronaut: {fileID: 3813118679460145047, guid: 6f8cde85287a185889a7dba0ef72bd92, type: 3}
+  astronaut: {fileID: 1622694353147758051, guid: b5b438097d2899d44b99f26c772e4d1f, type: 3}
   spawner: {fileID: 913502015}
   spawnEverySeconds: 8
 --- !u!61 &1245053165

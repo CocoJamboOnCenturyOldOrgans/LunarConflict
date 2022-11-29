@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3602593214299105616}
   - component: {fileID: 3602593214299105617}
-  - component: {fileID: 3602593214299105618}
+  - component: {fileID: 6042029550921462956}
   m_Layer: 0
   m_Name: Soviet Flag
   m_TagString: Untagged
@@ -85,7 +85,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &3602593214299105618
+--- !u!95 &6042029550921462956
 Animator:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -95,7 +95,7 @@ Animator:
   m_GameObject: {fileID: 3602593214299105619}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 1f852c36334d4a64dab6b8b9d270b788, type: 2}
+  m_Controller: {fileID: 22100000, guid: a0c961c7cd7988741a354f488d87956a, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
