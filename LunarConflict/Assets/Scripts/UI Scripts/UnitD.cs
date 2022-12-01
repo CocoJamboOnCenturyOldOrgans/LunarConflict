@@ -1,41 +1,39 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class UnitD : MonoBehaviour
 {
-    private GameUIScript UIScript;
+    private GameUIScript _uiScript;
 
     // Start is called before the first frame update
     void Start()
     {
-        UIScript = GameObject.Find("UI").GetComponent<GameUIScript>();
+        _uiScript = FindObjectOfType<GameUIScript>();
     }
 
     public void OnMouseEnter()
     {
         //Temp Test Values
-        UIScript.Attack.value = 100;
-        UIScript.AttackValue.text = UIScript.Attack.value.ToString();
-        UIScript.FireRate.value = 2;
-        UIScript.FireRateValue.text = UIScript.FireRate.value.ToString();
-        UIScript.HP.value = 1000;
-        UIScript.HPValue.text = UIScript.HP.value.ToString();
-        UIScript.Speed.value = 2;
-        UIScript.SpeedValue.text = UIScript.Speed.value.ToString();
-        UIScript.UnitName.text = "Unit Delta";
+        _uiScript.attack.value = 100;
+        _uiScript.attackValue.text = _uiScript.attack.value.ToString();
+        _uiScript.fireRate.value = 2;
+        _uiScript.fireRateValue.text = _uiScript.fireRate.value.ToString();
+        _uiScript.hp.value = 1000;
+        _uiScript.hpValue.text = _uiScript.hp.value.ToString();
+        _uiScript.speed.value = 2;
+        _uiScript.speedValue.text = _uiScript.speed.value.ToString();
+        _uiScript.unitName.text = "Unit Delta";
     }
 
     public void OnMouseExit()
     {
-        UIScript.Attack.value = 0;
-        UIScript.AttackValue.text = "-----";
-        UIScript.FireRate.value = 0;
-        UIScript.FireRateValue.text = "-----";
-        UIScript.HP.value = 0;
-        UIScript.HPValue.text = "-----";
-        UIScript.Speed.value = 0;
-        UIScript.SpeedValue.text = "-----";
-        UIScript.UnitName.text = "N/A";
+        _uiScript.attack.value = 0;
+        _uiScript.attackValue.text = "-----";
+        _uiScript.fireRate.value = 0;
+        _uiScript.fireRateValue.text = "-----";
+        _uiScript.hp.value = 0;
+        _uiScript.hpValue.text = "-----";
+        _uiScript.speed.value = 0;
+        _uiScript.speedValue.text = "-----";
+        _uiScript.unitName.text = "N/A";
     }
 }

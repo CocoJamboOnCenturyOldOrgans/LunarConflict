@@ -536,139 +536,6 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
---- !u!1 &121044326
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 121044330}
-  - component: {fileID: 121044329}
-  - component: {fileID: 121044328}
-  - component: {fileID: 121044327}
-  m_Layer: 5
-  m_Name: SettingsButton
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &121044327
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 121044326}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 121044328}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 512734608}
-        m_TargetAssemblyTypeName: GameUIScript, Assembly-CSharp
-        m_MethodName: ShowSettings
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &121044328
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 121044326}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 9e7cb07aa011fe846a43b68446b73304, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &121044329
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 121044326}
-  m_CullTransparentMesh: 1
---- !u!224 &121044330
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 121044326}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 525910250}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 825, y: 0}
-  m_SizeDelta: {x: 60, y: 60}
-  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &121546407
 GameObject:
   m_ObjectHideFlags: 0
@@ -2306,43 +2173,43 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2978fb1218db8d4fb7fb094a1fd049a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UnitsButton: {fileID: 1686775194}
-  BaseButton: {fileID: 1843665839}
-  SpecialButton: {fileID: 2048167224}
-  SettingsButton: {fileID: 121044327}
-  UnitsPanel: {fileID: 1516820610}
-  BasePanel: {fileID: 617775825}
-  SpecialPanel: {fileID: 1781142502}
-  StatsPanel: {fileID: 1736718608}
-  DescriptionPanel: {fileID: 253890722}
-  SettingsPanel: {fileID: 1982400202}
-  Attack: {fileID: 1173827374}
-  FireRate: {fileID: 727441933}
-  HP: {fileID: 38586797}
-  Speed: {fileID: 1527485703}
-  AttackValue: {fileID: 139271697}
-  FireRateValue: {fileID: 637124811}
-  HPValue: {fileID: 1867696011}
-  SpeedValue: {fileID: 1085724016}
-  UnitName: {fileID: 2014440358}
-  BuildingName: {fileID: 2035517409}
-  Description: {fileID: 709892590}
-  MusicSlider: {fileID: 656349607}
-  MusicValue: {fileID: 1723255477}
-  EffectsSlider: {fileID: 1298047736}
-  EffectsValue: {fileID: 1505220472}
-  Astronaut_Can_Buy: {fileID: 21300000, guid: 529fb4cb1d48ad048805f41999697383, type: 3}
-  Astronaut_Cannot_Buy: {fileID: 21300000, guid: 73719798bfc2c064bbbccbef7c4d78b4, type: 3}
-  Rover_Can_Buy: {fileID: 21300000, guid: 6332d83653555324bb622cf3aad6ef89, type: 3}
-  Rover_Cannot_Buy: {fileID: 21300000, guid: 45e64b7a93ea63d4db9b8f89877ba3f4, type: 3}
-  CanBuy: {fileID: 21300000, guid: d49631d36eff6524a8196e5e8751747d, type: 3}
-  CannotBuy: {fileID: 21300000, guid: be72fae815d5f344e91190798c196ba7, type: 3}
-  Astronaut_Price: {fileID: 0}
-  Rover_Price: {fileID: 0}
-  EntityC_Price: {fileID: 0}
-  EntityD_Price: {fileID: 0}
+  unitsButton: {fileID: 1686775194}
+  baseButton: {fileID: 1843665839}
+  specialButton: {fileID: 2048167224}
+  settingsButton: {fileID: 0}
+  unitsPanel: {fileID: 1516820610}
+  basePanel: {fileID: 617775825}
+  specialPanel: {fileID: 1781142502}
+  statsPanel: {fileID: 1736718608}
+  descriptionPanel: {fileID: 253890722}
+  settingsPanel: {fileID: 1982400202}
+  attack: {fileID: 1173827374}
+  fireRate: {fileID: 727441933}
+  hp: {fileID: 38586797}
+  speed: {fileID: 1527485703}
+  attackValue: {fileID: 139271697}
+  fireRateValue: {fileID: 637124811}
+  hpValue: {fileID: 1867696011}
+  speedValue: {fileID: 1085724016}
+  unitName: {fileID: 2014440358}
+  buildingName: {fileID: 2035517409}
+  description: {fileID: 709892590}
+  musicSlider: {fileID: 656349607}
+  musicValue: {fileID: 1723255477}
+  effectsSlider: {fileID: 1298047736}
+  effectsValue: {fileID: 1505220472}
+  astronautCanBuy: {fileID: 21300000, guid: 529fb4cb1d48ad048805f41999697383, type: 3}
+  astronautCannotBuy: {fileID: 21300000, guid: 73719798bfc2c064bbbccbef7c4d78b4, type: 3}
+  roverCanBuy: {fileID: 21300000, guid: 6332d83653555324bb622cf3aad6ef89, type: 3}
+  roverCannotBuy: {fileID: 21300000, guid: 45e64b7a93ea63d4db9b8f89877ba3f4, type: 3}
+  canBuy: {fileID: 21300000, guid: d49631d36eff6524a8196e5e8751747d, type: 3}
+  cannotBuy: {fileID: 21300000, guid: be72fae815d5f344e91190798c196ba7, type: 3}
+  astronautPrice: {fileID: 0}
+  roverPrice: {fileID: 0}
+  entityCPrice: {fileID: 0}
+  entityDPrice: {fileID: 0}
   changed: 0
-  Budget: {fileID: 149990038}
+  budget: {fileID: 149990038}
 --- !u!114 &512734609
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2355,9 +2222,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b2d7a77e6df24c42a7e1422ece5b7fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UIScript: {fileID: 0}
-  PlayerScript: {fileID: 0}
-  Budget: {fileID: 149990038}
+  budget: {fileID: 149990038}
 --- !u!1 &525910249
 GameObject:
   m_ObjectHideFlags: 0
@@ -2393,7 +2258,6 @@ RectTransform:
   - {fileID: 824782130}
   - {fileID: 149990037}
   - {fileID: 1793435163}
-  - {fileID: 121044330}
   m_Father: {fileID: 512734607}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3531,7 +3395,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 512734609}
         m_TargetAssemblyTypeName: GameInitiationScript, Assembly-CSharp
-        m_MethodName: ChangeToUSA
+        m_MethodName: ChangeToUsa
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8927,7 +8791,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f110b7d360d7c41cca071e8950152062, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Game: {fileID: 0}
+  game: {fileID: 0}
 --- !u!1 &1781142502
 GameObject:
   m_ObjectHideFlags: 0
@@ -9119,7 +8983,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1793435165}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 512734608}
+        m_TargetAssemblyTypeName: GameUIScript, Assembly-CSharp
+        m_MethodName: ShowSettings
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1793435165
 MonoBehaviour:
   m_ObjectHideFlags: 0

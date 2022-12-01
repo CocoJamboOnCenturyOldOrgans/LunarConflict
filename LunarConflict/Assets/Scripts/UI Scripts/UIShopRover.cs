@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class UnitC : MonoBehaviour
+public class UIShopRover : MonoBehaviour
 {
     private GameUIScript _uiScript;
 
@@ -13,15 +13,15 @@ public class UnitC : MonoBehaviour
     public void OnMouseEnter()
     {
         //Temp Test Values
-        _uiScript.attack.value = 75;
+        _uiScript.attack.value = UnitsStatistics.RoverAttack + 0;
         _uiScript.attackValue.text = _uiScript.attack.value.ToString();
-        _uiScript.fireRate.value = (float)0.25;
+        _uiScript.fireRate.value = UnitsStatistics.RoverFireRate + 0;
         _uiScript.fireRateValue.text = _uiScript.fireRate.value.ToString();
-        _uiScript.hp.value = 500;
+        _uiScript.hp.value = UnitsStatistics.RoverMaxHp + 0;
         _uiScript.hpValue.text = _uiScript.hp.value.ToString();
-        _uiScript.speed.value = (float)1.5;
+        _uiScript.speed.value = UnitsStatistics.RoverSpeed + 0;
         _uiScript.speedValue.text = _uiScript.speed.value.ToString();
-        _uiScript.unitName.text = "Unit Gamma";
+        _uiScript.unitName.text = SettingsScript.RoverName;
     }
 
     public void OnMouseExit()

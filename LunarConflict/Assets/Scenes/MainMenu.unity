@@ -3467,7 +3467,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1845649685}
         m_TargetAssemblyTypeName: MainMenuScript, Assembly-CSharp
-        m_MethodName: ChooseUSASide
+        m_MethodName: ChooseUsaSide
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5955,20 +5955,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c763f7a0e28f524fa3af1394c42676e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EasyDiff: {fileID: 435173245}
-  NormalDiff: {fileID: 1604350350}
-  HardDiff: {fileID: 1389761247}
-  ImpossibleDiff: {fileID: 395856495}
-  USA: {fileID: 1154689071}
-  Soviet: {fileID: 704997546}
-  MusicValue: {fileID: 114765419}
-  MusicSlider: {fileID: 131113519}
-  EffectsValue: {fileID: 925310056}
-  EffectsSlider: {fileID: 65102310}
-  MainMenuPanel: {fileID: 1749623007}
-  GamePanel: {fileID: 164625071}
-  SettingsPanel: {fileID: 47733659}
-  CreditsPanel: {fileID: 659330918}
+  easyDiff: {fileID: 435173245}
+  normalDiff: {fileID: 1604350350}
+  hardDiff: {fileID: 1389761247}
+  impossibleDiff: {fileID: 395856495}
+  usa: {fileID: 1154689071}
+  soviet: {fileID: 704997546}
+  musicValue: {fileID: 114765419}
+  musicSlider: {fileID: 131113519}
+  effectsValue: {fileID: 925310056}
+  effectsSlider: {fileID: 65102310}
+  mainMenuPanel: {fileID: 1749623007}
+  gamePanel: {fileID: 164625071}
+  settingsPanel: {fileID: 47733659}
+  creditsPanel: {fileID: 659330918}
 --- !u!1 &1851273908
 GameObject:
   m_ObjectHideFlags: 0

@@ -169,8 +169,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36f80434f98702eaeb02d6593ccb9134, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attack: 0
+  fireRate: 0
+  maxHealth: 0
   health: 100
-  speed: 4
+  speed: 3
   attackRange: 2
   russian: 1
   attackMode: 0

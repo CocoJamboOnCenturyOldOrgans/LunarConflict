@@ -1,25 +1,23 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BaseOmega : MonoBehaviour
 {
-    private GameUIScript UIScript;
+    private GameUIScript _uiScript;
 
     // Start is called before the first frame update
     void Start()
     {
-        UIScript = GameObject.Find("UI").GetComponent<GameUIScript>();
+        _uiScript = FindObjectOfType<GameUIScript>();
     }
 
     public void OnMouseEnter()
     {
         //Temp Test Values
-        UIScript.BuildingName.text = "Base Omega";
+        _uiScript.buildingName.text = "Base Omega";
     }
 
     public void OnMouseExit()
     {
-        UIScript.BuildingName.text = "N/A";
+        _uiScript.buildingName.text = "N/A";
     }
 }

@@ -1,17 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GameLogic : MonoBehaviour
 {
-    public GameObject Game;
+    public GameObject game;
+    
     void Start()
     {
-        Game = transform.gameObject;
-    }
-    
-    void Update()
-    {
-        
+        game = transform.gameObject;
     }
 }
