@@ -2176,7 +2176,7 @@ MonoBehaviour:
   unitsButton: {fileID: 1686775194}
   baseButton: {fileID: 1843665839}
   specialButton: {fileID: 2048167224}
-  settingsButton: {fileID: 0}
+  settingsButton: {fileID: 1793435164}
   unitsPanel: {fileID: 1516820610}
   basePanel: {fileID: 617775825}
   specialPanel: {fileID: 1781142502}
@@ -2653,9 +2653,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1027152401}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 100
-  m_WholeNumbers: 1
-  m_Value: 50
+  m_MaxValue: 1
+  m_WholeNumbers: 0
+  m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -6197,9 +6197,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 925834184}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 100
-  m_WholeNumbers: 1
-  m_Value: 50
+  m_MaxValue: 1
+  m_WholeNumbers: 0
+  m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -8914,7 +8914,7 @@ GameObject:
   - component: {fileID: 1793435165}
   - component: {fileID: 1793435164}
   m_Layer: 5
-  m_Name: PauseButton
+  m_Name: SettingsButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

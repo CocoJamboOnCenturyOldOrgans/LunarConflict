@@ -33,9 +33,9 @@ public class MainMenuScript : MonoBehaviour
         impossibleDiff.interactable = true;
 
         musicSlider.value = SettingsScript.Music;
-        musicValue.text = musicSlider.value + "%";
+        musicValue.text = Mathf.RoundToInt(musicSlider.value * 100) + "%";
         effectsSlider.value = SettingsScript.Effects;
-        effectsValue.text = effectsSlider.value + "%";
+        effectsValue.text = Mathf.RoundToInt(effectsSlider.value * 100) + "%";
     }
 
     public void StartGame_Function()
@@ -112,14 +112,14 @@ public class MainMenuScript : MonoBehaviour
 
     public void ChangeMusic()
     {
-        musicValue.text = musicSlider.value + "%";
-        SettingsScript.Music = musicSlider.value;
+        musicValue.text = Mathf.RoundToInt(musicSlider.value * 100) + "%";
+        SettingsScript.Music = (int)musicSlider.value;
     }
 
     public void ChangeEffects()
     {
-        effectsValue.text = effectsSlider.value + "%";
-        SettingsScript.Effects = effectsSlider.value;
+        effectsValue.text = Mathf.RoundToInt(effectsSlider.value * 100) + "%";
+        SettingsScript.Effects = (int)effectsSlider.value;
     }
 
     public void Credits_Function()

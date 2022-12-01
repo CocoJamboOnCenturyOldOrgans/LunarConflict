@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
@@ -77,9 +74,9 @@ public class GameUIScript : MonoBehaviour
         _sfxAudioSource = GameObject.Find("SFX").GetComponent<AudioSource>();
 
         musicSlider.value = SettingsScript.Music;
-        musicValue.text = musicSlider.value + "%";
+        musicValue.text = Mathf.RoundToInt(musicSlider.value * 100) + "%";
         effectsSlider.value = SettingsScript.Effects;
-        effectsValue.text = effectsSlider.value + "%";
+        effectsValue.text = Mathf.RoundToInt(effectsSlider.value * 100) + "%";
 
         _playerScript = GameObject.Find("GameLogic").GetComponent<PlayerScript>();
         _unitsButton1 = GameObject.Find("Unit1Image").GetComponent<Button>();
@@ -287,15 +284,15 @@ public class GameUIScript : MonoBehaviour
 
     public void ChangeMusic()
     {
-        musicValue.text = musicSlider.value + "%";
+        musicValue.text = Mathf.RoundToInt(musicSlider.value * 100) + "%";
         SettingsScript.Music = musicSlider.value;
-        _backgroundMusic.volume = SettingsScript.Music / 100;
+        _backgroundMusic.volume = SettingsScript.Music;
     }
     public void ChangeEffects()
     {
-        effectsValue.text = effectsSlider.value + "%";
+        effectsValue.text = Mathf.RoundToInt(effectsSlider.value * 100) + "%";
         SettingsScript.Effects = effectsSlider.value;
-        _sfxAudioSource.volume = SettingsScript.Effects / 100;
+        _sfxAudioSource.volume = SettingsScript.Effects;
     }
 
     public void CloseSettings()
