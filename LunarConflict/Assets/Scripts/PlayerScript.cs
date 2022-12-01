@@ -25,9 +25,9 @@ public class PlayerScript : MonoBehaviour
         _base = GameObject.Find("PlayerBase");
 		
         _backgroundMusic = GameObject.Find("BackgroundMusic").GetComponent<AudioSource>();
-        _backgroundMusic.volume = SettingsScript.Music / 100;
+        _backgroundMusic.volume = SettingsScript.Music;
         _sfxAudioSource = GameObject.Find("SFX").GetComponent<AudioSource>();
-        _sfxAudioSource.volume = SettingsScript.Effects / 100;
+        _sfxAudioSource.volume = SettingsScript.Effects;
     }
 
     private IEnumerator RaiseBudget()
