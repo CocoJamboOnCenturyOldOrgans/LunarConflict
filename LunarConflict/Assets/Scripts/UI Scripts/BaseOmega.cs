@@ -9,7 +9,7 @@ public class BaseOmega : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        UIScript = GameObject.Find("EventManagement").GetComponent<GameUIScript>();
+        UIScript = GameObject.Find("UI").GetComponent<GameUIScript>();
     }
 
     public void OnMouseEnter()

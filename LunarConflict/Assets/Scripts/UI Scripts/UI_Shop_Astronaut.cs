@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UnitC : MonoBehaviour
+public class UI_Shop_Astronaut : MonoBehaviour
 {
     private GameUIScript UIScript;
 
@@ -15,15 +15,25 @@ public class UnitC : MonoBehaviour
     public void OnMouseEnter()
     {
         //Temp Test Values
-        UIScript.Attack.value = 75;
+
+        UIScript.Attack.value = Units_Statistics.rover_attack;
         UIScript.AttackValue.text = UIScript.Attack.value.ToString();
-        UIScript.FireRate.value = (float)0.25;
+        UIScript.FireRate.value = Units_Statistics.rover_fire_rate;
         UIScript.FireRateValue.text = UIScript.FireRate.value.ToString();
-        UIScript.HP.value = 500;
+        UIScript.HP.value = Units_Statistics.rover_max_HP;
         UIScript.HPValue.text = UIScript.HP.value.ToString();
-        UIScript.Speed.value = (float)1.5;
+        UIScript.Speed.value = Units_Statistics.rover_speed;
         UIScript.SpeedValue.text = UIScript.Speed.value.ToString();
-        UIScript.UnitName.text = "Unit Gamma";
+        UIScript.UnitName.text = Settings_Script.Rover_Name.ToString();
+        UIScript.Attack.value = Units_Statistics.astronaut_attack + 0;
+        UIScript.AttackValue.text = UIScript.Attack.value.ToString();
+        UIScript.FireRate.value = Units_Statistics.astronaut_fire_rate + 0;
+        UIScript.FireRateValue.text = UIScript.FireRate.value.ToString();
+        UIScript.HP.value = Units_Statistics.astronaut_max_HP + 0;
+        UIScript.HPValue.text = UIScript.HP.value.ToString();
+        UIScript.Speed.value = Units_Statistics.astronaut_speed + 0;
+        UIScript.SpeedValue.text = UIScript.Speed.value.ToString();
+        UIScript.UnitName.text = Settings_Script.Astronaut_Name.ToString();
     }
 
     public void OnMouseExit()
