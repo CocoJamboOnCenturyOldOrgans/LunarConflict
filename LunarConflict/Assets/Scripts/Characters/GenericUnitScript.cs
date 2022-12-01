@@ -6,8 +6,11 @@ using UnityEngine;
 
 public class GenericUnitScript : MonoBehaviour
 {
-    [SerializeField] protected int health;
-    [SerializeField] protected int speed;
+    [SerializeField] protected float attack;
+    [SerializeField] protected float fire_rate;
+    [SerializeField] protected float max_health;
+    [SerializeField] protected float health;
+    [SerializeField] protected float speed;
     [SerializeField] protected int attackRange;
     [SerializeField] protected bool russian;
     [SerializeField] protected bool attackMode = false;
@@ -25,6 +28,39 @@ public class GenericUnitScript : MonoBehaviour
         _animator = GetComponent<Animator>();
         _mask = LayerMask.GetMask("Unit");
         _animator.SetBool("play", true);
+
+        if(this.name == "USA Astronaut(Clone)")
+        {
+            attack = Units_Statistics.astronaut_attack;
+            fire_rate = Units_Statistics.astronaut_fire_rate;
+            max_health = Units_Statistics.astronaut_max_HP;
+            health = max_health;
+            speed = Units_Statistics.astronaut_speed;
+        }
+        else if(this.name == "Soviet Astronaut(Clone)")
+        {
+            attack = Units_Statistics.astronaut_attack * Units_Statistics.stats_modifier;
+            fire_rate = Units_Statistics.astronaut_fire_rate * Units_Statistics.stats_modifier;
+            max_health = Units_Statistics.astronaut_max_HP * Units_Statistics.stats_modifier;
+            health = max_health;
+            speed = Units_Statistics.astronaut_speed * Units_Statistics.stats_modifier;
+        }
+        else if(this.name == "USA Lunar Rover(Clone)")
+        {
+            attack = Units_Statistics.rover_attack;
+            fire_rate = Units_Statistics.rover_fire_rate;
+            max_health = Units_Statistics.rover_max_HP;
+            health = max_health;
+            speed = Units_Statistics.rover_speed;
+        }
+        else if(this.name == "Soviet Lunar Rover(Clone)")
+        {
+            attack = Units_Statistics.rover_attack * Units_Statistics.stats_modifier;
+            fire_rate = Units_Statistics.rover_fire_rate * Units_Statistics.stats_modifier;
+            max_health = Units_Statistics.rover_max_HP * Units_Statistics.stats_modifier;
+            health = max_health;
+            speed = Units_Statistics.rover_speed * Units_Statistics.stats_modifier;
+        }
 
         _movementDirection = russian ? Vector2.left : Vector2.right;
         _localScaleX = transform.localScale.x;

@@ -17,13 +17,19 @@ public class PlayerScript : MonoBehaviour
     public int money;
     
     private GameObject _base;
+	
+	private AudioSource BackgroundMusic;
     private AudioSource _sfxAudioSource;
     
     void Start()
     {
         StartCoroutine(RaiseBudget());
         _base = GameObject.Find("PlayerBase");
+		
+        BackgroundMusic = GameObject.Find("BackgroundMusic").GetComponent<AudioSource>();
+        BackgroundMusic.volume = Settings_Script.music / 100;
         _sfxAudioSource = GameObject.Find("SFX").GetComponent<AudioSource>();
+        _sfxAudioSource.volume = Settings_Script.effects / 100;
     }
 
     private IEnumerator RaiseBudget()
@@ -32,7 +38,7 @@ public class PlayerScript : MonoBehaviour
         {
             yield return new WaitForSeconds(1f);
             money += 10;
-            budget.text = money.ToString() + "$";
+            budget.text = money.ToString() + Settings_Script.UI_Money_Mark;
         }
     }
 
@@ -42,6 +48,7 @@ public class PlayerScript : MonoBehaviour
         {
             Instantiate(unitAstronaut, spawner.transform.position, spawner.transform.rotation);
             money -= 50;
+			budget.text = money.ToString() + Settings_Script.UI_Money_Mark;
             _sfxAudioSource.clip = unitAstronautAudioClip;
             _sfxAudioSource.Play();
         }
@@ -53,6 +60,7 @@ public class PlayerScript : MonoBehaviour
         {
             Instantiate(unitRover, spawner.transform.position, spawner.transform.rotation);
             money -= 100;
+			budget.text = money.ToString() + Settings_Script.UI_Money_Mark;
             _sfxAudioSource.clip = unitRoverAudioClip;
             _sfxAudioSource.Play();
         }
