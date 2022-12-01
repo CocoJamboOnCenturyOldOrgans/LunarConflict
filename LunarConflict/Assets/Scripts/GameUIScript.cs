@@ -34,8 +34,15 @@ public class GameUIScript : MonoBehaviour
     public Text BuildingName;
     public Text Description;
 
+<<<<<<< Updated upstream
     public Slider VolumeSlider;
     public Text VolumeValue;
+=======
+    public Slider MusicSlider;
+    public Text MusicValue;
+    public Slider EffectsSlider;
+    public Text EffectsValue;
+>>>>>>> Stashed changes
 
     public Sprite Astronaut_Can_Buy;
     public Sprite Astronaut_Cannot_Buy;
@@ -54,6 +61,12 @@ public class GameUIScript : MonoBehaviour
     private Image UnitsImage3;
     private Image UnitsImage4;
 
+<<<<<<< Updated upstream
+=======
+    private AudioSource BackgroundMusic;
+    private AudioSource _sfxAudioSource;
+
+>>>>>>> Stashed changes
     [SerializeField] private Text Astronaut_Price;
     [SerializeField] private Text Rover_Price;
     [SerializeField] private Text EntityC_Price;
@@ -68,6 +81,9 @@ public class GameUIScript : MonoBehaviour
 
     void Start()
     {
+        BackgroundMusic = GameObject.Find("BackgroundMusic").GetComponent<AudioSource>();
+        _sfxAudioSource = GameObject.Find("SFX").GetComponent<AudioSource>();
+
         _playerScript = GameObject.Find("GameLogic").GetComponent<PlayerScript>();
         UnitsButton1 = GameObject.Find("Unit1Image").GetComponent<Button>();
         UnitsButton2 = GameObject.Find("Unit2Image").GetComponent<Button>();
@@ -270,6 +286,7 @@ public class GameUIScript : MonoBehaviour
     public void ShowSettings()
     {
         SettingsPanel.SetActive(true);
+<<<<<<< Updated upstream
         VolumeSlider.value = Settings_Script.volume;
         VolumeValue.text = VolumeSlider.value.ToString() + "%";
     }
@@ -278,6 +295,25 @@ public class GameUIScript : MonoBehaviour
     {
         VolumeValue.text = VolumeSlider.value.ToString() + "%";
         Settings_Script.volume = (int)VolumeSlider.value;
+=======
+        MusicSlider.value = Settings_Script.music;
+        MusicValue.text = MusicSlider.value.ToString() + "%";
+        EffectsSlider.value = Settings_Script.effects;
+        EffectsValue.text = EffectsSlider.value.ToString() + "%";
+    }
+
+    public void ChangeMusic()
+    {
+        MusicValue.text = MusicSlider.value.ToString() + "%";
+        Settings_Script.music = MusicSlider.value;
+        BackgroundMusic.volume = Settings_Script.music / 100;
+    }
+    public void ChangeEffects()
+    {
+        EffectsValue.text = EffectsSlider.value.ToString() + "%";
+        Settings_Script.effects = EffectsSlider.value;
+        _sfxAudioSource.volume = Settings_Script.effects / 100;
+>>>>>>> Stashed changes
     }
 
     public void CloseSettings()

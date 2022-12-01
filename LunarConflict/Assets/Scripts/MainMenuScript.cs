@@ -13,8 +13,15 @@ public class MainMenuScript : MonoBehaviour
     public Button USA;
     public Button Soviet;
 
+<<<<<<< Updated upstream
     public Text VolumeValue;
     public Slider VolumeSlider;
+=======
+    public Text MusicValue;
+    public Slider MusicSlider;
+    public Text EffectsValue;
+    public Slider EffectsSlider;
+>>>>>>> Stashed changes
 
     public GameObject MainMenuPanel;
     public GameObject GamePanel;
@@ -31,7 +38,12 @@ public class MainMenuScript : MonoBehaviour
         NormalDiff.interactable = false;
         HardDiff.interactable = true;
         ImpossibleDiff.interactable = true;
+<<<<<<< Updated upstream
         VolumeValue.text = VolumeSlider.value.ToString() + "%";
+=======
+        MusicValue.text = MusicSlider.value.ToString() + "%";
+        EffectsValue.text = EffectsSlider.value.ToString() + "%";
+>>>>>>> Stashed changes
     }
 
     public void StartGame_Function()
@@ -104,6 +116,7 @@ public class MainMenuScript : MonoBehaviour
         GamePanel.SetActive(false);
         SettingsPanel.SetActive(true);
         CreditsPanel.SetActive(false);
+<<<<<<< Updated upstream
         VolumeSlider.value = Settings_Script.volume;
     }
 
@@ -111,6 +124,22 @@ public class MainMenuScript : MonoBehaviour
     {
         VolumeValue.text = VolumeSlider.value.ToString() + "%";
         Settings_Script.volume = (int)VolumeSlider.value;
+=======
+        MusicSlider.value = Settings_Script.music;
+        EffectsSlider.value = Settings_Script.effects;
+    }
+
+    public void ChangeMusic()
+    {
+        MusicValue.text = MusicSlider.value.ToString() + "%";
+        Settings_Script.music = MusicSlider.value;
+    }
+
+    public void ChangeEffects()
+    {
+        EffectsValue.text = EffectsSlider.value.ToString() + "%";
+        Settings_Script.effects = EffectsSlider.value;
+>>>>>>> Stashed changes
     }
 
     public void Credits_Function()

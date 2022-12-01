@@ -21,6 +21,11 @@ public class Settings_Script : MonoBehaviour
     //public static Sprite Enemy_Rover;
 
     //Game Settings
+<<<<<<< Updated upstream
     public static int volume = 50;
+=======
+    public static float music = 50;
+    public static float effects = 50;
+>>>>>>> Stashed changes
 
 }
