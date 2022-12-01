@@ -1,6 +1,4 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BulletScript : MonoBehaviour
@@ -12,12 +10,12 @@ public class BulletScript : MonoBehaviour
 
     void Start()
     {
-        _ignoreTag = (transform.rotation.z < 0 ? "PlayerUnit" : "EnemyUnit");
+        _ignoreTag = transform.rotation.z < 0 ? "PlayerUnit" : "EnemyUnit";
         Debug.Log(_ignoreTag);
         StartCoroutine(Disappear());
     }
 
-    void Update() => transform.Translate(Vector3.up * (speed * Time.deltaTime));
+    void FixedUpdate() => transform.Translate(Vector3.up * (speed * Time.deltaTime));
 
     private void OnTriggerEnter2D(Collider2D col)
     {

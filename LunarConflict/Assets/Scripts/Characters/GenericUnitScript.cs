@@ -1,14 +1,12 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 
 public class GenericUnitScript : MonoBehaviour
 {
     [SerializeField] protected float attack;
-    [SerializeField] protected float fire_rate;
-    [SerializeField] protected float max_health;
+    [SerializeField] protected float fireRate;
+    [SerializeField] protected float maxHealth;
     [SerializeField] protected float health;
     [SerializeField] protected float speed;
     [SerializeField] protected int attackRange;
@@ -28,40 +26,6 @@ public class GenericUnitScript : MonoBehaviour
         _animator = GetComponent<Animator>();
         _mask = LayerMask.GetMask("Unit");
         _animator.SetBool("play", true);
-
-        if(this.name == "USA Astronaut(Clone)")
-        {
-            attack = Units_Statistics.astronaut_attack;
-            fire_rate = Units_Statistics.astronaut_fire_rate;
-            max_health = Units_Statistics.astronaut_max_HP;
-            health = max_health;
-            speed = Units_Statistics.astronaut_speed;
-        }
-        else if(this.name == "Soviet Astronaut(Clone)")
-        {
-            attack = Units_Statistics.astronaut_attack * Units_Statistics.stats_modifier;
-            fire_rate = Units_Statistics.astronaut_fire_rate * Units_Statistics.stats_modifier;
-            max_health = Units_Statistics.astronaut_max_HP * Units_Statistics.stats_modifier;
-            health = max_health;
-            speed = Units_Statistics.astronaut_speed * Units_Statistics.stats_modifier;
-        }
-        else if(this.name == "USA Lunar Rover(Clone)")
-        {
-            attack = Units_Statistics.rover_attack;
-            fire_rate = Units_Statistics.rover_fire_rate;
-            max_health = Units_Statistics.rover_max_HP;
-            health = max_health;
-            speed = Units_Statistics.rover_speed;
-        }
-        else if(this.name == "Soviet Lunar Rover(Clone)")
-        {
-            attack = Units_Statistics.rover_attack * Units_Statistics.stats_modifier;
-            fire_rate = Units_Statistics.rover_fire_rate * Units_Statistics.stats_modifier;
-            max_health = Units_Statistics.rover_max_HP * Units_Statistics.stats_modifier;
-            health = max_health;
-            speed = Units_Statistics.rover_speed * Units_Statistics.stats_modifier;
-        }
-
         _movementDirection = russian ? Vector2.left : Vector2.right;
         _localScaleX = transform.localScale.x;
         speed = russian ? speed * -1 : speed;
@@ -74,7 +38,7 @@ public class GenericUnitScript : MonoBehaviour
             transform.Translate(Vector3.right * (speed * Time.deltaTime));
         _animator.SetBool("attackMode", CanAttack());
         _animator.SetBool("play", CanWalk());
-        _animator.SetBool("dying", health <= 0 ? true : false);
+        _animator.SetBool("dying", health <= 0);
     }
     
     private bool CanAttack()
@@ -84,15 +48,8 @@ public class GenericUnitScript : MonoBehaviour
             _movementDirection,
             attackRange, 
             _mask);
-        foreach (var x in hit)
-        {
-            if (x.collider.CompareTag(russian ? "PlayerUnit" : "EnemyUnit") && x.collider.gameObject != gameObject)
-            {
-                return true;
-            }
-        }
 
-        return false;
+        return hit.Any(x => x.collider.CompareTag(russian ? "PlayerUnit" : "EnemyUnit"));
     }
     
     private bool CanWalk()
@@ -111,7 +68,7 @@ public class GenericUnitScript : MonoBehaviour
         Instantiate(
             bulletPrefab, 
             bulletParent.position, 
-            (russian ? Quaternion.Euler(0,0,90) : Quaternion.Euler(0,0,-90)));
+            russian ? Quaternion.Euler(0,0,90) : Quaternion.Euler(0,0,-90));
     }
     
     protected void Death()
