@@ -113,13 +113,13 @@ public class MainMenuScript : MonoBehaviour
     public void ChangeMusic()
     {
         musicValue.text = Mathf.RoundToInt(musicSlider.value * 100) + "%";
-        SettingsScript.Music = (int)musicSlider.value;
+        SettingsScript.Music = musicSlider.value;
     }
 
     public void ChangeEffects()
     {
         effectsValue.text = Mathf.RoundToInt(effectsSlider.value * 100) + "%";
-        SettingsScript.Effects = (int)effectsSlider.value;
+        SettingsScript.Effects = effectsSlider.value;
     }
 
     public void Credits_Function()
