@@ -3404,7 +3404,7 @@ GameObject:
   - component: {fileID: 1154689072}
   - component: {fileID: 1154689071}
   m_Layer: 5
-  m_Name: USASide
+  m_Name: UsaSide
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4956,7 +4956,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1604350351}
   m_OnClick:
     m_PersistentCalls:
@@ -5965,12 +5965,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c763f7a0e28f524fa3af1394c42676e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  easyDiff: {fileID: 435173245}
-  normalDiff: {fileID: 1604350350}
-  hardDiff: {fileID: 1389761247}
-  impossibleDiff: {fileID: 395856495}
-  usa: {fileID: 1154689071}
-  soviet: {fileID: 704997546}
+  difficultiesSection: {fileID: 2086343607}
+  sidesSection: {fileID: 530543524}
   musicValue: {fileID: 114765419}
   musicSlider: {fileID: 131113519}
   effectsValue: {fileID: 925310056}

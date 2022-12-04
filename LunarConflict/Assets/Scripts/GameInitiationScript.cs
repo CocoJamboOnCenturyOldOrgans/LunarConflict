@@ -13,12 +13,10 @@ public class GameInitiationScript : MonoBehaviour
         _uiScript = FindObjectOfType<GameUIScript>();
         _playerScript = FindObjectOfType<PlayerScript>();
 
-        ChangeToUsa();
-        
-        if (SettingsScript.Side == 1)
-            ChangeToUsa();
-        else if(SettingsScript.Side == 2)
+        if (SettingsScript.SideIsSoviet)
             ChangeToSoviet();
+        else
+            ChangeToUsa();
     }
 
     public void ChangeToUsa()
