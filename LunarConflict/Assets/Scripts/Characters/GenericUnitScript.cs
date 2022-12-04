@@ -2,12 +2,13 @@ using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class GenericUnitScript : MonoBehaviour
+public class GenericUnitScript : MonoBehaviour, IHittable
 {
+    public int Health { get; set; }
+    
     [SerializeField] protected float attack;
     [SerializeField] protected float fireRate;
-    [SerializeField] protected float maxHealth;
-    [SerializeField] protected float health;
+    [SerializeField] protected int maxHealth;
     [SerializeField] protected float speed;
     [SerializeField] protected int attackRange;
     [SerializeField] protected bool russian;
@@ -21,8 +22,9 @@ public class GenericUnitScript : MonoBehaviour
     private Vector2 _movementDirection;
     private float _localScaleX;
 
-    protected void Start() 
-    {   
+    protected void Start()
+    {
+        Health = maxHealth;
         _animator = GetComponent<Animator>();
         _mask = LayerMask.GetMask("Unit");
         _animator.SetBool("play", true);
@@ -38,7 +40,7 @@ public class GenericUnitScript : MonoBehaviour
             transform.Translate(Vector3.right * (speed * Time.deltaTime));
         _animator.SetBool("attackMode", CanAttack());
         _animator.SetBool("play", CanWalk());
-        _animator.SetBool("dying", health <= 0);
+        _animator.SetBool("dying", Health <= 0);
     }
     
     private bool CanAttack()
@@ -71,10 +73,7 @@ public class GenericUnitScript : MonoBehaviour
             russian ? Quaternion.Euler(0,0,90) : Quaternion.Euler(0,0,-90));
     }
     
-    protected void Death()
-    {
-        Destroy(gameObject);
-    }
+    public virtual void OnHit(int damage) => Health -= damage;
     
-    public void GotHit(int damage) => health -= damage;
+    public virtual void OnDeath() => Destroy(gameObject);
 }

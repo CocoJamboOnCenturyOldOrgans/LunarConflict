@@ -21,9 +21,9 @@ public class BulletScript : MonoBehaviour
     {
         if (!col.gameObject.CompareTag(_ignoreTag))
         {
-            if (col.TryGetComponent(out GenericUnitScript unitScript))
+            if (col.TryGetComponent(out IHittable hittable))
             {
-                unitScript.GotHit(damage);
+                hittable.OnHit(damage);
             }
 
             Destroy(this.gameObject);
