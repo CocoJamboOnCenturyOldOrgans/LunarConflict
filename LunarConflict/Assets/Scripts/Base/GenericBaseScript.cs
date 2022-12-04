@@ -31,7 +31,7 @@ public class GenericBaseScript : MonoBehaviour, IHittable
         if (Health <= 0)
             OnDeath();
         
-        Debug.Log(Health);
+        Debug.Log($"{(_UI != null ? "Player" : "Enemy")} base HP: {Health}");
     }
 
     public virtual void OnDeath()
