@@ -423,10 +423,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36f80434f98702eaeb02d6593ccb9134, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attack: 0
-  fireRate: 0
-  maxHealth: 0
-  health: 100
+  attack: 2
+  fireRate: 2
+  maxHealth: 200
   speed: 3
   attackRange: 2
   russian: 0
@@ -459,7 +458,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6156361782586493746}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.55, y: 0.02, z: 0}
+  m_LocalPosition: {x: 0.5, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
