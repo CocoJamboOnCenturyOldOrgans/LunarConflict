@@ -284,7 +284,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97d929b312ba56f4ead2a0403b4896d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 50
+  attack: 1
+  fireRate: 1
+  maxHealth: 50
   speed: 2
   attackRange: 2
   russian: 1

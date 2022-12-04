@@ -31,6 +31,9 @@ public class GameUIScript : MonoBehaviour
     public Text buildingName;
     public Text description;
 
+    public Slider baseHealthSlider;
+    public Text baseHealthValue;
+        
     public Slider musicSlider;
     public Text musicValue;
     public Slider effectsSlider;
@@ -281,6 +284,8 @@ public class GameUIScript : MonoBehaviour
     {
         settingsPanel.SetActive(true);
     }
+
+    public void OnBaseHealthChanged() => baseHealthValue.text = baseHealthSlider.value.ToString();
 
     public void ChangeMusic()
     {

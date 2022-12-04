@@ -201,9 +201,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attack: 1
-  fire_rate: 1
-  max_health: 300
-  health: 50
+  fireRate: 1
+  maxHealth: 50
   speed: 2
   attackRange: 2
   russian: 0
