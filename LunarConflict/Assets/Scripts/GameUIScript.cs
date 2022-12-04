@@ -283,6 +283,7 @@ public class GameUIScript : MonoBehaviour
     public void ShowSettings()
     {
         settingsPanel.SetActive(true);
+        Time.timeScale = 0f;
     }
 
     public void OnBaseHealthChanged() => baseHealthValue.text = baseHealthSlider.value.ToString();
@@ -303,6 +304,7 @@ public class GameUIScript : MonoBehaviour
     public void CloseSettings()
     {
         settingsPanel.SetActive(false);
+        Time.timeScale = 1f;
     }
 
     public void GoToMenu()
