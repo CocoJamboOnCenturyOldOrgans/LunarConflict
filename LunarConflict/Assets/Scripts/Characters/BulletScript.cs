@@ -11,7 +11,7 @@ public class BulletScript : MonoBehaviour
     void Start()
     {
         _ignoreTag = transform.rotation.z < 0 ? "PlayerUnit" : "EnemyUnit";
-        Debug.Log(_ignoreTag);
+        // Debug.Log(_ignoreTag);
         StartCoroutine(Disappear());
     }
 
