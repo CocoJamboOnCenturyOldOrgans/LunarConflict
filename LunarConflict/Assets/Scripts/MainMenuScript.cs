@@ -5,20 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuScript : MonoBehaviour
 {
-    private enum Difficulties
-    {
-        Easy,
-        Normal,
-        Hard,
-        Impossible,
-    }
-
-    private enum Sides
-    {
-        Usa,
-        Soviet,
-    }
-
     private enum Panels
     {
         MainMenu,
@@ -28,12 +14,6 @@ public class MainMenuScript : MonoBehaviour
     }
 
     private readonly float[] _difficultyStatsModificators = { 0.7f, 1.0f, 1.5f, 2.0f };
-
-    private List<Button> _diffButtons;
-    private List<Button> _sideButtons;
-
-    [SerializeField] private Transform difficultiesSection;
-    [SerializeField] private Transform sidesSection;
 
     public Text musicValue;
     public Slider musicSlider;
@@ -47,19 +27,6 @@ public class MainMenuScript : MonoBehaviour
     
     private void Start()
     {
-        _diffButtons = new List<Button>();
-        _sideButtons = new List<Button>();
-        foreach (Transform child in difficultiesSection)
-        {
-            if(child.TryGetComponent<Button>(out var button))
-                _diffButtons.Add(button);
-        }
-        foreach (Transform child in sidesSection)
-        {
-            if(child.TryGetComponent<Button>(out var button))
-                _sideButtons.Add(button);
-        }
-        
         SettingsScript.SideIsSoviet = true;
         UnitsStatistics.StatsModifier = _difficultyStatsModificators[1];
 
@@ -69,10 +36,10 @@ public class MainMenuScript : MonoBehaviour
         effectsValue.text = SliderHelperScript.ConvertToPercentageValue(effectsSlider.value);
     }
 
-    public void StartGame_Function() => ChangePanel(Panels.Game);
-    public void Settings_Function() => ChangePanel(Panels.Settings);
-    public void Credits_Function() => ChangePanel(Panels.Credits);
-    public void Back_Function() => ChangePanel(Panels.MainMenu);
+    public void StartGameFunction() => ChangePanel(Panels.Game);
+    public void SettingsFunction() => ChangePanel(Panels.Settings);
+    public void CreditsFunction() => ChangePanel(Panels.Credits);
+    public void BackFunction() => ChangePanel(Panels.MainMenu);
 
     private void ChangePanel(Panels panel)
     {
@@ -81,34 +48,13 @@ public class MainMenuScript : MonoBehaviour
         settingsPanel.SetActive(Panels.Settings == panel);
         creditsPanel.SetActive(Panels.Credits == panel);
     }
+    public void ChangeSide(bool isSideSoviet) => SettingsScript.SideIsSoviet = isSideSoviet;
 
-    public void ChooseSovietSide() => ChangeSide(Sides.Soviet);
-    public void ChooseUsaSide() => ChangeSide(Sides.Usa);
+    //0 - Easy, 1 - Normal, 2 - Hard, 3 - Impossible
+    public void ChangeDifficulty(int diff) => UnitsStatistics.StatsModifier = _difficultyStatsModificators[diff];
 
-    private void ChangeSide(Sides side)
-    {
-        SettingsScript.SideIsSoviet = (int)side == 1;
-        foreach (var btn in _sideButtons)
-        {
-            btn.interactable = !btn.name.Contains(side.ToString());
-        }
-    }
 
-    public void EasyDifficulty() => ChangeDifficulty(Difficulties.Easy);
-    public void NormalDifficulty() => ChangeDifficulty(Difficulties.Normal);
-    public void HardDifficulty() => ChangeDifficulty(Difficulties.Hard);
-    public void ImpossibleDifficulty() => ChangeDifficulty(Difficulties.Impossible);
-
-    private void ChangeDifficulty(Difficulties diff)
-    {
-        UnitsStatistics.StatsModifier = _difficultyStatsModificators[(byte)diff];
-        foreach (var btn in _diffButtons)
-        {
-            btn.interactable = !btn.name.Contains(diff.ToString());
-        }
-    }
-    
-    public void BeginGame()
+        public void BeginGame()
     {
         SceneManager.LoadSceneAsync(1);
     }
