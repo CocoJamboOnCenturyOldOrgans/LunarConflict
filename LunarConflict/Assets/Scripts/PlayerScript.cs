@@ -9,25 +9,27 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] private GameObject unitRover;
     [SerializeField] private AudioClip unitRoverAudioClip;
     [SerializeField] private GameObject spawner;
-    
-    [SerializeField] private Text budget;
 
     public int money;
     
     private GameObject _base;
-	
-	private AudioSource _backgroundMusic;
+    private GameUIScript _uiScript;
+
+    private AudioSource _backgroundMusic;
     private AudioSource _sfxAudioSource;
     
     void Start()
     {
         StartCoroutine(RaiseBudget());
         _base = GameObject.Find("PlayerBase");
-		
+        _uiScript = FindObjectOfType<GameUIScript>();
+        
         _backgroundMusic = GameObject.Find("BackgroundMusic").GetComponent<AudioSource>();
         _backgroundMusic.volume = SettingsScript.Music;
         _sfxAudioSource = GameObject.Find("SFX").GetComponent<AudioSource>();
         _sfxAudioSource.volume = SettingsScript.Effects;
+        
+        _uiScript.UpdateMoney(money);
     }
 
     private IEnumerator RaiseBudget()
@@ -36,30 +38,22 @@ public class PlayerScript : MonoBehaviour
         {
             yield return new WaitForSeconds(1f);
             money += 10;
-            budget.text = money + SettingsScript.UIMoneyMark;
+            _uiScript.UpdateMoney(money);
         }
     }
 
-    public void BuyAstronaut()
+    public void BuyAstronaut() => BuyUnit(unitAstronaut, unitAstronautAudioClip, 50);
+
+    public void BuyRover() => BuyUnit(unitRover, unitRoverAudioClip, 100);
+
+    private void BuyUnit(GameObject unit, AudioClip unitClip, int cost)
     {
-        if (money >= 50)
+        if (money >= cost)
         {
-            Instantiate(unitAstronaut, spawner.transform.position, spawner.transform.rotation);
-            money -= 50;
-			budget.text = money + SettingsScript.UIMoneyMark;
-            _sfxAudioSource.clip = unitAstronautAudioClip;
-            _sfxAudioSource.Play();
-        }
-    }
-    
-    public void BuyRover()
-    {
-        if (money >= 100)
-        {
-            Instantiate(unitRover, spawner.transform.position, spawner.transform.rotation);
-            money -= 100;
-			budget.text = money + SettingsScript.UIMoneyMark;
-            _sfxAudioSource.clip = unitRoverAudioClip;
+            Instantiate(unit, spawner.transform.position, spawner.transform.rotation);
+            money -= cost;
+            _uiScript.UpdateMoney(money);
+            _sfxAudioSource.clip = unitClip;
             _sfxAudioSource.Play();
         }
     }

@@ -11,12 +11,8 @@ public class SettingsScript : MonoBehaviour
     public static Sprite RoverShopNegative;
     public static string RoverName;
 
-    //Gameplay Changers]
+    //Gameplay Changers
     public static bool SideIsSoviet;
-    //public static Sprite Player_Astronaut;
-    //public static Sprite Player_Rover;
-    //public static Sprite Enemy_Astronaut;
-    //public static Sprite Enemy_Rover;
 
     //Game Settings
     public static float Music = 0.5f;
