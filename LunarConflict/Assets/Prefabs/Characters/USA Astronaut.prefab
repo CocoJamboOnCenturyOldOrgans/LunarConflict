@@ -200,14 +200,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97d929b312ba56f4ead2a0403b4896d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: Astronaut
   attack: 1
   fireRate: 1
   maxHealth: 50
   speed: 2
+  unitCost: 100
   attackRange: 2
   russian: 0
   attackMode: 0
-  unitCost: 100
   bulletParent: {fileID: 874816795870721204}
   bulletPrefab: {fileID: 4747252809770462573, guid: fb18d719ca9f0544497313eee22e751d, type: 3}
   blackhole: {fileID: 2591676717402306813}

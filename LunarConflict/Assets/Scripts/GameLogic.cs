@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class GameLogic : MonoBehaviour
 {
+    public GameObject game;
+    public bool playingAsRussian = false;
+    
     private GameUIScript _uiScript;
 
     // Start is called before the first frame update
