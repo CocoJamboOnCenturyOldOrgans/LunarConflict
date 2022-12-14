@@ -5,15 +5,15 @@ using UnityEngine;
 public class GenericUnitScript : MonoBehaviour, IHittable
 {
     public int Health { get; set; }
-    public string name;
-    public float attack;
-    public float fireRate;
-    public int maxHealth;
-    public float speed;
-    public int unitCost;
+    
+    [SerializeField] protected float attack;
+    [SerializeField] protected float fireRate;
+    [SerializeField] protected int maxHealth;
+    [SerializeField] protected float speed;
     [SerializeField] protected int attackRange;
     [SerializeField] protected bool russian;
     [SerializeField] protected bool attackMode = false;
+    [SerializeField] protected int unitCost;
     [SerializeField] protected Transform bulletParent;
     [SerializeField] protected GameObject bulletPrefab;
     

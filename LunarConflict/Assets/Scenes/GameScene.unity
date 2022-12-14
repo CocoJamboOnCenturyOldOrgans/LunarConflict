@@ -1765,11 +1765,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 447251511}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dea04d45d37e94a4283aca41ffd3b671, type: 3}
+  m_Script: {fileID: 11500000, guid: 54c135f139690eb45be867aa2824615a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitUsa: {fileID: 0}
-  unitRussian: {fileID: 0}
 --- !u!114 &447251517
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2070,6 +2068,7 @@ GameObject:
   - component: {fileID: 512734605}
   - component: {fileID: 512734604}
   - component: {fileID: 512734608}
+  - component: {fileID: 512734609}
   m_Layer: 5
   m_Name: UI
   m_TagString: Untagged
@@ -2201,6 +2200,18 @@ MonoBehaviour:
   unitsTabField: {fileID: 1516820610}
   changed: 0
   budget: {fileID: 149990038}
+--- !u!114 &512734609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 512734603}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b2d7a77e6df24c42a7e1422ece5b7fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &525910249
 GameObject:
   m_ObjectHideFlags: 0
@@ -3333,7 +3344,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 512734609}
         m_TargetAssemblyTypeName: GameInitiationScript, Assembly-CSharp
         m_MethodName: ChangeToUsa
         m_Mode: 1
@@ -5822,7 +5833,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 512734609}
         m_TargetAssemblyTypeName: GameInitiationScript, Assembly-CSharp
         m_MethodName: ChangeToSoviet
         m_Mode: 1
@@ -5956,7 +5967,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1270644402}
   - component: {fileID: 1270644404}
-  - component: {fileID: 1270644405}
+  - component: {fileID: 1270644403}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -5979,6 +5990,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1270644403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1270644401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SendPointerHoverToParent: 1
+  m_HorizontalAxis: Horizontal
+  m_VerticalAxis: Vertical
+  m_SubmitButton: Submit
+  m_CancelButton: Cancel
+  m_InputActionsPerSecond: 10
+  m_RepeatDelay: 0.5
+  m_ForceModuleActive: 0
 --- !u!114 &1270644404
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5994,36 +6025,6 @@ MonoBehaviour:
   m_FirstSelected: {fileID: 0}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
---- !u!114 &1270644405
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1270644401}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01614664b831546d2ae94a42149d80ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SendPointerHoverToParent: 1
-  m_MoveRepeatDelay: 0.5
-  m_MoveRepeatRate: 0.1
-  m_XRTrackingOrigin: {fileID: 0}
-  m_ActionsAsset: {fileID: -944628639613478452, guid: c41f2c4c1d2aaf5548e4651533b0aa3c, type: 3}
-  m_PointAction: {fileID: -4738340910948174991, guid: c41f2c4c1d2aaf5548e4651533b0aa3c, type: 3}
-  m_MoveAction: {fileID: 6833945770269849531, guid: c41f2c4c1d2aaf5548e4651533b0aa3c, type: 3}
-  m_SubmitAction: {fileID: 8880340491047013689, guid: c41f2c4c1d2aaf5548e4651533b0aa3c, type: 3}
-  m_CancelAction: {fileID: -9131678533294714805, guid: c41f2c4c1d2aaf5548e4651533b0aa3c, type: 3}
-  m_LeftClickAction: {fileID: 8653317092944605935, guid: c41f2c4c1d2aaf5548e4651533b0aa3c, type: 3}
-  m_MiddleClickAction: {fileID: 5102425167672741795, guid: c41f2c4c1d2aaf5548e4651533b0aa3c, type: 3}
-  m_RightClickAction: {fileID: 3679708096689241070, guid: c41f2c4c1d2aaf5548e4651533b0aa3c, type: 3}
-  m_ScrollWheelAction: {fileID: 7980173095552289488, guid: c41f2c4c1d2aaf5548e4651533b0aa3c, type: 3}
-  m_TrackedDevicePositionAction: {fileID: -1646403854795655951, guid: c41f2c4c1d2aaf5548e4651533b0aa3c, type: 3}
-  m_TrackedDeviceOrientationAction: {fileID: -3603235393697037511, guid: c41f2c4c1d2aaf5548e4651533b0aa3c, type: 3}
-  m_DeselectOnBackgroundClick: 1
-  m_PointerBehavior: 0
-  m_CursorLockBehavior: 0
 --- !u!1 &1298047734
 GameObject:
   m_ObjectHideFlags: 0
@@ -6623,8 +6624,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dea04d45d37e94a4283aca41ffd3b671, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitUsa: {fileID: 874816796583786691, guid: 06753682be52dba80a8822d2c043999c, type: 3}
-  unitRussian: {fileID: 3813118679460145041, guid: 6f8cde85287a185889a7dba0ef72bd92, type: 3}
 --- !u!114 &1393833083
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7388,11 +7387,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1546474919}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dea04d45d37e94a4283aca41ffd3b671, type: 3}
+  m_Script: {fileID: 11500000, guid: 699b4013127e0694e9efd949094eabaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitUsa: {fileID: 7779528170484288204, guid: e68a40a4b389e2843b5634bd44eef477, type: 3}
-  unitRussian: {fileID: -6819897368678102410, guid: b5b438097d2899d44b99f26c772e4d1f, type: 3}
 --- !u!114 &1546474925
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8759,8 +8756,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f110b7d360d7c41cca071e8950152062, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  game: {fileID: 0}
-  playingAsRussian: 0
 --- !u!114 &1768758990
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9160,11 +9155,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1793769816}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dea04d45d37e94a4283aca41ffd3b671, type: 3}
+  m_Script: {fileID: 11500000, guid: 2ebc0012ef3d88e418f9c5aa6d0f6d13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitUsa: {fileID: 0}
-  unitRussian: {fileID: 0}
 --- !u!114 &1793769822
 MonoBehaviour:
   m_ObjectHideFlags: 0

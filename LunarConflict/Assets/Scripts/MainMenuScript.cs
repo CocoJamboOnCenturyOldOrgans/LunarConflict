@@ -28,7 +28,7 @@ public class MainMenuScript : MonoBehaviour
     private void Start()
     {
         SettingsScript.SideIsSoviet = true;
-        //UnitsStatistics.StatsModifier = _difficultyStatsModificators[1];
+        UnitsStatistics.StatsModifier = _difficultyStatsModificators[1];
 
         musicSlider.value = SettingsScript.Music;
         musicValue.text = SliderHelperScript.ConvertToPercentageValue(musicSlider.value);
@@ -51,7 +51,7 @@ public class MainMenuScript : MonoBehaviour
     public void ChangeSide(bool isSideSoviet) => SettingsScript.SideIsSoviet = isSideSoviet;
 
     //0 - Easy, 1 - Normal, 2 - Hard, 3 - Impossible
-    public void ChangeDifficulty(int diff) => Debug.Log("Changed StatsModifer"); //UnitsStatistics.StatsModifier = _difficultyStatsModificators[diff];
+    public void ChangeDifficulty(int diff) => UnitsStatistics.StatsModifier = _difficultyStatsModificators[diff];
 
 
         public void BeginGame()
@@ -71,7 +71,7 @@ public class MainMenuScript : MonoBehaviour
         SettingsScript.Effects = effectsSlider.value;
     }
 
-    public void ExitFunction()
+    public void Exit_Function()
     {
         Application.Quit();
     }
