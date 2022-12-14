@@ -13,11 +13,11 @@ public class BaseSigma : MonoBehaviour
     public void OnMouseEnter()
     {
         //Temp Test Values
-        _uiScript.buildingName.text = "Base Sigma";
+        _uiScript.bottomPanel.buildingName.text = "Base Sigma";
     }
 
     public void OnMouseExit()
     {
-        _uiScript.buildingName.text = "N/A";
+        _uiScript.bottomPanel.buildingName.text = "N/A";
     }
 }
