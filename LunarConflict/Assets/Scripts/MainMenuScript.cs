@@ -54,7 +54,7 @@ public class MainMenuScript : MonoBehaviour
     public void ChangeDifficulty(int diff) => Debug.Log("Changed StatsModifer"); //UnitsStatistics.StatsModifier = _difficultyStatsModificators[diff];
 
 
-    public void BeginGame()
+        public void BeginGame()
     {
         SceneManager.LoadSceneAsync(1);
     }
