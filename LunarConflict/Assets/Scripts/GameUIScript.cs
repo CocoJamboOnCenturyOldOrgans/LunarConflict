@@ -94,7 +94,11 @@ public class GameUIScript : MonoBehaviour
         astronautCannotBuy = SettingsScript.AstronautShopNegative;
         roverCanBuy = SettingsScript.RoverShopPositive;
         roverCannotBuy = SettingsScript.RoverShopNegative;
-    }
+
+    //Those Making Problems!
+    //BaseButton1 = GameObject.Find("Unit1BaseImage").GetComponent<Button>();
+    //BaseButton2 = GameObject.Find("Unit2BaseImage").GetComponent<Button>();
+}
     
     void Update()
     {

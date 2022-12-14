@@ -169,15 +169,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36f80434f98702eaeb02d6593ccb9134, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: Rover
   attack: 2
   fireRate: 2
   maxHealth: 100
   speed: 3
-  unitCost: 0
   attackRange: 2
   russian: 1
   attackMode: 0
+  unitCost: 0
   bulletParent: {fileID: 1622694353575732448}
   bulletPrefab: {fileID: 4747252809770462573, guid: fb18d719ca9f0544497313eee22e751d, type: 3}
   teleport: {fileID: 1622694353217183889}
