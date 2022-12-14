@@ -58,7 +58,12 @@ public class MainMenuScript : MonoBehaviour
     {
         SceneManager.LoadSceneAsync(1);
     }
-    
+
+    public void TempFunction()
+    {
+        SceneManager.LoadSceneAsync("EndGameScreen");
+    }
+
     public void ChangeMusic()
     {
         musicValue.text = SliderHelperScript.ConvertToPercentageValue(musicSlider.value);
