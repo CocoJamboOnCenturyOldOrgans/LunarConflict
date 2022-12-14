@@ -1,128 +1,141 @@
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class MainMenuScript : MonoBehaviour
 {
-    private enum Difficulties
-    {
-        Easy,
-        Normal,
-        Hard,
-        Impossible,
-    }
-
-    private enum Sides
-    {
-        Usa,
-        Soviet,
-    }
-
-    private enum Panels
-    {
-        MainMenu,
-        Game,
-        Settings,
-        Credits,
-    }
-
-    private readonly float[] _difficultyStatsModificators = { 0.7f, 1.0f, 1.5f, 2.0f };
-
-    private List<Button> _diffButtons;
-    private List<Button> _sideButtons;
-
-    [SerializeField] private Transform difficultiesSection;
-    [SerializeField] private Transform sidesSection;
+    public Button easyDiff;
+    public Button normalDiff;
+    public Button hardDiff;
+    public Button impossibleDiff;
+    public Button usa;
+    public Button soviet;
 
     public Text musicValue;
     public Slider musicSlider;
     public Text effectsValue;
     public Slider effectsSlider;
 
-    [SerializeField] private GameObject mainMenuPanel;
-    [SerializeField] private GameObject gamePanel;
-    [SerializeField] private GameObject settingsPanel;
-    [SerializeField] private GameObject creditsPanel;
-    
+    public GameObject mainMenuPanel;
+    public GameObject gamePanel;
+    public GameObject settingsPanel;
+    public GameObject creditsPanel;
+
     private void Start()
     {
-        _diffButtons = new List<Button>();
-        _sideButtons = new List<Button>();
-        foreach (Transform child in difficultiesSection)
-        {
-            if(child.TryGetComponent<Button>(out var button))
-                _diffButtons.Add(button);
-        }
-        foreach (Transform child in sidesSection)
-        {
-            if(child.TryGetComponent<Button>(out var button))
-                _sideButtons.Add(button);
-        }
-        
-        SettingsScript.SideIsSoviet = true;
-        UnitsStatistics.StatsModifier = _difficultyStatsModificators[1];
+        SettingsScript.Side = 1;
+        usa.interactable = false;
+        soviet.interactable = true;
+        UnitsStatistics.StatsModifier = 1f;
+        easyDiff.interactable = true;
+        normalDiff.interactable = false;
+        hardDiff.interactable = true;
+        impossibleDiff.interactable = true;
 
         musicSlider.value = SettingsScript.Music;
-        musicValue.text = SliderHelperScript.ConvertToPercentageValue(musicSlider.value);
+        musicValue.text = Mathf.RoundToInt(musicSlider.value * 100) + "%";
         effectsSlider.value = SettingsScript.Effects;
-        effectsValue.text = SliderHelperScript.ConvertToPercentageValue(effectsSlider.value);
+        effectsValue.text = Mathf.RoundToInt(effectsSlider.value * 100) + "%";
     }
 
-    public void StartGame_Function() => ChangePanel(Panels.Game);
-    public void Settings_Function() => ChangePanel(Panels.Settings);
-    public void Credits_Function() => ChangePanel(Panels.Credits);
-    public void Back_Function() => ChangePanel(Panels.MainMenu);
-
-    private void ChangePanel(Panels panel)
+    public void StartGame_Function()
     {
-        mainMenuPanel.SetActive(Panels.MainMenu == panel);
-        gamePanel.SetActive(Panels.Game == panel);
-        settingsPanel.SetActive(Panels.Settings == panel);
-        creditsPanel.SetActive(Panels.Credits == panel);
-    }
+        mainMenuPanel.SetActive(false);
+        gamePanel.SetActive(true);
+        settingsPanel.SetActive(false);
+        creditsPanel.SetActive(false);
+}
 
-    public void ChooseSovietSide() => ChangeSide(Sides.Soviet);
-    public void ChooseUsaSide() => ChangeSide(Sides.Usa);
-
-    private void ChangeSide(Sides side)
-    {
-        SettingsScript.SideIsSoviet = (int)side == 1;
-        foreach (var btn in _sideButtons)
-        {
-            btn.interactable = !btn.name.Contains(side.ToString());
-        }
-    }
-
-    public void EasyDifficulty() => ChangeDifficulty(Difficulties.Easy);
-    public void NormalDifficulty() => ChangeDifficulty(Difficulties.Normal);
-    public void HardDifficulty() => ChangeDifficulty(Difficulties.Hard);
-    public void ImpossibleDifficulty() => ChangeDifficulty(Difficulties.Impossible);
-
-    private void ChangeDifficulty(Difficulties diff)
-    {
-        UnitsStatistics.StatsModifier = _difficultyStatsModificators[(byte)diff];
-        foreach (var btn in _diffButtons)
-        {
-            btn.interactable = !btn.name.Contains(diff.ToString());
-        }
-    }
-    
     public void BeginGame()
     {
-        SceneManager.LoadSceneAsync(1);
+        SceneManager.LoadSceneAsync("PrototypeScene");
     }
-    
+
+    public void ChooseSovietSide()
+    {
+        SettingsScript.Side = 2;
+        usa.interactable = true;
+        soviet.interactable = false;
+    }
+
+    public void ChooseUsaSide()
+    {
+        SettingsScript.Side = 1;
+        usa.interactable = false;
+        soviet.interactable = true;
+    }
+
+    public void EasyDifficulty()
+    {
+        UnitsStatistics.StatsModifier = 0.7f;
+        easyDiff.interactable = false;
+        normalDiff.interactable = true;
+        hardDiff.interactable = true;
+        impossibleDiff.interactable = true;
+
+    }
+
+    public void NormalDifficulty()
+    {
+        UnitsStatistics.StatsModifier = 1f;
+        easyDiff.interactable = true;
+        normalDiff.interactable = false;
+        hardDiff.interactable = true;
+        impossibleDiff.interactable = true;
+    }
+
+    public void HardDifficulty()
+    {
+        UnitsStatistics.StatsModifier = 1.5f;
+        easyDiff.interactable = true;
+        normalDiff.interactable = true;
+        hardDiff.interactable = false;
+        impossibleDiff.interactable = true;
+    }
+
+    public void ImpossibleDifficulty()
+    {
+        UnitsStatistics.StatsModifier = 2f;
+        easyDiff.interactable = true;
+        normalDiff.interactable = true;
+        hardDiff.interactable = true;
+        impossibleDiff.interactable = false;
+    }
+
+    public void Settings_Function()
+    {
+        mainMenuPanel.SetActive(false);
+        gamePanel.SetActive(false);
+        settingsPanel.SetActive(true);
+        creditsPanel.SetActive(false);
+    }
+
     public void ChangeMusic()
     {
-        musicValue.text = SliderHelperScript.ConvertToPercentageValue(musicSlider.value);
+        musicValue.text = Mathf.RoundToInt(musicSlider.value * 100) + "%";
         SettingsScript.Music = musicSlider.value;
     }
 
     public void ChangeEffects()
     {
-        effectsValue.text = SliderHelperScript.ConvertToPercentageValue(effectsSlider.value);
+        effectsValue.text = Mathf.RoundToInt(effectsSlider.value * 100) + "%";
         SettingsScript.Effects = effectsSlider.value;
+    }
+
+    public void Credits_Function()
+    {
+        mainMenuPanel.SetActive(false);
+        gamePanel.SetActive(false);
+        settingsPanel.SetActive(false);
+        creditsPanel.SetActive(true);
+    }
+
+    public void Back_Function()
+    {
+        mainMenuPanel.SetActive(true);
+        gamePanel.SetActive(false);
+        settingsPanel.SetActive(false);
+        creditsPanel.SetActive(false);
     }
 
     public void Exit_Function()

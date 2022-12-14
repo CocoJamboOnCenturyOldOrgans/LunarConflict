@@ -12,7 +12,7 @@ public class SettingsScript : MonoBehaviour
     public static string RoverName;
 
     //Gameplay Changers]
-    public static bool SideIsSoviet;
+    public static int Side;
     //public static Sprite Player_Astronaut;
     //public static Sprite Player_Rover;
     //public static Sprite Enemy_Astronaut;
