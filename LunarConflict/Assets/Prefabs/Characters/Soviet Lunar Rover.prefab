@@ -174,7 +174,7 @@ MonoBehaviour:
   fireRate: 2
   maxHealth: 100
   speed: 3
-  unitCost: 0
+  unitCost: 100
   attackRange: 2
   russian: 1
   attackMode: 0
