@@ -169,7 +169,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36f80434f98702eaeb02d6593ccb9134, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: Rover
+  unitName: Soviet Lunar Rover
   attack: 2
   fireRate: 2
   maxHealth: 100

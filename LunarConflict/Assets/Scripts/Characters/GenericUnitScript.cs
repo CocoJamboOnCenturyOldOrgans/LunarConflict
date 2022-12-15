@@ -1,11 +1,12 @@
 using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class GenericUnitScript : MonoBehaviour, IHittable
 {
     public int Health { get; set; }
-    public string name;
+    public string unitName;
     public float attack;
     public float fireRate;
     public int maxHealth;
