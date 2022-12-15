@@ -36,6 +36,9 @@ public class GameUIScript : MonoBehaviour
         effectsValue.text = Mathf.RoundToInt(effectsSlider.value * 100) + "%";
         
         bottomPanel = GetComponent<BottomPanelObjectScript>();
+
+        // SET TIME SCALE TO NORMAL ON EACH SCENE CHANGE
+        SceneManager.activeSceneChanged += (scene1, scene2) => Time.timeScale = 1.0f;;
     }
     public void ShowSettings()
     {

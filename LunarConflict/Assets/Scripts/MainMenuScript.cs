@@ -1,7 +1,7 @@
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using static SettingsScript;
 
 public class MainMenuScript : MonoBehaviour
 {
@@ -27,12 +27,12 @@ public class MainMenuScript : MonoBehaviour
     
     private void Start()
     {
-        SettingsScript.SideIsSoviet = true;
+        Faction = PlayerFaction.None;
         //UnitsStatistics.StatsModifier = _difficultyStatsModificators[1];
 
-        musicSlider.value = SettingsScript.Music;
+        musicSlider.value = Music;
         musicValue.text = SliderHelperScript.ConvertToPercentageValue(musicSlider.value);
-        effectsSlider.value = SettingsScript.Effects;
+        effectsSlider.value = Effects;
         effectsValue.text = SliderHelperScript.ConvertToPercentageValue(effectsSlider.value);
     }
 
@@ -48,7 +48,7 @@ public class MainMenuScript : MonoBehaviour
         settingsPanel.SetActive(Panels.Settings == panel);
         creditsPanel.SetActive(Panels.Credits == panel);
     }
-    public void ChangeSide(bool isSideSoviet) => SettingsScript.SideIsSoviet = isSideSoviet;
+    public void ChangeSide(int factionID) => Faction = (PlayerFaction)factionID;
 
     //0 - Easy, 1 - Normal, 2 - Hard, 3 - Impossible
     public void ChangeDifficulty(int diff) => Debug.Log("Changed StatsModifer"); //UnitsStatistics.StatsModifier = _difficultyStatsModificators[diff];
@@ -56,19 +56,25 @@ public class MainMenuScript : MonoBehaviour
 
     public void BeginGame()
     {
+        if (Faction == PlayerFaction.None)
+        {
+            Debug.LogWarning("You haven't yet chosen a fraction or difficulty!");
+            return;
+        }
+        
         SceneManager.LoadSceneAsync(1);
     }
     
     public void ChangeMusic()
     {
         musicValue.text = SliderHelperScript.ConvertToPercentageValue(musicSlider.value);
-        SettingsScript.Music = musicSlider.value;
+        Music = musicSlider.value;
     }
 
     public void ChangeEffects()
     {
         effectsValue.text = SliderHelperScript.ConvertToPercentageValue(effectsSlider.value);
-        SettingsScript.Effects = effectsSlider.value;
+        Effects = effectsSlider.value;
     }
 
     public void ExitFunction()

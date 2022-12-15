@@ -1,28 +1,28 @@
 using UnityEngine;
+using static SettingsScript;
 
 public class GameLogic : MonoBehaviour
 {
     public GameObject game;
     private GameUIScript _uiScript;
 
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         _uiScript = FindObjectOfType<GameUIScript>();
 
-        if (SettingsScript.SideIsSoviet)
+        if (Faction == PlayerFaction.USSR)
             ChangeToSoviet();
-        else
+        else if(Faction == PlayerFaction.USA)
             ChangeToUsa();
     }
 
     public void ChangeToUsa()
     {
-        SettingsScript.UIMoneyMark = "$"; 
+        UIMoneyMark = "$"; 
     }
 
     public void ChangeToSoviet()
     {
-        SettingsScript.UIMoneyMark = "₽";
+        UIMoneyMark = "₽";
     }
 }

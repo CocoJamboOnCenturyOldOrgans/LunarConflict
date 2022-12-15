@@ -1,6 +1,6 @@
-using System;
 using UnityEngine;
 using UnityEngine.UI;
+using static SettingsScript;
 
 public class UIUnitButtonScript : MonoBehaviour
 {
@@ -33,9 +33,8 @@ public class UIUnitButtonScript : MonoBehaviour
         ChangeSide();
     }
     
-    void FixedUpdate()
+    void LateUpdate()
     {
-        enabled = _playerScript.money >= _currentUnit.unitCost;
         _buttonImage.sprite = _playerScript.money >= _currentUnit.unitCost ? 
             _currentUnitIconBuyable : _currentUnitIconNonBuyable;
         unitPriceText.color = _playerScript.money >= _currentUnit.unitCost ? Color.green : Color.red;
@@ -43,11 +42,11 @@ public class UIUnitButtonScript : MonoBehaviour
 
     public void OnMouseEnter()
     {
-        _uiScript.bottomPanel.unitName.text = SettingsScript.SideIsSoviet ? unitUsa.name : unitRussian.name;
-        _uiScript.bottomPanel.attack.value = SettingsScript.SideIsSoviet ? unitUsa.attack : unitRussian.attack;
-        _uiScript.bottomPanel.fireRate.value = SettingsScript.SideIsSoviet ? unitUsa.fireRate : unitRussian.fireRate;
-        _uiScript.bottomPanel.hp.value = SettingsScript.SideIsSoviet ? unitUsa.maxHealth : unitRussian.maxHealth;
-        _uiScript.bottomPanel.speed.value = SettingsScript.SideIsSoviet ? unitUsa.speed : unitRussian.speed;
+        _uiScript.bottomPanel.unitName.text = Faction == PlayerFaction.USA ? unitUsa.unitName : unitRussian.unitName;
+        _uiScript.bottomPanel.attack.value = Faction == PlayerFaction.USA ? unitUsa.attack : unitRussian.attack;
+        _uiScript.bottomPanel.fireRate.value = Faction == PlayerFaction.USA ? unitUsa.fireRate : unitRussian.fireRate;
+        _uiScript.bottomPanel.hp.value = Faction == PlayerFaction.USA ? unitUsa.maxHealth : unitRussian.maxHealth;
+        _uiScript.bottomPanel.speed.value = Faction == PlayerFaction.USA ? unitUsa.speed : unitRussian.speed;
         _uiScript.bottomPanel.attackValue.text = _uiScript.bottomPanel.attack.value.ToString();
         _uiScript.bottomPanel.fireRateValue.text = _uiScript.bottomPanel.fireRate.value.ToString();
         _uiScript.bottomPanel.hpValue.text = _uiScript.bottomPanel.hp.value.ToString();
@@ -69,12 +68,12 @@ public class UIUnitButtonScript : MonoBehaviour
 
     public void ChangeSide()
     {
-        unitPriceText.text = (SettingsScript.SideIsSoviet ? unitRussian.unitCost : unitUsa.unitCost) 
-                             + SettingsScript.UIMoneyMark;
-        _currentUnit = SettingsScript.SideIsSoviet ? unitRussian : unitUsa;
-        _currentUnitIconBuyable = SettingsScript.SideIsSoviet ? 
-            UnitIconBuyableRussian : UnitIconBuyableUsa;
-        _currentUnitIconNonBuyable = SettingsScript.SideIsSoviet ? 
-            UnitIconNonBuyableRussian : UnitIconNonBuyableUsa;
+        unitPriceText.text = (Faction == PlayerFaction.USA ? unitUsa.unitCost : unitRussian.unitCost) 
+                             + UIMoneyMark;
+        _currentUnit = Faction == PlayerFaction.USA ? unitUsa : unitRussian;
+        _currentUnitIconBuyable = Faction == PlayerFaction.USA ? 
+            UnitIconBuyableUsa : UnitIconBuyableRussian;
+        _currentUnitIconNonBuyable = Faction == PlayerFaction.USA ? 
+            UnitIconNonBuyableUsa : UnitIconNonBuyableRussian;
     }
 }
