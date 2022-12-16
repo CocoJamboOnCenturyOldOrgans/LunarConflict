@@ -30,9 +30,9 @@ public class MainMenuScript : MonoBehaviour
         Faction = PlayerFaction.None;
         //UnitsStatistics.StatsModifier = _difficultyStatsModificators[1];
 
-        musicSlider.value = Music;
+        musicSlider.value = PlayerPrefs.GetFloat("MusicVolume", 0.5f);;
         musicValue.text = SliderHelperScript.ConvertToPercentageValue(musicSlider.value);
-        effectsSlider.value = Effects;
+        effectsSlider.value = PlayerPrefs.GetFloat("EffectsVolume", 0.5f);;
         effectsValue.text = SliderHelperScript.ConvertToPercentageValue(effectsSlider.value);
     }
 
@@ -73,17 +73,18 @@ public class MainMenuScript : MonoBehaviour
     public void ChangeMusic()
     {
         musicValue.text = SliderHelperScript.ConvertToPercentageValue(musicSlider.value);
-        Music = musicSlider.value;
+        PlayerPrefs.SetFloat("MusicVolume", musicSlider.value);
     }
 
     public void ChangeEffects()
     {
         effectsValue.text = SliderHelperScript.ConvertToPercentageValue(effectsSlider.value);
-        Effects = effectsSlider.value;
+        PlayerPrefs.SetFloat("EffectsVolume", effectsSlider.value);
     }
 
     public void ExitFunction()
     {
+        PlayerPrefs.Save();
         Application.Quit();
     }
 }

@@ -25,9 +25,9 @@ public class PlayerScript : MonoBehaviour
         _uiScript = FindObjectOfType<GameUIScript>();
         
         _backgroundMusic = GameObject.Find("BackgroundMusic").GetComponent<AudioSource>();
-        _backgroundMusic.volume = SettingsScript.Music;
+        _backgroundMusic.volume = PlayerPrefs.GetFloat("MusicVolume", 0.5f);
         _sfxAudioSource = GameObject.Find("SFX").GetComponent<AudioSource>();
-        _sfxAudioSource.volume = SettingsScript.Effects;
+        _sfxAudioSource.volume = PlayerPrefs.GetFloat("EffectsVolume", 0.5f);
         
         _uiScript.UpdateMoney(money);
     }
