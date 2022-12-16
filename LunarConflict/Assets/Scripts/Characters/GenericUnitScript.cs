@@ -1,6 +1,7 @@
 using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
+using static GameRoundData;
 using UnityEngine.Serialization;
 
 public class GenericUnitScript : MonoBehaviour, IHittable
@@ -76,5 +77,11 @@ public class GenericUnitScript : MonoBehaviour, IHittable
     
     public virtual void OnHit(int damage) => Health -= damage;
     
-    public virtual void OnDeath() => Destroy(gameObject);
+    public virtual void OnDeath()
+    {
+        if (russian)
+            kills++;
+        Destroy(gameObject);
+    }
+
 }

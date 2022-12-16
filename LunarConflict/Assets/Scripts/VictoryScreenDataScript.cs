@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using static GameRoundData;
 
 public class VictoryScreenDataScript : MonoBehaviour
 {
@@ -31,14 +32,20 @@ public class VictoryScreenDataScript : MonoBehaviour
     void Start()
     {
         TimeAmount.text = "99:99";
-        RemainingHPAmount.text = "500" + " HP";
-        KilledEnemiesAmount.text = "99999";
-        CreatedEntitiesAmount.text = "1";
-}
+        RemainingHPAmount.text = leftBaseHP.ToString();
+        KilledEnemiesAmount.text = kills.ToString();
+        CreatedEntitiesAmount.text = unitsSpawned.ToString();
+
+        if (playerWon)
+            USAWin();
+        else
+            SovietWin();
+
+    }
 
     public void BackToMenu()
     {
-        SceneManager.LoadSceneAsync("MainMenu");
+        SceneManager.LoadSceneAsync(0);
     }
 
     public void SovietWin()
@@ -53,7 +60,7 @@ public class VictoryScreenDataScript : MonoBehaviour
         Right3.sprite = SovietAstronaut;
         Flag1.sprite = SovietFlag;
         Flag2.sprite = SovietFlag;
-}
+    }
 
     public void USAWin()
     {

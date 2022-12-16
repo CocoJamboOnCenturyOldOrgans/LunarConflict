@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using static GameRoundData;
 
 public class PlayerScript : MonoBehaviour
 {
@@ -55,6 +56,7 @@ public class PlayerScript : MonoBehaviour
             _uiScript.UpdateMoney(money);
             _sfxAudioSource.clip = unitClip;
             _sfxAudioSource.Play();
+            unitsSpawned++;
         }
     }
 }

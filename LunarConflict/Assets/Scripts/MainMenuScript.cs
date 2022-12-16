@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using static SettingsScript;
+using static GameRoundData;
 
 public class MainMenuScript : MonoBehaviour
 {
@@ -61,13 +62,11 @@ public class MainMenuScript : MonoBehaviour
             Debug.LogWarning("You haven't yet chosen a fraction or difficulty!");
             return;
         }
-        
-        SceneManager.LoadSceneAsync(1);
-    }
 
-    public void TempFunction()
-    {
-        SceneManager.LoadSceneAsync("EndGameScreen");
+        kills = 0;
+        unitsSpawned = 0;
+        leftBaseHP = 500;
+        SceneManager.LoadSceneAsync(1);
     }
 
     public void ChangeMusic()

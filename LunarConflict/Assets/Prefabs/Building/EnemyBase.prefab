@@ -164,6 +164,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 500
+  russian: 1
 --- !u!1001 &3430456646221416801
 PrefabInstance:
   m_ObjectHideFlags: 0
