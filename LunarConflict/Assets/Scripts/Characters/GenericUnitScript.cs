@@ -1,7 +1,6 @@
 using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class GenericUnitScript : MonoBehaviour, IHittable
 {
@@ -17,13 +16,14 @@ public class GenericUnitScript : MonoBehaviour, IHittable
     [SerializeField] protected bool attackMode = false;
     [SerializeField] protected Transform bulletParent;
     [SerializeField] protected GameObject bulletPrefab;
+    [SerializeField] private Vector2 raycastOffset;
     
     private Animator _animator;
     private LayerMask _mask;
     private Vector2 _movementDirection;
     private float _localScaleX;
 
-    protected void Start()
+    protected virtual void Start()
     {
         Health = maxHealth;
         _animator = GetComponent<Animator>();
@@ -34,7 +34,7 @@ public class GenericUnitScript : MonoBehaviour, IHittable
         speed = russian ? speed * -1 : speed;
     }
 
-    protected void Update()
+    protected virtual void Update()
     {
         if (_animator.GetCurrentAnimatorStateInfo(0).IsName("walking") ||
             _animator.GetCurrentAnimatorStateInfo(0).IsName("driving"))
@@ -43,11 +43,16 @@ public class GenericUnitScript : MonoBehaviour, IHittable
         _animator.SetBool("play", CanWalk());
         _animator.SetBool("dying", Health <= 0);
     }
-    
+
+    protected virtual void FixedUpdate()
+    {
+    }
+
     private bool CanAttack()
     {
+        var pos = new Vector3(transform.position.x + raycastOffset.x, transform.position.y + raycastOffset.y, transform.position.z);
         RaycastHit2D[] hit = Physics2D.RaycastAll(
-            transform.position, 
+            pos, 
             _movementDirection,
             attackRange, 
             _mask);

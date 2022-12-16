@@ -1435,6 +1435,14 @@ PrefabInstance:
       propertyPath: spawner
       value: 
       objectReference: {fileID: 913502015}
+    - target: {fileID: 3430456645016945708, guid: ecefefa7269d2ea40b1534c5ad101e59, type: 3}
+      propertyPath: astronaut
+      value: 
+      objectReference: {fileID: 3813118679460145047, guid: 6f8cde85287a185889a7dba0ef72bd92, type: 3}
+    - target: {fileID: 3430456645016945708, guid: ecefefa7269d2ea40b1534c5ad101e59, type: 3}
+      propertyPath: spawnEverySeconds
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 3430456645016945710, guid: ecefefa7269d2ea40b1534c5ad101e59, type: 3}
       propertyPath: m_RootOrder
       value: 2
