@@ -30,9 +30,9 @@ public class GameUIScript : MonoBehaviour
         _backgroundMusic = GameObject.Find("BackgroundMusic").GetComponent<AudioSource>();
         _sfxAudioSource = GameObject.Find("SFX").GetComponent<AudioSource>();
 
-        musicSlider.value = SettingsScript.Music;
+        musicSlider.value = PlayerPrefs.GetFloat("MusicVolume", 0.5f);;
         musicValue.text = Mathf.RoundToInt(musicSlider.value * 100) + "%";
-        effectsSlider.value = SettingsScript.Effects;
+        effectsSlider.value = PlayerPrefs.GetFloat("EffectsVolume", 0.5f);;
         effectsValue.text = Mathf.RoundToInt(effectsSlider.value * 100) + "%";
         
         bottomPanel = GetComponent<BottomPanelObjectScript>();
@@ -56,14 +56,14 @@ public class GameUIScript : MonoBehaviour
     public void ChangeMusic()
     {
         musicValue.text = Mathf.RoundToInt(musicSlider.value * 100) + "%";
-        SettingsScript.Music = musicSlider.value;
-        _backgroundMusic.volume = SettingsScript.Music;
+        PlayerPrefs.SetFloat("MusicVolume", musicSlider.value);
+        _backgroundMusic.volume = musicSlider.value;
     }
     public void ChangeEffects()
     {
         effectsValue.text = Mathf.RoundToInt(effectsSlider.value * 100) + "%";
-        SettingsScript.Effects = effectsSlider.value;
-        _sfxAudioSource.volume = SettingsScript.Effects;
+        PlayerPrefs.SetFloat("EffectsVolume", effectsSlider.value);
+        _sfxAudioSource.volume = effectsSlider.value;
     }
 
     public void CloseSettings()
@@ -78,6 +78,7 @@ public class GameUIScript : MonoBehaviour
     }
     public void ExitGame()
     {
+        PlayerPrefs.Save();
         Application.Quit();
     }
 }
