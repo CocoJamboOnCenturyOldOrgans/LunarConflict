@@ -6556,6 +6556,7 @@ MonoBehaviour:
   gamePanel: {fileID: 164625071}
   settingsPanel: {fileID: 47733659}
   creditsPanel: {fileID: 659330918}
+  mainMenuThemeAudioSource: {fileID: 44923067}
 --- !u!1 &1851273908
 GameObject:
   m_ObjectHideFlags: 0
