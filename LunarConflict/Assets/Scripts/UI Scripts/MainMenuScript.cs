@@ -17,7 +17,6 @@ public class MainMenuScript : MonoBehaviour
     }
 
     private readonly float[] _difficultyStatsModificators = { 0.7f, 1.0f, 1.5f, 2.0f };
-    private List<Resolution> _resolutions;
     [SerializeField] private Dropdown resolutionSelector;
     [SerializeField] private Toggle fullscreen;
 
@@ -37,20 +36,20 @@ public class MainMenuScript : MonoBehaviour
     
     private void Start()
     {
-        _resolutions = Screen.resolutions.ToList();
+        Resolutions = Screen.resolutions.ToList();
         
         resolutionSelector.AddOptions(
-            _resolutions
+            Resolutions
                 .Select(res => res.width + " x " + res.height)
                 .ToList());
         var curRes = new Resolution
         {
             width = Screen.width,
             height = Screen.height,
-            refreshRate = _resolutions[0].refreshRate
+            refreshRate = Resolutions[0].refreshRate
         };
         Debug.Log(curRes.ToString());
-        resolutionSelector.value = _resolutions.IndexOf(curRes);
+        resolutionSelector.value = Resolutions.IndexOf(curRes);
         
         // You may ask, why I don't use Screen.currentResolution?
         // Because it's stupid.
@@ -119,7 +118,7 @@ public class MainMenuScript : MonoBehaviour
 
     public void ChangeResolution()
     {
-        var chosenResolution = _resolutions[resolutionSelector.value];
+        var chosenResolution = Resolutions[resolutionSelector.value];
         Screen.SetResolution(
             chosenResolution.width,
             chosenResolution.height,
