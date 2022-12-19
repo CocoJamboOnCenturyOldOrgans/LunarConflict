@@ -1,2 +1,4 @@
 Stomping.wav - https://freesound.org/people/000600/sounds/180015/
 CarEngine.wav - https://freesound.org/people/prometheus888/sounds/458461/
+SovietTankEngine.wav - https://freesound.org/people/qubodup/sounds/187676/
+USATankEngine.wav - https://freesound.org/people/jberkuta14/sounds/134898/
