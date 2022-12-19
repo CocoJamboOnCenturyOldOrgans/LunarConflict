@@ -1438,7 +1438,7 @@ PrefabInstance:
     - target: {fileID: 3430456645016945708, guid: ecefefa7269d2ea40b1534c5ad101e59, type: 3}
       propertyPath: astronaut
       value: 
-      objectReference: {fileID: 3813118679460145047, guid: 6f8cde85287a185889a7dba0ef72bd92, type: 3}
+      objectReference: {fileID: 1622694353147758051, guid: b5b438097d2899d44b99f26c772e4d1f, type: 3}
     - target: {fileID: 3430456645016945708, guid: ecefefa7269d2ea40b1534c5ad101e59, type: 3}
       propertyPath: spawnEverySeconds
       value: 8
@@ -8109,8 +8109,10 @@ MonoBehaviour:
   unitAstronautAudioClip: {fileID: 8300000, guid: b0bfb49f329670f408dfeb1e9dcd294f, type: 3}
   unitRover: {fileID: 6156361781352966704, guid: e68a40a4b389e2843b5634bd44eef477, type: 3}
   unitRoverAudioClip: {fileID: 8300000, guid: 2b9e5955d6906004d8c19855ebb3b989, type: 3}
+  unitTank: {fileID: 9066584126370463406, guid: c9e5cbec964134b41aa0798e2fb19c3d, type: 3}
+  unitTankAudioClip: {fileID: 8300000, guid: 4323e3dbb8a84f742bde6286c579a168, type: 3}
   spawner: {fileID: 811172846}
-  money: 200
+  money: 200000
 --- !u!114 &1768758989
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8502,9 +8504,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: GameUIScript, Assembly-CSharp
-        m_MethodName: SpawnEntityC
+      - m_Target: {fileID: 1768758988}
+        m_TargetAssemblyTypeName: PlayerScript, Assembly-CSharp
+        m_MethodName: BuyTank
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8527,8 +8529,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitPriceText: {fileID: 868760745}
-  unitUsa: {fileID: 874816796583786691, guid: 06753682be52dba80a8822d2c043999c, type: 3}
-  unitRussian: {fileID: 3813118679460145041, guid: 6f8cde85287a185889a7dba0ef72bd92, type: 3}
+  unitUsa: {fileID: -4297757029457396065, guid: c9e5cbec964134b41aa0798e2fb19c3d, type: 3}
+  unitRussian: {fileID: 6450322033091494286, guid: 6cb5d125f9d7de142830244a756ae620, type: 3}
   UnitIconBuyableUsa: {fileID: 21300000, guid: d49631d36eff6524a8196e5e8751747d, type: 3}
   UnitIconNonBuyableUsa: {fileID: 21300000, guid: be72fae815d5f344e91190798c196ba7, type: 3}
   UnitIconBuyableRussian: {fileID: 21300000, guid: d49631d36eff6524a8196e5e8751747d, type: 3}

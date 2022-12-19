@@ -1,6 +1,5 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class PlayerScript : MonoBehaviour
 {
@@ -8,6 +7,8 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] private AudioClip unitAstronautAudioClip;
     [SerializeField] private GameObject unitRover;
     [SerializeField] private AudioClip unitRoverAudioClip;
+    [SerializeField] private GameObject unitTank;
+    [SerializeField] private AudioClip unitTankAudioClip;
     [SerializeField] private GameObject spawner;
 
     public int money;
@@ -45,6 +46,8 @@ public class PlayerScript : MonoBehaviour
     public void BuyAstronaut() => BuyUnit(unitAstronaut, unitAstronautAudioClip, 50);
 
     public void BuyRover() => BuyUnit(unitRover, unitRoverAudioClip, 100);
+
+    public void BuyTank() => BuyUnit(unitTank, unitTankAudioClip, 200);
 
     private void BuyUnit(GameObject unit, AudioClip unitClip, int cost)
     {

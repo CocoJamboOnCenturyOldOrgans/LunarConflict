@@ -71,11 +71,11 @@ public class GenericUnitScript : MonoBehaviour, IHittable
         return hit.collider.IsUnityNull();
     }
     
-    public void Shoot()
+    public void Shoot(Transform parent = null)
     {
         Instantiate(
             bulletPrefab, 
-            bulletParent.position, 
+            parent == null ? bulletParent.position : parent.position, 
             russian ? Quaternion.Euler(0,0,90) : Quaternion.Euler(0,0,-90));
     }
     

@@ -1,13 +1,14 @@
 using System.Collections;
 using UnityEngine;
 
-public class SovietTankUnit : GenericUnitScript
+public class USATankUnit : GenericUnitScript
 {
     private Rigidbody2D _rb;
     private BoxCollider2D _col;
     private bool _destroyed;
 
-    [SerializeField] private Transform missileParent1, missileParent2;
+    [SerializeField] private Transform bulletParent2;
+    [SerializeField] private Transform missileParent;
     [SerializeField] private GameObject missilePrefab;
     [SerializeField, Range(2.0f, 10.0f)] private float retreatSpeed;
 
@@ -26,18 +27,15 @@ public class SovietTankUnit : GenericUnitScript
             transform.Translate(-Vector3.right * (speed * retreatSpeed * Time.deltaTime));
     }
 
-    public void ShootWithBullets() => Shoot();
+    public void ShootBulletFirstCannon() => Shoot();
+    
+    public void ShootBulletSecondCannon() => Shoot(bulletParent2);
 
     public void ShootWithMissiles()
     {
         Instantiate(
             missilePrefab, 
-            missileParent1.position, 
-            russian ? Quaternion.Euler(0,0,90) : Quaternion.Euler(0,0,-90));
-        
-        Instantiate(
-            missilePrefab, 
-            missileParent2.position, 
+            missileParent.position, 
             russian ? Quaternion.Euler(0,0,90) : Quaternion.Euler(0,0,-90));
     }
 
