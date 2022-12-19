@@ -1,3 +1,6 @@
+using System.Collections.Generic;
+using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -14,6 +17,9 @@ public class MainMenuScript : MonoBehaviour
     }
 
     private readonly float[] _difficultyStatsModificators = { 0.7f, 1.0f, 1.5f, 2.0f };
+    private List<Resolution> _resolutions;
+    private Dropdown _resolutionSelector;
+    private Toggle _fullscreen;
 
     public Text musicValue;
     public Slider musicSlider;
@@ -31,6 +37,32 @@ public class MainMenuScript : MonoBehaviour
     
     private void Start()
     {
+        _resolutionSelector = FindObjectOfType<Dropdown>();
+        _fullscreen = FindObjectOfType<Toggle>();
+        
+        _resolutions = Screen.resolutions.ToList();
+        
+        _resolutionSelector.AddOptions(
+            _resolutions
+                .Select(res => res.width + " x " + res.height)
+                .ToList());
+        var curRes = new Resolution
+        {
+            width = Screen.width,
+            height = Screen.height,
+            refreshRate = _resolutions[0].refreshRate
+        };
+        Debug.Log(curRes.ToString());
+        _resolutionSelector.value = _resolutions.IndexOf(curRes);
+        
+        // You may ask, why I don't use Screen.currentResolution?
+        // Because it's stupid.
+        // Instead of giving you resolution of the game it gives you resolution of the screen
+        // And also, I don't know why but Unity has a big problem with multi-monitor setup with different refresh rates
+        // So, don't change this to Screen.currentResolution, or the game will set the lowest resolution possible.
+        
+        _fullscreen.isOn = Screen.fullScreenMode == FullScreenMode.FullScreenWindow;
+
         Faction = PlayerFaction.None;
         //UnitsStatistics.StatsModifier = _difficultyStatsModificators[1];
 
@@ -55,7 +87,8 @@ public class MainMenuScript : MonoBehaviour
     public void ChangeSide(int factionID) => Faction = (PlayerFaction)factionID;
 
     //0 - Easy, 1 - Normal, 2 - Hard, 3 - Impossible
-    public void ChangeDifficulty(int diff) => Debug.Log("Changed StatsModifer"); //UnitsStatistics.StatsModifier = _difficultyStatsModificators[diff];
+    public void ChangeDifficulty(int diff) => Debug.Log("Changed StatsModifer"); 
+    //UnitsStatistics.StatsModifier = _difficultyStatsModificators[diff];
 
 
     public void BeginGame()
@@ -85,6 +118,15 @@ public class MainMenuScript : MonoBehaviour
     {
         effectsValue.text = SliderHelperScript.ConvertToPercentageValue(effectsSlider.value);
         PlayerPrefs.SetFloat("EffectsVolume", effectsSlider.value);
+    }
+
+    public void ChangeResolution()
+    {
+        var chosenResolution = _resolutions[_resolutionSelector.value];
+        Screen.SetResolution(
+            chosenResolution.width,
+            chosenResolution.height,
+            _fullscreen.isOn ? FullScreenMode.FullScreenWindow : FullScreenMode.Windowed);
     }
 
     public void ExitFunction()
