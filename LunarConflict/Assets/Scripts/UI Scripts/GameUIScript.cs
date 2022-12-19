@@ -1,7 +1,8 @@
-using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using static SettingsScript;
 
 public class GameUIScript : MonoBehaviour
 {
@@ -11,7 +12,10 @@ public class GameUIScript : MonoBehaviour
 
     public Slider baseHealthSlider;
     public Text baseHealthValue;
-        
+    
+    [SerializeField] private Dropdown resolutionSelector;
+    [SerializeField] private Toggle fullscreen;
+
     public Slider musicSlider;
     public Text musicValue;
     public Slider effectsSlider;
@@ -36,6 +40,20 @@ public class GameUIScript : MonoBehaviour
         effectsValue.text = Mathf.RoundToInt(effectsSlider.value * 100) + "%";
         
         bottomPanel = GetComponent<BottomPanelObjectScript>();
+        
+        resolutionSelector.AddOptions(
+            Resolutions
+                .Select(res => res.width + " x " + res.height)
+                .ToList());
+        var curRes = new Resolution
+        {
+            width = Screen.width,
+            height = Screen.height,
+            refreshRate = Resolutions[0].refreshRate
+        };
+        resolutionSelector.value = Resolutions.IndexOf(curRes);
+        
+        fullscreen.isOn = Screen.fullScreenMode == FullScreenMode.FullScreenWindow;
 
         // SET TIME SCALE TO NORMAL ON EACH SCENE CHANGE
         SceneManager.activeSceneChanged += (scene1, scene2) => Time.timeScale = 1.0f;;
@@ -50,7 +68,7 @@ public class GameUIScript : MonoBehaviour
 
     public void UpdateMoney(int money)
     {
-        budget.text = money + SettingsScript.UIMoneyMark;
+        budget.text = money + UIMoneyMark;
     }
 
     public void ChangeMusic()
@@ -64,6 +82,15 @@ public class GameUIScript : MonoBehaviour
         effectsValue.text = Mathf.RoundToInt(effectsSlider.value * 100) + "%";
         PlayerPrefs.SetFloat("EffectsVolume", effectsSlider.value);
         _sfxAudioSource.volume = effectsSlider.value;
+    }
+    
+    public void ChangeResolution()
+    {
+        var chosenResolution = Resolutions[resolutionSelector.value];
+        Screen.SetResolution(
+            chosenResolution.width,
+            chosenResolution.height,
+            fullscreen.isOn ? FullScreenMode.FullScreenWindow : FullScreenMode.Windowed);
     }
 
     public void CloseSettings()
