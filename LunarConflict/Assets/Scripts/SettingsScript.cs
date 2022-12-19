@@ -14,9 +14,4 @@ public class SettingsScript : MonoBehaviour
 
     //Gameplay Changers
     public static PlayerFaction Faction;
-
-    //Game Settings
-    public static float Music = 0.5f;
-    public static float Effects = 0.5f;
-
 }
