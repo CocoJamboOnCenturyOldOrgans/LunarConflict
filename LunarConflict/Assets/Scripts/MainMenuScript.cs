@@ -20,10 +20,14 @@ public class MainMenuScript : MonoBehaviour
     public Text effectsValue;
     public Slider effectsSlider;
 
+    [Header("Panels")]
     [SerializeField] private GameObject mainMenuPanel;
     [SerializeField] private GameObject gamePanel;
     [SerializeField] private GameObject settingsPanel;
     [SerializeField] private GameObject creditsPanel;
+
+    [Header("Sound")]
+    [SerializeField] private AudioSource mainMenuThemeAudioSource;
     
     private void Start()
     {
@@ -74,6 +78,7 @@ public class MainMenuScript : MonoBehaviour
     {
         musicValue.text = SliderHelperScript.ConvertToPercentageValue(musicSlider.value);
         Music = musicSlider.value;
+        mainMenuThemeAudioSource.volume = Music;
     }
 
     public void ChangeEffects()
