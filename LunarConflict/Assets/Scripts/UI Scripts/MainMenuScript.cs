@@ -18,8 +18,8 @@ public class MainMenuScript : MonoBehaviour
 
     private readonly float[] _difficultyStatsModificators = { 0.7f, 1.0f, 1.5f, 2.0f };
     private List<Resolution> _resolutions;
-    private Dropdown _resolutionSelector;
-    private Toggle _fullscreen;
+    [SerializeField] private Dropdown resolutionSelector;
+    [SerializeField] private Toggle fullscreen;
 
     public Text musicValue;
     public Slider musicSlider;
@@ -37,12 +37,9 @@ public class MainMenuScript : MonoBehaviour
     
     private void Start()
     {
-        _resolutionSelector = FindObjectOfType<Dropdown>();
-        _fullscreen = FindObjectOfType<Toggle>();
-        
         _resolutions = Screen.resolutions.ToList();
         
-        _resolutionSelector.AddOptions(
+        resolutionSelector.AddOptions(
             _resolutions
                 .Select(res => res.width + " x " + res.height)
                 .ToList());
@@ -53,7 +50,7 @@ public class MainMenuScript : MonoBehaviour
             refreshRate = _resolutions[0].refreshRate
         };
         Debug.Log(curRes.ToString());
-        _resolutionSelector.value = _resolutions.IndexOf(curRes);
+        resolutionSelector.value = _resolutions.IndexOf(curRes);
         
         // You may ask, why I don't use Screen.currentResolution?
         // Because it's stupid.
@@ -61,7 +58,7 @@ public class MainMenuScript : MonoBehaviour
         // And also, I don't know why but Unity has a big problem with multi-monitor setup with different refresh rates
         // So, don't change this to Screen.currentResolution, or the game will set the lowest resolution possible.
         
-        _fullscreen.isOn = Screen.fullScreenMode == FullScreenMode.FullScreenWindow;
+        fullscreen.isOn = Screen.fullScreenMode == FullScreenMode.FullScreenWindow;
 
         Faction = PlayerFaction.None;
         //UnitsStatistics.StatsModifier = _difficultyStatsModificators[1];
@@ -122,11 +119,11 @@ public class MainMenuScript : MonoBehaviour
 
     public void ChangeResolution()
     {
-        var chosenResolution = _resolutions[_resolutionSelector.value];
+        var chosenResolution = _resolutions[resolutionSelector.value];
         Screen.SetResolution(
             chosenResolution.width,
             chosenResolution.height,
-            _fullscreen.isOn ? FullScreenMode.FullScreenWindow : FullScreenMode.Windowed);
+            fullscreen.isOn ? FullScreenMode.FullScreenWindow : FullScreenMode.Windowed);
     }
 
     public void ExitFunction()
