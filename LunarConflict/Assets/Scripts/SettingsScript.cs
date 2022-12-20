@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class SettingsScript : MonoBehaviour
@@ -9,14 +10,11 @@ public class SettingsScript : MonoBehaviour
         USSR = 2
     }
     
+    public static List<Resolution> Resolutions;
+    
     //UI Changers
     public static string UIMoneyMark = "$";
 
     //Gameplay Changers
     public static PlayerFaction Faction;
-
-    //Game Settings
-    public static float Music = 0.5f;
-    public static float Effects = 0.5f;
-
 }
