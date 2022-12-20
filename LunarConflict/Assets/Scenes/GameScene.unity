@@ -8425,7 +8425,6 @@ GameObject:
   - component: {fileID: 1768758987}
   - component: {fileID: 1768758989}
   - component: {fileID: 1768758988}
-  - component: {fileID: 1768758990}
   m_Layer: 0
   m_Name: GameLogic
   m_TagString: Untagged
@@ -8481,19 +8480,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   game: {fileID: 0}
---- !u!114 &1768758990
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1768758986}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa562436f32a92e0c892f64f45e9fdf2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  test: {fileID: 874816796583786693, guid: 06753682be52dba80a8822d2c043999c, type: 3}
 --- !u!1 &1781142502
 GameObject:
   m_ObjectHideFlags: 0

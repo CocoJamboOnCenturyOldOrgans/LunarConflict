@@ -1,6 +1,8 @@
 using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
+using static GameRoundData;
+using UnityEngine.Serialization;
 
 public class GenericUnitScript : MonoBehaviour, IHittable
 {
@@ -43,11 +45,7 @@ public class GenericUnitScript : MonoBehaviour, IHittable
         _animator.SetBool("play", CanWalk());
         _animator.SetBool("dying", Health <= 0);
     }
-
-    protected virtual void FixedUpdate()
-    {
-    }
-
+    
     private bool CanAttack()
     {
         var pos = new Vector3(transform.position.x + raycastOffset.x, transform.position.y + raycastOffset.y, transform.position.z);
@@ -81,5 +79,11 @@ public class GenericUnitScript : MonoBehaviour, IHittable
     
     public virtual void OnHit(int damage) => Health -= damage;
     
-    public virtual void OnDeath() => Destroy(gameObject);
+    public virtual void OnDeath()
+    {
+        if (russian)
+            kills++;
+        Destroy(gameObject);
+    }
+
 }

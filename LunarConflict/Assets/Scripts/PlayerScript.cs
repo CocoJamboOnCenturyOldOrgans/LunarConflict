@@ -1,5 +1,7 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
+using static GameRoundData;
 
 public class PlayerScript : MonoBehaviour
 {
@@ -22,6 +24,7 @@ public class PlayerScript : MonoBehaviour
     void Start()
     {
         StartCoroutine(RaiseBudget());
+        StartCoroutine(CountTime());
         _base = GameObject.Find("PlayerBase");
         _uiScript = FindObjectOfType<GameUIScript>();
         
@@ -43,6 +46,15 @@ public class PlayerScript : MonoBehaviour
         }
     }
 
+    private IEnumerator CountTime()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(1f);
+            time += 1;
+        }
+    }
+
     public void BuyAstronaut() => BuyUnit(unitAstronaut, unitAstronautAudioClip, 50);
 
     public void BuyRover() => BuyUnit(unitRover, unitRoverAudioClip, 100);
@@ -58,6 +70,7 @@ public class PlayerScript : MonoBehaviour
             _uiScript.UpdateMoney(money);
             _sfxAudioSource.clip = unitClip;
             _sfxAudioSource.Play();
+            unitsSpawned++;
         }
     }
 }

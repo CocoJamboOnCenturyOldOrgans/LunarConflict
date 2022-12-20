@@ -1,8 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using static GameRoundData;
+using static SettingsScript;
 
 public class VictoryScreenDataScript : MonoBehaviour
 {
@@ -26,46 +26,55 @@ public class VictoryScreenDataScript : MonoBehaviour
     public Sprite SovietAstronaut;
     public Sprite USAFlag;
     public Sprite SovietFlag;
+    
+    private Sprite AstronautSprite;
+    private Sprite FlagSprite;
 
     // Start is called before the first frame update
     void Start()
     {
-        TimeAmount.text = "99:99";
-        RemainingHPAmount.text = "500" + " HP";
-        KilledEnemiesAmount.text = "99999";
-        CreatedEntitiesAmount.text = "1";
-}
+        if (playerWon)
+        {
+            ResultText.text = "VICTORY!";
+            VictorySideText.text = Faction == PlayerFaction.USSR ? "SOVIETS Wins!" : "USA Wins!";
+            AstronautSprite = Faction == PlayerFaction.USSR ? SovietAstronaut : USAAstronaut;
+            FlagSprite = Faction == PlayerFaction.USSR ? SovietFlag : USAFlag;
+        }
+        else
+        {
+            ResultText.text = "DEFEAT!";
+            VictorySideText.text = Faction == PlayerFaction.USSR ? "USA Wins!" : "SOVIETS Wins!";
+            AstronautSprite = Faction == PlayerFaction.USSR ? USAAstronaut : SovietAstronaut;
+            FlagSprite = Faction == PlayerFaction.USSR ? USAFlag : SovietFlag;
+        }
+
+        ChangeGraphics();
+
+        //I don't have an idea how to make it better, in situation when seconds/minutes are lower than 10 xd
+        TimeAmount.text = (time / 60 < 10) ? "0" : "";
+        TimeAmount.text += (time / 60).ToString() + ":";
+        TimeAmount.text += (time % 60 < 10) ? "0" : "";
+        TimeAmount.text += (time % 60).ToString();
+
+        RemainingHPAmount.text = leftBaseHP.ToString();
+        KilledEnemiesAmount.text = kills.ToString();
+        CreatedEntitiesAmount.text = unitsSpawned.ToString();
+    }
 
     public void BackToMenu()
     {
-        SceneManager.LoadSceneAsync("MainMenu");
+        SceneManager.LoadSceneAsync(0);
     }
 
-    public void SovietWin()
+    public void ChangeGraphics()
     {
-        ResultText.text = "LOSE!";
-        VictorySideText.text = "SOVIETS Wins!";
-        Left1.sprite = SovietAstronaut;
-        Left2.sprite = SovietAstronaut;
-        Left3.sprite = SovietAstronaut;
-        Right1.sprite = SovietAstronaut;
-        Right2.sprite = SovietAstronaut;
-        Right3.sprite = SovietAstronaut;
-        Flag1.sprite = SovietFlag;
-        Flag2.sprite = SovietFlag;
-}
-
-    public void USAWin()
-    {
-        ResultText.text = "VICTORY!";
-        VictorySideText.text = "USA Wins!";
-        Left1.sprite = USAAstronaut;
-        Left2.sprite = USAAstronaut;
-        Left3.sprite = USAAstronaut;
-        Right1.sprite = USAAstronaut;
-        Right2.sprite = USAAstronaut;
-        Right3.sprite = USAAstronaut;
-        Flag1.sprite = USAFlag;
-        Flag2.sprite = USAFlag;
+        Left1.sprite = AstronautSprite;
+        Left2.sprite = AstronautSprite;
+        Left3.sprite = AstronautSprite;
+        Right1.sprite = AstronautSprite;
+        Right2.sprite = AstronautSprite;
+        Right3.sprite = AstronautSprite;
+        Flag1.sprite = FlagSprite;
+        Flag2.sprite = FlagSprite;
     }
 }

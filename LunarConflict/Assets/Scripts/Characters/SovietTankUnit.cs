@@ -18,10 +18,8 @@ public class SovietTankUnit : GenericUnitScript
         _col = GetComponent<BoxCollider2D>();
     }
 
-    protected override void FixedUpdate()
+    protected void FixedUpdate()
     {
-        base.FixedUpdate();
-
         if (_destroyed)
             transform.Translate(-Vector3.right * (speed * retreatSpeed * Time.deltaTime));
     }
