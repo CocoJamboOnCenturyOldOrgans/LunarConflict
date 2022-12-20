@@ -1,5 +1,6 @@
 using UnityEngine;
 using static GameRoundData;
+using static SettingsScript;
 using UnityEngine.SceneManagement;
 
 public class GenericBaseScript : MonoBehaviour, IHittable
@@ -7,10 +8,9 @@ public class GenericBaseScript : MonoBehaviour, IHittable
     public int Health { get; set; }
     
     [SerializeField] private int maxHealth;
-    [SerializeField] protected bool russian;
+    [SerializeField] private bool russian;
 
     private GameUIScript _UI;
-    private GameRoundData _roundData;
 
     private void Start()
     {
@@ -46,7 +46,7 @@ public class GenericBaseScript : MonoBehaviour, IHittable
     {
         Destroy(gameObject);
         Time.timeScale = 0;
-        playerWon = russian ? true : false;
+        playerWon = ((russian ? true : false) == (Faction == PlayerFaction.USSR ? true : false)) ? false : true;
         SceneManager.LoadSceneAsync(2);
     }
 }

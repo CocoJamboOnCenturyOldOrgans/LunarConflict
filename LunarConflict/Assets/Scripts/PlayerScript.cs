@@ -22,6 +22,7 @@ public class PlayerScript : MonoBehaviour
     void Start()
     {
         StartCoroutine(RaiseBudget());
+        StartCoroutine(CountTime());
         _base = GameObject.Find("PlayerBase");
         _uiScript = FindObjectOfType<GameUIScript>();
         
@@ -40,6 +41,15 @@ public class PlayerScript : MonoBehaviour
             yield return new WaitForSeconds(1f);
             money += 10;
             _uiScript.UpdateMoney(money);
+        }
+    }
+
+    private IEnumerator CountTime()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(1f);
+            time += 1;
         }
     }
 
