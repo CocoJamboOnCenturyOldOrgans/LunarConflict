@@ -75,3 +75,4 @@ LunarConflict/[Aa]ssets/[Aa]ddressable[Aa]ssets[Dd]ata/*/*.bin*
 # Temporary auto-generated Android Assets
 LunarConflict/[Aa]ssets/[Ss]treamingAssets/aa.meta
 LunarConflict/[Aa]ssets/[Ss]treamingAssets/aa/*
+LunarConflict/ProjectSettings/BurstAotSettings_StandaloneWindows.json
