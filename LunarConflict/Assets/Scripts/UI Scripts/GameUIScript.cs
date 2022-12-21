@@ -7,6 +7,7 @@ using static SettingsScript;
 public class GameUIScript : MonoBehaviour
 {
     [SerializeField] private GameObject settingsPanel;
+    [SerializeField] private GameObject upgradePanel;
 
     public BottomPanelObjectScript bottomPanel;
 
@@ -64,6 +65,12 @@ public class GameUIScript : MonoBehaviour
         Time.timeScale = 0f;
     }
 
+    public void ShowUpgrade()
+    {
+        upgradePanel.SetActive(true);
+        Time.timeScale = 0f;
+    }
+
     public void OnBaseHealthChanged() => baseHealthValue.text = baseHealthSlider.value.ToString();
 
     public void UpdateMoney(int money)
@@ -96,6 +103,12 @@ public class GameUIScript : MonoBehaviour
     public void CloseSettings()
     {
         settingsPanel.SetActive(false);
+        Time.timeScale = 1f;
+    }
+
+    public void CloseUpgrade()
+    {
+        upgradePanel.SetActive(false);
         Time.timeScale = 1f;
     }
 
