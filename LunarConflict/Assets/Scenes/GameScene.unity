@@ -2136,7 +2136,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &447251512
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8752,9 +8752,9 @@ MonoBehaviour:
   unitPriceText: {fileID: 1325666999}
   unitUsa: {fileID: 874816796583786691, guid: 06753682be52dba80a8822d2c043999c, type: 3}
   unitRussian: {fileID: 3813118679460145041, guid: 6f8cde85287a185889a7dba0ef72bd92, type: 3}
-  UnitIconBuyableUsa: {fileID: 21300000, guid: 529fb4cb1d48ad048805f41999697383, type: 3}
+  UnitIconBuyableUsa: {fileID: 21300000, guid: 366e820d6cc29a94fa906e72041a8fa1, type: 3}
   UnitIconNonBuyableUsa: {fileID: 21300000, guid: 73719798bfc2c064bbbccbef7c4d78b4, type: 3}
-  UnitIconBuyableRussian: {fileID: 21300000, guid: 8d4d0a77e58e9a64aa80f17dd8c2fdc0, type: 3}
+  UnitIconBuyableRussian: {fileID: 21300000, guid: 262ec44589f8f80448e834504b8df25c, type: 3}
   UnitIconNonBuyableRussian: {fileID: 21300000, guid: 85bf730a95f773f46b35817b545133b0, type: 3}
 --- !u!114 &1393833083
 MonoBehaviour:
@@ -9247,7 +9247,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1499606887
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10057,9 +10057,9 @@ MonoBehaviour:
   unitPriceText: {fileID: 828533169}
   unitUsa: {fileID: 7779528170484288204, guid: e68a40a4b389e2843b5634bd44eef477, type: 3}
   unitRussian: {fileID: -6819897368678102410, guid: b5b438097d2899d44b99f26c772e4d1f, type: 3}
-  UnitIconBuyableUsa: {fileID: 21300000, guid: 6332d83653555324bb622cf3aad6ef89, type: 3}
+  UnitIconBuyableUsa: {fileID: 21300000, guid: c6c5ff291dfa0214aade2492d168737f, type: 3}
   UnitIconNonBuyableUsa: {fileID: 21300000, guid: 45e64b7a93ea63d4db9b8f89877ba3f4, type: 3}
-  UnitIconBuyableRussian: {fileID: 21300000, guid: 880b6af5b470e56469347f61ddb2e75e, type: 3}
+  UnitIconBuyableRussian: {fileID: 21300000, guid: 8bc8fa97be9cc164090b66550743ac17, type: 3}
   UnitIconNonBuyableRussian: {fileID: 21300000, guid: dd71e52e6a5da5447a176ea65d1c6071, type: 3}
 --- !u!114 &1546474925
 MonoBehaviour:
@@ -11709,7 +11709,7 @@ MonoBehaviour:
   unitTank: {fileID: 9066584126370463406, guid: c9e5cbec964134b41aa0798e2fb19c3d, type: 3}
   unitTankAudioClip: {fileID: 8300000, guid: 4323e3dbb8a84f742bde6286c579a168, type: 3}
   spawner: {fileID: 811172846}
-  money: 200000
+  money: 2000
 --- !u!114 &1768758989
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12115,10 +12115,10 @@ MonoBehaviour:
   unitPriceText: {fileID: 868760745}
   unitUsa: {fileID: -4297757029457396065, guid: c9e5cbec964134b41aa0798e2fb19c3d, type: 3}
   unitRussian: {fileID: 6450322033091494286, guid: 6cb5d125f9d7de142830244a756ae620, type: 3}
-  UnitIconBuyableUsa: {fileID: 21300000, guid: d49631d36eff6524a8196e5e8751747d, type: 3}
-  UnitIconNonBuyableUsa: {fileID: 21300000, guid: be72fae815d5f344e91190798c196ba7, type: 3}
-  UnitIconBuyableRussian: {fileID: 21300000, guid: d49631d36eff6524a8196e5e8751747d, type: 3}
-  UnitIconNonBuyableRussian: {fileID: 21300000, guid: be72fae815d5f344e91190798c196ba7, type: 3}
+  UnitIconBuyableUsa: {fileID: 21300000, guid: ccc9fc228dd5e6548819c0b16af86db1, type: 3}
+  UnitIconNonBuyableUsa: {fileID: 21300000, guid: 4b49d9bbe3a9b3544a2a6cf5944d8022, type: 3}
+  UnitIconBuyableRussian: {fileID: 21300000, guid: 883950e4a39d8e649944bc69f2678459, type: 3}
+  UnitIconNonBuyableRussian: {fileID: 21300000, guid: 095f698e0a711ae499d3e64cba6ec794, type: 3}
 --- !u!114 &1793769822
 MonoBehaviour:
   m_ObjectHideFlags: 0
