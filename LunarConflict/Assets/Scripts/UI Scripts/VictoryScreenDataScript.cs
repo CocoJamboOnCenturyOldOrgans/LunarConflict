@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
@@ -29,6 +30,17 @@ public class VictoryScreenDataScript : MonoBehaviour
     
     private Sprite AstronautSprite;
     private Sprite FlagSprite;
+
+    [Header("Audio")] 
+    [SerializeField] private AudioClip victoryTheme;
+    [SerializeField] private AudioClip defeatTheme;
+
+    private void Awake()
+    {
+        var audioSource = FindObjectOfType<AudioSource>();
+        audioSource.clip = playerWon ? victoryTheme : defeatTheme;
+        audioSource.Play();
+    }
 
     // Start is called before the first frame update
     void Start()
