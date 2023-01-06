@@ -41,20 +41,25 @@ public class GameUIScript : MonoBehaviour
         effectsValue.text = Mathf.RoundToInt(effectsSlider.value * 100) + "%";
         
         bottomPanel = GetComponent<BottomPanelObjectScript>();
-        
-        resolutionSelector.AddOptions(
-            Resolutions
-                .Select(res => res.width + " x " + res.height)
-                .ToList());
-        var curRes = new Resolution
+
+        // This is a safety mechanism to not throw ArgumentNullException
+        // during testing inside Unity Editor
+        if (!Application.isEditor)
         {
-            width = Screen.width,
-            height = Screen.height,
-            refreshRate = Resolutions[0].refreshRate
-        };
-        resolutionSelector.value = Resolutions.IndexOf(curRes);
-        
-        fullscreen.isOn = Screen.fullScreenMode == FullScreenMode.FullScreenWindow;
+            resolutionSelector.AddOptions(
+                Resolutions
+                    .Select(res => res.width + " x " + res.height)
+                    .ToList());
+            var curRes = new Resolution
+            {
+                width = Screen.width,
+                height = Screen.height,
+                refreshRate = Resolutions[0].refreshRate
+            };
+            resolutionSelector.value = Resolutions.IndexOf(curRes);
+
+            fullscreen.isOn = Screen.fullScreenMode == FullScreenMode.FullScreenWindow;
+        }
 
         // SET TIME SCALE TO NORMAL ON EACH SCENE CHANGE
         SceneManager.activeSceneChanged += (scene1, scene2) => Time.timeScale = 1.0f;;
