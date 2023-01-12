@@ -109,7 +109,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 96
+        y: 144
         width: 64
         height: 48
       alignment: 0
@@ -130,7 +130,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 64
-        y: 96
+        y: 144
         width: 64
         height: 48
       alignment: 0
@@ -151,7 +151,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 128
-        y: 96
+        y: 144
         width: 64
         height: 48
       alignment: 0
@@ -172,7 +172,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 192
-        y: 96
+        y: 144
         width: 64
         height: 48
       alignment: 0
@@ -193,7 +193,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 48
+        y: 96
         width: 64
         height: 48
       alignment: 0
@@ -214,7 +214,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 64
-        y: 48
+        y: 96
         width: 64
         height: 48
       alignment: 0
@@ -235,7 +235,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 128
-        y: 48
+        y: 96
         width: 64
         height: 48
       alignment: 0
@@ -256,7 +256,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 192
-        y: 48
+        y: 96
         width: 64
         height: 48
       alignment: 0
@@ -377,6 +377,90 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: lunar_rover_usa_antiair_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 48
+        width: 64
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a985139356ea6b49afbcf0b56f7eaa9
+      internalID: 1613792840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lunar_rover_usa_antiair_1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 48
+        width: 64
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da18733910632e34e8842790ff0e9f85
+      internalID: 1377856529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lunar_rover_usa_antiair_2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 48
+        width: 64
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d065e053748911478337b90eae80b43
+      internalID: 1398301323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lunar_rover_usa_antiair_3
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 48
+        width: 64
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b57086deda5da842af58c24ce70e352
+      internalID: -1136147513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -388,19 +472,23 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      lunar_rover_usa_dying_2: 910312280
-      lunar_rover_usa_dying_3: -473083247
-      lunar_rover_usa_dying_0: 1696311288
-      lunar_rover_usa_driving_2: -832782722
-      lunar_rover_usa_shooting_0: 1967683166
-      lunar_rover_usa_shooting_3: 1301373253
-      lunar_rover_usa_shooting_2: 1690217188
-      lunar_rover_usa_dying_4: 1932058714
-      lunar_rover_usa_shooting_1: 300038395
-      lunar_rover_usa_dying_1: 952643450
-      lunar_rover_usa_driving_0: -991173468
-      lunar_rover_usa_driving_1: 203656293
-      lunar_rover_usa_driving_3: -132290446
+      lunar_rover_usa_driving_3: 1130931391
+      lunar_rover_usa_dying_2: -2080174729
+      lunar_rover_usa_dying_3: 1069635112
+      lunar_rover_usa_dying_0: 1272767318
+      lunar_rover_usa_driving_2: 3188361
+      lunar_rover_usa_shooting_0: -415690349
+      lunar_rover_usa_shooting_3: 1484482907
+      lunar_rover_usa_shooting_2: -541811308
+      lunar_rover_usa_dying_4: 1806821633
+      lunar_rover_usa_shooting_1: 574666095
+      lunar_rover_usa_antiair_2: 1377856529
+      lunar_rover_usa_dying_1: -1151558695
+      lunar_rover_usa_antiair_1: 1613792840
+      lunar_rover_usa_antiair_0: 1613792840
+      lunar_rover_usa_driving_0: -96012638
+      lunar_rover_usa_driving_1: 5017746
+      lunar_rover_usa_antiair_3: 1398301323
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
