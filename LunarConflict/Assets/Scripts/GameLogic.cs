@@ -3,7 +3,6 @@ using static SettingsScript;
 
 public class GameLogic : MonoBehaviour
 {
-    public GameObject game;
     private GameUIScript _uiScript;
 
     void Awake()

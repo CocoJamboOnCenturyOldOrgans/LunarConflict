@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
@@ -17,6 +18,7 @@ public class PlayerScript : MonoBehaviour
     
     private GameObject _base;
     private GameUIScript _uiScript;
+    private UnitUpgradeScript _unitUpgradeScript;
 
     private AudioSource _backgroundMusic;
     private AudioSource _sfxAudioSource;
@@ -27,7 +29,8 @@ public class PlayerScript : MonoBehaviour
         StartCoroutine(CountTime());
         _base = GameObject.Find("PlayerBase");
         _uiScript = FindObjectOfType<GameUIScript>();
-        
+        _unitUpgradeScript = GetComponent<UnitUpgradeScript>();
+
         _backgroundMusic = GameObject.Find("BackgroundMusic").GetComponent<AudioSource>();
         _backgroundMusic.volume = PlayerPrefs.GetFloat("MusicVolume", 0.5f);
         _sfxAudioSource = GameObject.Find("SFX").GetComponent<AudioSource>();
@@ -63,14 +66,39 @@ public class PlayerScript : MonoBehaviour
 
     private void BuyUnit(GameObject unit, AudioClip unitClip, int cost)
     {
+        UpgradeValues upgradeValues = AssignUpgradeValues(unit);
         if (money >= cost)
         {
-            Instantiate(unit, spawner.transform.position, spawner.transform.rotation);
+            var unitSpawned = Instantiate(unit, spawner.transform.position, spawner.transform.rotation);
+            var unitScript = unitSpawned.GetComponent<GenericUnitScript>();
+            unitScript.maxHealth = (int)(unitScript.maxHealth * upgradeValues.healthModifier);
+            unitScript.attack *= upgradeValues.damageModifier;
+            unitScript.fireRate *= upgradeValues.fireRateModifier;
+            unitScript.speed *= upgradeValues.speedModifier;
+            unitScript.unitCost = (int)(unitScript.unitCost * upgradeValues.unitCostModifier);
+
             money -= cost;
             _uiScript.UpdateMoney(money);
             _sfxAudioSource.clip = unitClip;
             _sfxAudioSource.Play();
             unitsSpawned++;
         }
+    }
+
+    private UpgradeValues AssignUpgradeValues(GameObject unit)
+    {
+        if (unit == unitAstronaut)
+        {
+            return _unitUpgradeScript.astronautUpgradeValues;
+        }
+        else if (unit == unitRover)
+        {
+            return _unitUpgradeScript.lunarUpgradeValues;
+        }
+        else if (unit == unitTank)
+        {
+            return _unitUpgradeScript.tankUpgradeValues;
+        }
+        else throw new Exception();
     }
 }

@@ -12037,6 +12037,7 @@ GameObject:
   - component: {fileID: 1768758987}
   - component: {fileID: 1768758989}
   - component: {fileID: 1768758988}
+  - component: {fileID: 1768758990}
   m_Layer: 0
   m_Name: GameLogic
   m_TagString: Untagged
@@ -12091,7 +12092,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f110b7d360d7c41cca071e8950152062, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  game: {fileID: 0}
+--- !u!114 &1768758990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1768758986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3218ba9dd95f0eb8abf022983b9ef22a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthModifer: 1
+  damageModifier: 1
+  fireRateModifier: 1
+  speedModifier: 1
+  unitCostModifier: 1
 --- !u!1 &1781142502
 GameObject:
   m_ObjectHideFlags: 0
