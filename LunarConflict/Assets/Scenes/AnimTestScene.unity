@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.4964127, b: 0.5748172, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -136,7 +136,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3813118679460145042, guid: 6f8cde85287a185889a7dba0ef72bd92, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3813118679460145042, guid: 6f8cde85287a185889a7dba0ef72bd92, type: 3}
       propertyPath: m_LocalScale.x
@@ -197,6 +197,10 @@ PrefabInstance:
     - target: {fileID: 3813118679460145047, guid: 6f8cde85287a185889a7dba0ef72bd92, type: 3}
       propertyPath: m_Name
       value: Soviet Astronaut
+      objectReference: {fileID: 0}
+    - target: {fileID: 3813118679460145047, guid: 6f8cde85287a185889a7dba0ef72bd92, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6f8cde85287a185889a7dba0ef72bd92, type: 3}
@@ -330,7 +334,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &996602200
 MonoBehaviour:
@@ -471,7 +475,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1822674151
 GameObject:
@@ -570,6 +574,67 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1994087744
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3117304933143873120, guid: 09a804aa0a8569b4cbfe7d2e2ee383b1, type: 3}
+      propertyPath: m_Name
+      value: USA Spaceship
+      objectReference: {fileID: 0}
+    - target: {fileID: 3117304933143873120, guid: 09a804aa0a8569b4cbfe7d2e2ee383b1, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3117304933143873130, guid: 09a804aa0a8569b4cbfe7d2e2ee383b1, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3117304933143873130, guid: 09a804aa0a8569b4cbfe7d2e2ee383b1, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -12
+      objectReference: {fileID: 0}
+    - target: {fileID: 3117304933143873130, guid: 09a804aa0a8569b4cbfe7d2e2ee383b1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3117304933143873130, guid: 09a804aa0a8569b4cbfe7d2e2ee383b1, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3117304933143873130, guid: 09a804aa0a8569b4cbfe7d2e2ee383b1, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3117304933143873130, guid: 09a804aa0a8569b4cbfe7d2e2ee383b1, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3117304933143873130, guid: 09a804aa0a8569b4cbfe7d2e2ee383b1, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3117304933143873130, guid: 09a804aa0a8569b4cbfe7d2e2ee383b1, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3117304933143873130, guid: 09a804aa0a8569b4cbfe7d2e2ee383b1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3117304933143873130, guid: 09a804aa0a8569b4cbfe7d2e2ee383b1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3117304933143873130, guid: 09a804aa0a8569b4cbfe7d2e2ee383b1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 09a804aa0a8569b4cbfe7d2e2ee383b1, type: 3}
 --- !u!1 &2111427040
 GameObject:
   m_ObjectHideFlags: 0
@@ -735,6 +800,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: USA Astronaut
       objectReference: {fileID: 0}
+    - target: {fileID: 874816796583786693, guid: 06753682be52dba80a8822d2c043999c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 06753682be52dba80a8822d2c043999c, type: 3}
 --- !u!1001 &2493157732104248759
@@ -746,7 +815,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2493157731893102764, guid: 3dd0a72c93bb03f40ae134b8dca05393, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 2493157731893102764, guid: 3dd0a72c93bb03f40ae134b8dca05393, type: 3}
       propertyPath: m_LocalPosition.x
@@ -803,7 +872,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3602593214299105616, guid: 45623aaf542f182419bbf642e8cb356a, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3602593214299105616, guid: 45623aaf542f182419bbf642e8cb356a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -851,6 +920,63 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 45623aaf542f182419bbf642e8cb356a, type: 3}
+--- !u!1001 &3661026912791060699
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8521576343617216912, guid: 177433a50d4fbc04f8939f86e4692487, type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8521576343617216912, guid: 177433a50d4fbc04f8939f86e4692487, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 8521576343617216912, guid: 177433a50d4fbc04f8939f86e4692487, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8521576343617216912, guid: 177433a50d4fbc04f8939f86e4692487, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8521576343617216912, guid: 177433a50d4fbc04f8939f86e4692487, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8521576343617216912, guid: 177433a50d4fbc04f8939f86e4692487, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8521576343617216912, guid: 177433a50d4fbc04f8939f86e4692487, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8521576343617216912, guid: 177433a50d4fbc04f8939f86e4692487, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8521576343617216912, guid: 177433a50d4fbc04f8939f86e4692487, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8521576343617216912, guid: 177433a50d4fbc04f8939f86e4692487, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8521576343617216912, guid: 177433a50d4fbc04f8939f86e4692487, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8521576343617216922, guid: 177433a50d4fbc04f8939f86e4692487, type: 3}
+      propertyPath: m_Name
+      value: Soviet Spaceship
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 177433a50d4fbc04f8939f86e4692487, type: 3}
 --- !u!1001 &6156361782501316902
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -861,6 +987,10 @@ PrefabInstance:
     - target: {fileID: 6156361781352966704, guid: e68a40a4b389e2843b5634bd44eef477, type: 3}
       propertyPath: m_Name
       value: USA Lunar Rover
+      objectReference: {fileID: 0}
+    - target: {fileID: 6156361781352966704, guid: e68a40a4b389e2843b5634bd44eef477, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6156361781352966714, guid: e68a40a4b389e2843b5634bd44eef477, type: 3}
       propertyPath: m_RootOrder
@@ -939,9 +1069,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: Soviet Lunar Rover
       objectReference: {fileID: 0}
+    - target: {fileID: 1622694353147758051, guid: b5b438097d2899d44b99f26c772e4d1f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1622694353147758057, guid: b5b438097d2899d44b99f26c772e4d1f, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1622694353147758057, guid: b5b438097d2899d44b99f26c772e4d1f, type: 3}
       propertyPath: m_LocalScale.x
@@ -998,7 +1132,7 @@ PrefabInstance:
     - target: {fileID: 1622694353147758061, guid: b5b438097d2899d44b99f26c772e4d1f, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: 01900cd5a0b57484bac11f5c997ed836, type: 2}
+      objectReference: {fileID: 22100000, guid: 1fcd8afacac8e6145ab3bd62b9df7e5e, type: 2}
     - target: {fileID: 1622694353147758062, guid: b5b438097d2899d44b99f26c772e4d1f, type: 3}
       propertyPath: m_Sprite
       value: 
