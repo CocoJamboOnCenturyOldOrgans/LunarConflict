@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class UpgradeScript : MonoBehaviour
 {
     //THIS IS ONLY PROTOTYPE VERSION (DON'T SHOUT ON ME PLEASE xd)
+    //13.01.2023 And this is still here as "Prototype" :-D
     [SerializeField] private Image UpgradeA1;
     [SerializeField] private Button ButtonA1;
 
@@ -65,6 +66,7 @@ public class UpgradeScript : MonoBehaviour
     public Sprite Available;
     public Sprite Bought;
 
+    [SerializeField] private UpgradeSystemScript upgradeSystemScript;
     private void Start()
     {
         UpgradeA1.sprite = Available;
@@ -112,6 +114,10 @@ public class UpgradeScript : MonoBehaviour
     {
         UpgradeA3.sprite = Bought;
         ButtonA3.enabled = false;
+        upgradeSystemScript.IncreaseUnitStatisticsMultiplier(
+            UpgradeSystemScript.UnitType.Astronaut,
+            UpgradeSystemScript.StatType.Damage,
+            0.25f);
     }
 
     public void UpgradeAstronautHP1()
@@ -120,12 +126,20 @@ public class UpgradeScript : MonoBehaviour
         UpgradeA2.sprite = Available;
         ButtonA1.enabled = false;
         ButtonA2.enabled = true;
+        upgradeSystemScript.IncreaseUnitStatisticsMultiplier(
+            UpgradeSystemScript.UnitType.Astronaut,
+            UpgradeSystemScript.StatType.Health,
+            0.25f);
     }
 
     public void UpgradeAstronautHP2()
     {
         UpgradeA2.sprite = Bought;
         ButtonA2.enabled = false;
+        upgradeSystemScript.IncreaseUnitStatisticsMultiplier(
+            UpgradeSystemScript.UnitType.Astronaut,
+            UpgradeSystemScript.StatType.Health,
+            0.25f);
     }
 
     //ROVER TREE

@@ -24,7 +24,6 @@ public class GenericUnitScript : MonoBehaviour, IHittable
     private LayerMask _mask;
     private Vector2 _movementDirection;
     private float _localScaleX;
-
     protected virtual void Start()
     {
         Health = maxHealth;
