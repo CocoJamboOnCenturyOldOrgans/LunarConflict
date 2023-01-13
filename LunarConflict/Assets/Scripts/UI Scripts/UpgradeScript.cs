@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,60 +8,10 @@ public class UpgradeScript : MonoBehaviour
 {
     //THIS IS ONLY PROTOTYPE VERSION (DON'T SHOUT ON ME PLEASE xd)
     //13.01.2023 And this is still here as "Prototype" :-D
-    [SerializeField] private Image UpgradeA1;
-    [SerializeField] private Button ButtonA1;
+    //13.01.2023 20:56:22 Not anymore "Prototype" :d
 
-    [SerializeField] private Image UpgradeA2;
-    [SerializeField] private Button ButtonA2;
-
-    [SerializeField] private Image UpgradeA3;
-    [SerializeField] private Button ButtonA3;
-
-
-    [SerializeField] private Image UpgradeR1;
-    [SerializeField] private Button ButtonR1;
-
-    [SerializeField] private Image UpgradeR2;
-    [SerializeField] private Button ButtonR2;
-
-    [SerializeField] private Image UpgradeR3;
-    [SerializeField] private Button ButtonR3;
-
-    [SerializeField] private Image UpgradeR4;
-    [SerializeField] private Button ButtonR4;
-
-    [SerializeField] private Image UpgradeR5;
-    [SerializeField] private Button ButtonR5;
-
-    [SerializeField] private Image UpgradeR6;
-    [SerializeField] private Button ButtonR6;
-
-    [SerializeField] private Image UpgradeT1;
-    [SerializeField] private Button ButtonT1;
-
-    [SerializeField] private Image UpgradeT2;
-    [SerializeField] private Button ButtonT2;
-
-    [SerializeField] private Image UpgradeTo1;
-    [SerializeField] private Button ButtonTo1;
-
-    [SerializeField] private Image UpgradeTo2;
-    [SerializeField] private Button ButtonTo2;
-
-    [SerializeField] private Image UpgradeTo3;
-    [SerializeField] private Button ButtonTo3;
-
-    [SerializeField] private Image UpgradeTo4;
-    [SerializeField] private Button ButtonTo4;
-
-    [SerializeField] private Image UpgradeTo5;
-    [SerializeField] private Button ButtonTo5;
-
-    [SerializeField] private Image UpgradeB1;
-    [SerializeField] private Button ButtonB1;
-
-    [SerializeField] private Image UpgradeB2;
-    [SerializeField] private Button ButtonB2;
+    [SerializeField] private Button[] Buttons = new Button[18];
+    [SerializeField] private Image[] Images = new Image[18];
 
     public Sprite Locked;
     public Sprite Available;
@@ -69,203 +20,143 @@ public class UpgradeScript : MonoBehaviour
     [SerializeField] private UpgradeSystemScript upgradeSystemScript;
     private void Start()
     {
-        UpgradeA1.sprite = Available;
-        UpgradeA2.sprite = Locked;
-        UpgradeA3.sprite = Available;
-        UpgradeR1.sprite = Available;
-        UpgradeR2.sprite = Locked;
-        UpgradeR3.sprite = Available;
-        UpgradeR4.sprite = Locked;
-        UpgradeR5.sprite = Available;
-        UpgradeR6.sprite = Locked;
-        UpgradeT1.sprite = Available;
-        UpgradeT2.sprite = Locked;
-        UpgradeTo1.sprite = Available;
-        UpgradeTo2.sprite = Locked;
-        UpgradeTo3.sprite = Available;
-        UpgradeTo4.sprite = Locked;
-        UpgradeTo5.sprite = Locked;
-        UpgradeB1.sprite = Available;
-        UpgradeB2.sprite = Available;
-
-        ButtonA1.enabled = true;
-        ButtonA2.enabled = false;
-        ButtonA3.enabled = true;
-        ButtonR1.enabled = true;
-        ButtonR2.enabled = false;
-        ButtonR3.enabled = true;
-        ButtonR4.enabled = false;
-        ButtonR5.enabled = true;
-        ButtonR6.enabled = false;
-        ButtonT1.enabled = true;
-        ButtonT2.enabled = false;
-        ButtonTo1.enabled = true;
-        ButtonTo2.enabled = false;
-        ButtonTo3.enabled = true;
-        ButtonTo4.enabled = false;
-        ButtonTo5.enabled = false;
-        ButtonB1.enabled = true;
-        ButtonB2.enabled = true;
+        for(int i = 0; i < 9; i++)
+        {
+            Buttons[i].enabled = true;
+            Images[i].sprite = Available;
+        }
+        for (int i = 9; i < 18; i++)
+        {
+            Buttons[i].enabled = i != 16 ? false : true;
+            Images[i].sprite = i != 16 ? Locked : Available;
+        }
     }
 
-    //ASTRONAUT TREE
+    //ASTRONAUT, ROVER, TANK AND SHIP TREE FUNCTIONS
     //##############################################################################
-    public void UpgradeAstronautAttack()
+    public void UpgradeUnit(GameObject pressedButton)
     {
-        UpgradeA3.sprite = Bought;
-        ButtonA3.enabled = false;
-        upgradeSystemScript.IncreaseUnitStatisticsMultiplier(
-            UpgradeSystemScript.UnitType.Astronaut,
-            UpgradeSystemScript.StatType.Damage,
-            0.25f);
+        Button ButtonComp = pressedButton.GetComponent<Button>();
+        Image ImgComp = pressedButton.GetComponent<Image>();
+
+        string entity = pressedButton.name.Substring(0, 5);
+        string upgrade = pressedButton.name.Substring(5, 6);
+        int modifier = 0;
+        Int32.TryParse(pressedButton.name.Substring(11, 1), out modifier);
+        float upgValue = 0;
+
+        UpgradeSystemScript.UnitType entityType = UpgradeSystemScript.UnitType.None;
+        UpgradeSystemScript.StatType upgradeType = UpgradeSystemScript.StatType.None;
+
+        //Choosing correct Entity from Enum list
+        entityType = entity == "Astro" ? UpgradeSystemScript.UnitType.Astronaut : entityType;
+        entityType = entity == "Rover" ? UpgradeSystemScript.UnitType.LunarRover : entityType;
+        entityType = entity == "Tank_" ? UpgradeSystemScript.UnitType.Tank : entityType;
+        //entityType = entity == "Ship_" ? UpgradeSystemScript.UnitType.Spaceship : entityType;
+
+        //Choosing correct Upgrade from Enum list
+        upgradeType = upgrade == "Life__" ? UpgradeSystemScript.StatType.Health : upgradeType;
+        upgradeType = upgrade == "Attack" ? UpgradeSystemScript.StatType.Damage : upgradeType;
+        upgradeType = upgrade == "Speed_" ? UpgradeSystemScript.StatType.Speed : upgradeType;
+
+        //Choosing correct value used for upgrade
+        upgValue = upgrade == "Life__" ? 25 : upgValue;
+        upgValue = upgrade == "Attack" ? 10 : upgValue;
+        upgValue = upgrade == "Speed_" ? 5 : upgValue;
+
+        ButtonComp.enabled = false;
+        ImgComp.sprite = Bought;
+        upgradeSystemScript.IncreaseUnitStatisticsMultiplier(entityType, upgradeType, modifier * upgValue);
+        LockAndLoadUnitTree(pressedButton);
     }
 
-    public void UpgradeAstronautHP1()
+    public void LockAndLoadUnitTree(GameObject changer)
     {
-        UpgradeA1.sprite = Bought;
-        UpgradeA2.sprite = Available;
-        ButtonA1.enabled = false;
-        ButtonA2.enabled = true;
-        upgradeSystemScript.IncreaseUnitStatisticsMultiplier(
-            UpgradeSystemScript.UnitType.Astronaut,
-            UpgradeSystemScript.StatType.Health,
-            0.25f);
+        ///Astronauts Tree
+        //Second HP
+        Buttons[9].enabled = changer.name == "AstroLife__1" ? true : false;
+        Images[9].sprite = changer.name == "AstroLife__1" ? Available : Images[9].sprite;
+
+        ///Rover Tree
+        //Second Speed
+        Buttons[10].enabled = changer.name == "RoverSpeed_1" ? true : false;
+        Images[10].sprite = changer.name == "RoverSpeed_1" ? Available : Images[10].sprite;
+        //Second HP
+        Buttons[11].enabled = changer.name == "RoverLife__2" ? true : false;
+        Images[11].sprite = changer.name == "RoverLife__2" ? Available : Images[11].sprite;
+        //Second Attack
+        Buttons[12].enabled = changer.name == "RoverAttack1" ? true : false;
+        Images[12].sprite = changer.name == "RoverAttack1" ? Available : Images[12].sprite;
+
+        ///Tank Tree
+        //Second HP
+        Buttons[13].enabled = changer.name == "Tank_Life__3" ? true : false;
+        Images[13].sprite = changer.name == "Tank_Life__3" ? Available : Images[13].sprite;
     }
 
-    public void UpgradeAstronautHP2()
-    {
-        UpgradeA2.sprite = Bought;
-        ButtonA2.enabled = false;
-        upgradeSystemScript.IncreaseUnitStatisticsMultiplier(
-            UpgradeSystemScript.UnitType.Astronaut,
-            UpgradeSystemScript.StatType.Health,
-            0.25f);
-    }
-
-    //ROVER TREE
+    //TOWERS TREE FUNCTIONS
     //##############################################################################
-    public void UpgradeRoverSpeed1()
+    public void BuildTowers(GameObject pressedButton)
     {
-        UpgradeR1.sprite = Bought;
-        UpgradeR2.sprite = Available;
-        ButtonR1.enabled = false;
-        ButtonR2.enabled = true;
+        Button ButtonComp = pressedButton.GetComponent<Button>();
+        Image ImgComp = pressedButton.GetComponent<Image>();
+
+        string defenceType = pressedButton.name.Substring(5, 5);
+
+        UpgradeSystemScript.TowerType towerType = UpgradeSystemScript.TowerType.None;
+
+        //Choosing correct Tower from Enum list
+        towerType = defenceType == "Light" ? UpgradeSystemScript.TowerType.Light : towerType;
+        towerType = defenceType == "Heavy" ? UpgradeSystemScript.TowerType.Heavy : towerType;
+        towerType = defenceType == "Oblit" ? UpgradeSystemScript.TowerType.Obliterate : towerType;
+
+        ButtonComp.enabled = false;
+        ImgComp.sprite = Bought;
+        LockAndLoadTowerTree(pressedButton);
     }
 
-    public void UpgradeRoverSpeed2()
+    public void LockAndLoadTowerTree(GameObject changer)
     {
-        UpgradeR2.sprite = Bought;
-        ButtonR2.enabled = false;
+        ///Tower Tree
+        //First Level Light
+        Buttons[7].enabled = changer.name == "TowerLight1" ? false : Buttons[7].enabled;
+        Images[7].sprite = changer.name == "TowerLight1" ? Locked : Images[7].sprite;
+        Buttons[14].enabled = changer.name == "TowerLight1" ? true : Buttons[14].enabled;
+        Images[14].sprite = changer.name == "TowerLight1" ? Available : Images[14].sprite;
+        Buttons[15].enabled = changer.name == "TowerLight1" ? true : Buttons[15].enabled;
+        Images[15].sprite = changer.name == "TowerLight1" ? Available : Images[15].sprite;
+        //First Level Heavy
+        Buttons[6].enabled = changer.name == "TowerHeavy1" ? false : Buttons[6].enabled;
+        Images[6].sprite = changer.name == "TowerHeavy1" ? Locked : Images[6].sprite;
+        Buttons[14].enabled = changer.name == "TowerHeavy1" ? true : Buttons[14].enabled;
+        Images[14].sprite = changer.name == "TowerHeavy1" ? Available : Images[14].sprite;
+        Buttons[15].enabled = changer.name == "TowerHeavy1" ? true : Buttons[15].enabled;
+        Images[15].sprite = changer.name == "TowerHeavy1" ? Available : Images[15].sprite;
+        
+        //Second Level Light
+        Buttons[15].enabled = changer.name == "TowerLight2" ? false : Buttons[15].enabled;
+        Images[15].sprite = changer.name == "TowerLight2" ? Locked : Images[15].sprite;
+        Buttons[17].enabled = changer.name == "TowerLight2" ? true : Buttons[17].enabled;
+        Images[17].sprite = changer.name == "TowerLight2" ? Available : Images[17].sprite;
+
+        //Second Level Heavy
+        Buttons[14].enabled = changer.name == "TowerHeavy2" ? false : Buttons[14].enabled;
+        Images[14].sprite = changer.name == "TowerHeavy2" ? Locked : Images[14].sprite;
+        Buttons[17].enabled = changer.name == "TowerHeavy2" ? true : Buttons[17].enabled;
+        Images[17].sprite = changer.name == "TowerHeavy2" ? Available : Images[17].sprite;
     }
 
-    public void UpgradeRoverHP1()
-    {
-        UpgradeR3.sprite = Bought;
-        UpgradeR4.sprite = Available;
-        ButtonR3.enabled = false;
-        ButtonR4.enabled = true;
-    }
-
-    public void UpgradeRoverHP2()
-    {
-        UpgradeR4.sprite = Bought;
-        ButtonR4.enabled = false;
-    }
-
-    public void UpgradeRoverAttack1()
-    {
-        UpgradeR5.sprite = Bought;
-        UpgradeR6.sprite = Available;
-        ButtonR5.enabled = false;
-        ButtonR6.enabled = true;
-    }
-
-    public void UpgradeRoverAttack2()
-    {
-        UpgradeR6.sprite = Bought;
-        ButtonR6.enabled = false;
-    }
-
-    //Tank Tree
-    //##############################################################################
-    public void UpgradeTankHP()
-    {
-        UpgradeT1.sprite = Bought;
-        UpgradeT2.sprite = Available;
-        ButtonT1.enabled = false;
-        ButtonT2.enabled = true;
-    }
-
-    public void UpgradeTankAttack()
-    {
-        UpgradeT2.sprite = Bought;
-        ButtonT2.enabled = false;
-    }
-
-    //Tower Tree
-    //##############################################################################
-    public void UpgradeTowerLight1()
-    {
-        UpgradeTo1.sprite = Bought;
-        UpgradeTo2.sprite = Available;
-        UpgradeTo3.sprite = Locked;
-        UpgradeTo4.sprite = Available;
-        ButtonTo1.enabled = false;
-        ButtonTo2.enabled = true;
-        ButtonTo3.enabled = false;
-        ButtonTo4.enabled = true;
-    }
-
-    public void UpgradeTowerHeavy1()
-    {
-        UpgradeTo1.sprite = Locked;
-        UpgradeTo2.sprite = Available;
-        UpgradeTo3.sprite = Bought;
-        UpgradeTo4.sprite = Available;
-        ButtonTo1.enabled = false;
-        ButtonTo2.enabled = true;
-        ButtonTo3.enabled = false;
-        ButtonTo4.enabled = true;
-    }
-
-
-    public void UpgradeTowerLight2()
-    {
-        UpgradeTo2.sprite = Bought;
-        UpgradeTo4.sprite = Locked;
-        UpgradeTo5.sprite = Available;
-        ButtonTo2.enabled = false;
-        ButtonTo4.enabled = false;
-        ButtonTo5.enabled = true;
-    }
-
-    public void UpgradeTowerHeavy2()
-    {
-        UpgradeTo2.sprite = Locked;
-        UpgradeTo4.sprite = Bought;
-        UpgradeTo5.sprite = Available;
-        ButtonTo2.enabled = false;
-        ButtonTo4.enabled = false;
-        ButtonTo5.enabled = true;
-    }
-
-    public void UpgradeTowerLast()
-    {
-        UpgradeTo5.sprite = Bought;
-        ButtonTo5.enabled = false;
-    }
-
-    //Base Tree
+    //BASE FUNCTIONS
     //##############################################################################
     public void UpgradeBank()
     {
-        UpgradeB1.sprite = Bought;
-        ButtonB1.enabled = false;
+        Images[8].sprite = Bought;
+        Buttons[8].enabled = false;
     }
 
     public void UpgradeFactory()
     {
-        UpgradeB2.sprite = Bought;
-        ButtonB2.enabled = false;
+        Images[16].sprite = Bought;
+        Buttons[16].enabled = false;
     }
 }

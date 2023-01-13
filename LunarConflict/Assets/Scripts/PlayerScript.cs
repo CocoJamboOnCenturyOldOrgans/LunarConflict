@@ -15,6 +15,7 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] private GameObject spawner;
 
     public int money;
+    public int income = 10;
     
     private GameObject _base;
     private GameUIScript _uiScript;
@@ -44,7 +45,7 @@ public class PlayerScript : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(1f);
-            money += 10;
+            money += income;
             _uiScript.UpdateMoney(money);
         }
     }

@@ -7,6 +7,7 @@ public class UpgradeSystemScript : MonoBehaviour
 {
     public enum UnitType
     {
+        None,
         Astronaut,
         LunarRover,
         Tank,
@@ -15,11 +16,20 @@ public class UpgradeSystemScript : MonoBehaviour
 
     public enum StatType
     {
+        None,
         Health,
         Damage,
         FireRate,
         Speed,
         UnitCost
+    }
+
+    public enum TowerType
+    {
+        None,
+        Light,
+        Heavy,
+        Obliterate
     }
 
     private UnitUpgradeScript playerUpgrades;
@@ -29,8 +39,7 @@ public class UpgradeSystemScript : MonoBehaviour
         playerUpgrades = GetComponent<UnitUpgradeScript>();
     }
 
-    public void IncreaseUnitStatisticsMultiplier(
-        UnitType unit, StatType stat, float increase)
+    public void IncreaseUnitStatisticsMultiplier(UnitType unit, StatType stat, float increase)
     {
         UpgradeValues upgradeValue = assignUpgradeValue(unit);
         switch (stat)
