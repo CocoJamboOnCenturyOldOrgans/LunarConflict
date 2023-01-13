@@ -17,4 +17,6 @@ public class SettingsScript : MonoBehaviour
 
     //Gameplay Changers
     public static PlayerFaction Faction;
+
+    public static bool IsPlayer(PlayerFaction faction) => faction == Faction;
 }

@@ -169,6 +169,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b1e61fd42df8e841aba6a077f0f22b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unitFaction: 1
   unitName: American Spaceship
   attack: 2
   fireRate: 2
@@ -176,7 +177,6 @@ MonoBehaviour:
   speed: 3
   unitCost: 500
   attackRange: 3
-  russian: 0
   attackMode: 0
   bulletParent: {fileID: 3117304934896461667}
   bulletPrefab: {fileID: 4747252809770462573, guid: fb18d719ca9f0544497313eee22e751d, type: 3}

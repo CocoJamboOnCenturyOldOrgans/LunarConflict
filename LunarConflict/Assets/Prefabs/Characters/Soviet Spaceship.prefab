@@ -200,6 +200,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edf3916a94ed2ab43b63e90d5d58352b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unitFaction: 2
   unitName: 'Soviet Spaceship '
   attack: 3
   fireRate: 2
@@ -207,7 +208,6 @@ MonoBehaviour:
   speed: 2
   unitCost: 500
   attackRange: 3
-  russian: 1
   attackMode: 0
   bulletParent: {fileID: 8521576345604669593}
   bulletPrefab: {fileID: 4747252809770462573, guid: fb18d719ca9f0544497313eee22e751d, type: 3}
