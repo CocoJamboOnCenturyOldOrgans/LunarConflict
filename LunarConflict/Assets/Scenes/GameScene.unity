@@ -1972,7 +1972,7 @@ PrefabInstance:
       objectReference: {fileID: 1622694353147758051, guid: b5b438097d2899d44b99f26c772e4d1f, type: 3}
     - target: {fileID: 3430456645016945708, guid: ecefefa7269d2ea40b1534c5ad101e59, type: 3}
       propertyPath: spawnEverySeconds
-      value: 8
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 3430456645016945710, guid: ecefefa7269d2ea40b1534c5ad101e59, type: 3}
       propertyPath: m_RootOrder
@@ -3033,6 +3033,7 @@ MonoBehaviour:
   Locked: {fileID: 21300000, guid: 0e90804d825ea6f42ba8cd10f42e7cbd, type: 3}
   Available: {fileID: 21300000, guid: ef80ddf76775da94a8d24b9d3d8e48b5, type: 3}
   Bought: {fileID: 21300000, guid: 78d84db84cf72164cb5def9ccabf51bd, type: 3}
+  upgradeSystemScript: {fileID: 1768758991}
 --- !u!114 &512734611
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12038,6 +12039,7 @@ GameObject:
   - component: {fileID: 1768758989}
   - component: {fileID: 1768758988}
   - component: {fileID: 1768758990}
+  - component: {fileID: 1768758991}
   m_Layer: 0
   m_Name: GameLogic
   m_TagString: Untagged
@@ -12104,11 +12106,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3218ba9dd95f0eb8abf022983b9ef22a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthModifer: 1
-  damageModifier: 1
-  fireRateModifier: 1
-  speedModifier: 1
-  unitCostModifier: 1
+--- !u!114 &1768758991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1768758986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79e8041300f2474bbcc17036106074b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1781142502
 GameObject:
   m_ObjectHideFlags: 0

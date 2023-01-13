@@ -89,15 +89,15 @@ public class PlayerScript : MonoBehaviour
     {
         if (unit == unitAstronaut)
         {
-            return _unitUpgradeScript.astronautUpgradeValues;
+            return _unitUpgradeScript.AstronautUpgradeValues;
         }
         else if (unit == unitRover)
         {
-            return _unitUpgradeScript.lunarUpgradeValues;
+            return _unitUpgradeScript.LunarUpgradeValues;
         }
         else if (unit == unitTank)
         {
-            return _unitUpgradeScript.tankUpgradeValues;
+            return _unitUpgradeScript.TankUpgradeValues;
         }
         else throw new Exception();
     }

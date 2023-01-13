@@ -1,4 +1,4 @@
-public struct UpgradeValues
+public class UpgradeValues
 {
     public float healthModifier { get; set; }
     public float damageModifier { get; set; }

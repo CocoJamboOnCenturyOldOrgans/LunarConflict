@@ -5,14 +5,16 @@ using UnityEngine;
 
 public class UnitUpgradeScript : MonoBehaviour
 {
-    public UpgradeValues astronautUpgradeValues;
-    public UpgradeValues lunarUpgradeValues;
-    public UpgradeValues tankUpgradeValues;
+    public UpgradeValues AstronautUpgradeValues;
+    public UpgradeValues LunarUpgradeValues;
+    public UpgradeValues TankUpgradeValues;
+    public UpgradeValues SpaceshipUpgradeValues;
 
     private void Start()
     {
-        astronautUpgradeValues = new UpgradeValues(1, 1, 1, 1, 1);
-        lunarUpgradeValues = new UpgradeValues(1, 1, 1, 1, 1);
-        tankUpgradeValues = new UpgradeValues(1, 1, 1, 1, 1);
+        AstronautUpgradeValues = new UpgradeValues(1, 1, 1, 1, 1);
+        LunarUpgradeValues = new UpgradeValues(1, 1, 1, 1, 1);
+        TankUpgradeValues = new UpgradeValues(1, 1, 1, 1, 1);
+        SpaceshipUpgradeValues = new UpgradeValues(1, 1, 1, 1, 1);
     }
 }
