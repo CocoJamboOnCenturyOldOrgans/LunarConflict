@@ -211,6 +211,7 @@ MonoBehaviour:
   attackMode: 0
   bulletParent: {fileID: 874816795870721204}
   bulletPrefab: {fileID: 4747252809770462573, guid: fb18d719ca9f0544497313eee22e751d, type: 3}
+  raycastOffset: {x: 0, y: 0}
   blackhole: {fileID: 2591676717402306813}
 --- !u!1 &2591676717402306813
 GameObject:

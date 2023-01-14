@@ -46,7 +46,7 @@ public class GenericBaseScript : MonoBehaviour, IHittable
     {
         Destroy(gameObject);
         Time.timeScale = 0;
-        playerWon = ((russian ? true : false) == (Faction == PlayerFaction.USSR ? true : false)) ? false : true;
+        playerWon = ((russian ? true : false) != (Faction == PlayerFaction.USSR ? true : false));
         SceneManager.LoadSceneAsync(2);
     }
 }

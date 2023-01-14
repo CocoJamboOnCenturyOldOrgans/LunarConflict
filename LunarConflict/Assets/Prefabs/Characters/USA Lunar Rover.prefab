@@ -434,6 +434,7 @@ MonoBehaviour:
   attackMode: 0
   bulletParent: {fileID: 6156361782586493747}
   bulletPrefab: {fileID: 4747252809770462573, guid: fb18d719ca9f0544497313eee22e751d, type: 3}
+  raycastOffset: {x: 0, y: 0}
   teleport: {fileID: 685562066443027803}
 --- !u!1 &6156361782586493746
 GameObject:

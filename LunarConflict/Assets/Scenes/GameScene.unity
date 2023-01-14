@@ -461,8 +461,8 @@ GameObject:
   - component: {fileID: 69850972}
   - component: {fileID: 69850974}
   m_Layer: 5
-  m_Name: UpgradeB2
-  m_TagString: Untagged
+  m_Name: BaseFactory
+  m_TagString: UpgradeButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1972,7 +1972,7 @@ PrefabInstance:
       objectReference: {fileID: 1622694353147758051, guid: b5b438097d2899d44b99f26c772e4d1f, type: 3}
     - target: {fileID: 3430456645016945708, guid: ecefefa7269d2ea40b1534c5ad101e59, type: 3}
       propertyPath: spawnEverySeconds
-      value: 8
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 3430456645016945710, guid: ecefefa7269d2ea40b1534c5ad101e59, type: 3}
       propertyPath: m_RootOrder
@@ -2033,8 +2033,8 @@ GameObject:
   - component: {fileID: 426881192}
   - component: {fileID: 426881194}
   m_Layer: 5
-  m_Name: UpgradeR2
-  m_TagString: Untagged
+  m_Name: RoverSpeed_2
+  m_TagString: UpgradeButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2143,11 +2143,11 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 512734610}
         m_TargetAssemblyTypeName: UpgradeScript, Assembly-CSharp
-        m_MethodName: UpgradeRoverSpeed2
-        m_Mode: 1
+        m_MethodName: UpgradeUnit
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 426881190}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2994,45 +2994,48 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53ffc1d682d1e9847be0fc9c451ea947, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UpgradeA1: {fileID: 1989610486}
-  ButtonA1: {fileID: 1989610488}
-  UpgradeA2: {fileID: 2005156741}
-  ButtonA2: {fileID: 2005156743}
-  UpgradeA3: {fileID: 536632374}
-  ButtonA3: {fileID: 536632376}
-  UpgradeR1: {fileID: 1500921046}
-  ButtonR1: {fileID: 1500921048}
-  UpgradeR2: {fileID: 426881192}
-  ButtonR2: {fileID: 426881194}
-  UpgradeR3: {fileID: 2066639183}
-  ButtonR3: {fileID: 2066639185}
-  UpgradeR4: {fileID: 2086983440}
-  ButtonR4: {fileID: 2086983442}
-  UpgradeR5: {fileID: 1526950038}
-  ButtonR5: {fileID: 1526950040}
-  UpgradeR6: {fileID: 1411826535}
-  ButtonR6: {fileID: 1411826537}
-  UpgradeT1: {fileID: 620067840}
-  ButtonT1: {fileID: 620067842}
-  UpgradeT2: {fileID: 611483916}
-  ButtonT2: {fileID: 611483918}
-  UpgradeTo1: {fileID: 2131751189}
-  ButtonTo1: {fileID: 2131751191}
-  UpgradeTo2: {fileID: 980385033}
-  ButtonTo2: {fileID: 980385035}
-  UpgradeTo3: {fileID: 2037197538}
-  ButtonTo3: {fileID: 2037197540}
-  UpgradeTo4: {fileID: 1736289475}
-  ButtonTo4: {fileID: 1736289477}
-  UpgradeTo5: {fileID: 1435637497}
-  ButtonTo5: {fileID: 1435637499}
-  UpgradeB1: {fileID: 661829115}
-  ButtonB1: {fileID: 661829117}
-  UpgradeB2: {fileID: 69850972}
-  ButtonB2: {fileID: 69850974}
+  Buttons:
+  - {fileID: 1989610488}
+  - {fileID: 536632376}
+  - {fileID: 1500921048}
+  - {fileID: 2066639185}
+  - {fileID: 1526950040}
+  - {fileID: 620067842}
+  - {fileID: 2131751191}
+  - {fileID: 2037197540}
+  - {fileID: 661829117}
+  - {fileID: 2005156743}
+  - {fileID: 426881194}
+  - {fileID: 2086983442}
+  - {fileID: 1411826537}
+  - {fileID: 611483918}
+  - {fileID: 980385035}
+  - {fileID: 1736289477}
+  - {fileID: 69850974}
+  - {fileID: 1435637499}
+  Images:
+  - {fileID: 1989610486}
+  - {fileID: 536632374}
+  - {fileID: 1500921046}
+  - {fileID: 2066639183}
+  - {fileID: 1526950038}
+  - {fileID: 620067840}
+  - {fileID: 2131751189}
+  - {fileID: 2037197538}
+  - {fileID: 661829115}
+  - {fileID: 2005156741}
+  - {fileID: 426881192}
+  - {fileID: 2086983440}
+  - {fileID: 1411826535}
+  - {fileID: 611483916}
+  - {fileID: 980385033}
+  - {fileID: 1736289475}
+  - {fileID: 69850972}
+  - {fileID: 1435637497}
   Locked: {fileID: 21300000, guid: 0e90804d825ea6f42ba8cd10f42e7cbd, type: 3}
   Available: {fileID: 21300000, guid: ef80ddf76775da94a8d24b9d3d8e48b5, type: 3}
   Bought: {fileID: 21300000, guid: 78d84db84cf72164cb5def9ccabf51bd, type: 3}
+  upgradeSystemScript: {fileID: 1768758991}
 --- !u!114 &512734611
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3253,8 +3256,8 @@ GameObject:
   - component: {fileID: 536632374}
   - component: {fileID: 536632376}
   m_Layer: 5
-  m_Name: UpgradeA3
-  m_TagString: Untagged
+  m_Name: AstroAttack1
+  m_TagString: UpgradeButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3363,11 +3366,11 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 512734610}
         m_TargetAssemblyTypeName: UpgradeScript, Assembly-CSharp
-        m_MethodName: UpgradeAstronautAttack
-        m_Mode: 1
+        m_MethodName: UpgradeUnit
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 536632372}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -3462,8 +3465,8 @@ GameObject:
   - component: {fileID: 611483916}
   - component: {fileID: 611483918}
   m_Layer: 5
-  m_Name: UpgradeT2
-  m_TagString: Untagged
+  m_Name: Tank_Life__6
+  m_TagString: UpgradeButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3572,11 +3575,11 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 512734610}
         m_TargetAssemblyTypeName: UpgradeScript, Assembly-CSharp
-        m_MethodName: UpgradeTankAttack
-        m_Mode: 1
+        m_MethodName: UpgradeUnit
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 611483914}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -3742,8 +3745,8 @@ GameObject:
   - component: {fileID: 620067840}
   - component: {fileID: 620067842}
   m_Layer: 5
-  m_Name: UpgradeT1
-  m_TagString: Untagged
+  m_Name: Tank_Life__3
+  m_TagString: UpgradeButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3852,11 +3855,11 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 512734610}
         m_TargetAssemblyTypeName: UpgradeScript, Assembly-CSharp
-        m_MethodName: UpgradeTankHP
-        m_Mode: 1
+        m_MethodName: UpgradeUnit
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 620067838}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -4058,8 +4061,8 @@ GameObject:
   - component: {fileID: 661829115}
   - component: {fileID: 661829117}
   m_Layer: 5
-  m_Name: UpgradeB1
-  m_TagString: Untagged
+  m_Name: BaseBank__
+  m_TagString: UpgradeButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6383,8 +6386,8 @@ GameObject:
   - component: {fileID: 980385033}
   - component: {fileID: 980385035}
   m_Layer: 5
-  m_Name: UpgradeTo2
-  m_TagString: Untagged
+  m_Name: TowerLight2
+  m_TagString: UpgradeButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6493,11 +6496,11 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 512734610}
         m_TargetAssemblyTypeName: UpgradeScript, Assembly-CSharp
-        m_MethodName: UpgradeTowerLight2
-        m_Mode: 1
+        m_MethodName: BuildTowers
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 980385031}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -9267,8 +9270,8 @@ GameObject:
   - component: {fileID: 1411826535}
   - component: {fileID: 1411826537}
   m_Layer: 5
-  m_Name: UpgradeR6
-  m_TagString: Untagged
+  m_Name: RoverAttack2
+  m_TagString: UpgradeButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9377,11 +9380,11 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 512734610}
         m_TargetAssemblyTypeName: UpgradeScript, Assembly-CSharp
-        m_MethodName: UpgradeRoverAttack2
-        m_Mode: 1
+        m_MethodName: UpgradeUnit
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 1411826533}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -9400,8 +9403,8 @@ GameObject:
   - component: {fileID: 1435637497}
   - component: {fileID: 1435637499}
   m_Layer: 5
-  m_Name: UpgradeTo5
-  m_TagString: Untagged
+  m_Name: TowerOblit0
+  m_TagString: UpgradeButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9510,11 +9513,11 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 512734610}
         m_TargetAssemblyTypeName: UpgradeScript, Assembly-CSharp
-        m_MethodName: UpgradeTowerLast
-        m_Mode: 1
+        m_MethodName: BuildTowers
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 1435637495}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -9692,8 +9695,8 @@ GameObject:
   - component: {fileID: 1500921046}
   - component: {fileID: 1500921048}
   m_Layer: 5
-  m_Name: UpgradeR1
-  m_TagString: Untagged
+  m_Name: RoverSpeed_1
+  m_TagString: UpgradeButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9802,11 +9805,11 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 512734610}
         m_TargetAssemblyTypeName: UpgradeScript, Assembly-CSharp
-        m_MethodName: UpgradeRoverSpeed1
-        m_Mode: 1
+        m_MethodName: UpgradeUnit
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 1500921044}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -10029,8 +10032,8 @@ GameObject:
   - component: {fileID: 1526950038}
   - component: {fileID: 1526950040}
   m_Layer: 5
-  m_Name: UpgradeR5
-  m_TagString: Untagged
+  m_Name: RoverAttack1
+  m_TagString: UpgradeButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10139,11 +10142,11 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 512734610}
         m_TargetAssemblyTypeName: UpgradeScript, Assembly-CSharp
-        m_MethodName: UpgradeRoverAttack1
-        m_Mode: 1
+        m_MethodName: UpgradeUnit
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 1526950036}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -11697,8 +11700,8 @@ GameObject:
   - component: {fileID: 1736289475}
   - component: {fileID: 1736289477}
   m_Layer: 5
-  m_Name: UpgradeTo4
-  m_TagString: Untagged
+  m_Name: TowerHeavy2
+  m_TagString: UpgradeButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11807,11 +11810,11 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 512734610}
         m_TargetAssemblyTypeName: UpgradeScript, Assembly-CSharp
-        m_MethodName: UpgradeTowerHeavy2
-        m_Mode: 1
+        m_MethodName: BuildTowers
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 1736289473}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -12037,6 +12040,8 @@ GameObject:
   - component: {fileID: 1768758987}
   - component: {fileID: 1768758989}
   - component: {fileID: 1768758988}
+  - component: {fileID: 1768758990}
+  - component: {fileID: 1768758991}
   m_Layer: 0
   m_Name: GameLogic
   m_TagString: Untagged
@@ -12079,6 +12084,7 @@ MonoBehaviour:
   unitTankAudioClip: {fileID: 8300000, guid: 4323e3dbb8a84f742bde6286c579a168, type: 3}
   spawner: {fileID: 811172846}
   money: 2000
+  income: 10
 --- !u!114 &1768758989
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12091,7 +12097,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f110b7d360d7c41cca071e8950152062, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  game: {fileID: 0}
+--- !u!114 &1768758990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1768758986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3218ba9dd95f0eb8abf022983b9ef22a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1768758991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1768758986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79e8041300f2474bbcc17036106074b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1781142502
 GameObject:
   m_ObjectHideFlags: 0
@@ -13882,8 +13911,8 @@ GameObject:
   - component: {fileID: 1989610486}
   - component: {fileID: 1989610488}
   m_Layer: 5
-  m_Name: UpgradeA1
-  m_TagString: Untagged
+  m_Name: AstroLife__1
+  m_TagString: UpgradeButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13992,11 +14021,11 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 512734610}
         m_TargetAssemblyTypeName: UpgradeScript, Assembly-CSharp
-        m_MethodName: UpgradeAstronautHP1
-        m_Mode: 1
+        m_MethodName: UpgradeUnit
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 1989610484}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -14015,8 +14044,8 @@ GameObject:
   - component: {fileID: 2005156741}
   - component: {fileID: 2005156743}
   m_Layer: 5
-  m_Name: UpgradeA2
-  m_TagString: Untagged
+  m_Name: AstroLife__2
+  m_TagString: UpgradeButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14125,11 +14154,11 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 512734610}
         m_TargetAssemblyTypeName: UpgradeScript, Assembly-CSharp
-        m_MethodName: UpgradeAstronautHP2
-        m_Mode: 1
+        m_MethodName: UpgradeUnit
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 2005156739}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -14460,8 +14489,8 @@ GameObject:
   - component: {fileID: 2037197538}
   - component: {fileID: 2037197540}
   m_Layer: 5
-  m_Name: UpgradeTo3
-  m_TagString: Untagged
+  m_Name: TowerHeavy1
+  m_TagString: UpgradeButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14570,11 +14599,11 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 512734610}
         m_TargetAssemblyTypeName: UpgradeScript, Assembly-CSharp
-        m_MethodName: UpgradeTowerHeavy1
-        m_Mode: 1
+        m_MethodName: BuildTowers
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 2037197536}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -14844,8 +14873,8 @@ GameObject:
   - component: {fileID: 2066639183}
   - component: {fileID: 2066639185}
   m_Layer: 5
-  m_Name: UpgradeR3
-  m_TagString: Untagged
+  m_Name: RoverLife__2
+  m_TagString: UpgradeButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14954,11 +14983,11 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 512734610}
         m_TargetAssemblyTypeName: UpgradeScript, Assembly-CSharp
-        m_MethodName: UpgradeRoverHP1
-        m_Mode: 1
+        m_MethodName: UpgradeUnit
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 2066639181}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -15286,8 +15315,8 @@ GameObject:
   - component: {fileID: 2086983440}
   - component: {fileID: 2086983442}
   m_Layer: 5
-  m_Name: UpgradeR4
-  m_TagString: Untagged
+  m_Name: RoverLife__4
+  m_TagString: UpgradeButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15396,11 +15425,11 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 512734610}
         m_TargetAssemblyTypeName: UpgradeScript, Assembly-CSharp
-        m_MethodName: UpgradeRoverHP2
-        m_Mode: 1
+        m_MethodName: UpgradeUnit
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 2086983438}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -15829,8 +15858,8 @@ GameObject:
   - component: {fileID: 2131751189}
   - component: {fileID: 2131751191}
   m_Layer: 5
-  m_Name: UpgradeTo1
-  m_TagString: Untagged
+  m_Name: TowerLight1
+  m_TagString: UpgradeButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15939,11 +15968,11 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 512734610}
         m_TargetAssemblyTypeName: UpgradeScript, Assembly-CSharp
-        m_MethodName: UpgradeTowerLight1
-        m_Mode: 1
+        m_MethodName: BuildTowers
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 2131751187}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
