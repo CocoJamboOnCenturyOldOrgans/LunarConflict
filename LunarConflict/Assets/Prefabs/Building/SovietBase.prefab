@@ -12,10 +12,9 @@ GameObject:
   - component: {fileID: 3430456645016945711}
   - component: {fileID: -7848472303809717126}
   - component: {fileID: -5835483425736104962}
-  - component: {fileID: 3430456645016945708}
   - component: {fileID: -2643876596380674755}
   m_Layer: 3
-  m_Name: EnemyBase
+  m_Name: SovietBase
   m_TagString: EnemyUnit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34,6 +33,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2190320982330187825}
+  - {fileID: 1433375100024508898}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -136,21 +136,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &3430456645016945708
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3430456645016945706}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16857c0292895188c82d6f024b9bc102, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  astronaut: {fileID: 3813118679460145047, guid: 6f8cde85287a185889a7dba0ef72bd92, type: 3}
-  spawner: {fileID: 0}
-  spawnEverySeconds: 8
 --- !u!114 &-2643876596380674755
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -163,8 +148,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 977efc92fefef7640901302b7d9b67b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <BaseFaction>k__BackingField: 2
   maxHealth: 500
-  russian: 1
+  aiUnitPrefab: {fileID: 1622694353147758051, guid: b5b438097d2899d44b99f26c772e4d1f, type: 3}
+  spawner: {fileID: 3754530628809932192}
+--- !u!1 &3754530628809932192
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1433375100024508898}
+  m_Layer: 3
+  m_Name: Spawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1433375100024508898
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3754530628809932192}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.9, y: -0.25, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3430456645016945710}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &3430456646221416801
 PrefabInstance:
   m_ObjectHideFlags: 0

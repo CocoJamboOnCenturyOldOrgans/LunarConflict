@@ -423,6 +423,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36f80434f98702eaeb02d6593ccb9134, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unitFaction: 1
   unitName: American Lunar Rover
   attack: 2
   fireRate: 2
@@ -430,7 +431,6 @@ MonoBehaviour:
   speed: 3
   unitCost: 100
   attackRange: 2
-  russian: 0
   attackMode: 0
   bulletParent: {fileID: 6156361782586493747}
   bulletPrefab: {fileID: 4747252809770462573, guid: fb18d719ca9f0544497313eee22e751d, type: 3}

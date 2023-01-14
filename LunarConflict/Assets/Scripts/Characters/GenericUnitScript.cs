@@ -2,10 +2,11 @@ using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 using static GameRoundData;
-using UnityEngine.Serialization;
+using static SettingsScript;
 
 public class GenericUnitScript : MonoBehaviour, IHittable
 {
+    public PlayerFaction unitFaction;
     public int Health { get; set; }
     public string unitName;
     public float attack;
@@ -14,7 +15,6 @@ public class GenericUnitScript : MonoBehaviour, IHittable
     public float speed;
     public int unitCost;
     [SerializeField] protected int attackRange;
-    [SerializeField] protected bool russian;
     [SerializeField] protected bool attackMode = false;
     [SerializeField] protected Transform bulletParent;
     [SerializeField] protected GameObject bulletPrefab;
@@ -31,9 +31,9 @@ public class GenericUnitScript : MonoBehaviour, IHittable
         _animator = GetComponent<Animator>();
         _mask = LayerMask.GetMask("Unit");
         _animator.SetBool("play", true);
-        _movementDirection = russian ? Vector2.left : Vector2.right;
+        _movementDirection = unitFaction == PlayerFaction.USA ? Vector2.right : Vector2.left;
         _localScaleX = transform.localScale.x;
-        speed = russian ? speed * -1 : speed;
+        speed = unitFaction == PlayerFaction.USA ? speed : speed * -1;
     }
 
     protected virtual void Update()
@@ -41,6 +41,7 @@ public class GenericUnitScript : MonoBehaviour, IHittable
         if (_animator.GetCurrentAnimatorStateInfo(0).IsName("walking") ||
             _animator.GetCurrentAnimatorStateInfo(0).IsName("driving"))
             transform.Translate(Vector3.right * (speed * Time.deltaTime));
+        
         _animator.SetBool("attackMode", CanAttack());
         _animator.SetBool("play", CanWalk());
         _animator.SetBool("dying", Health <= 0);
@@ -55,7 +56,9 @@ public class GenericUnitScript : MonoBehaviour, IHittable
             attackRange, 
             _mask);
 
-        return hit.Any(x => x.collider.CompareTag(russian ? "PlayerUnit" : "EnemyUnit"));
+        return hit.Any(x => 
+            (x.collider.TryGetComponent<GenericUnitScript>(out var unitScript) && unitScript.unitFaction != unitFaction) ||
+            (x.collider.TryGetComponent<GenericBaseScript>(out var baseScript) && baseScript.BaseFaction != unitFaction));
     }
     
     private bool CanWalk()
@@ -66,20 +69,22 @@ public class GenericUnitScript : MonoBehaviour, IHittable
             _movementDirection, 
             _localScaleX, 
             _mask);
+        
         //Fix that by Yourself Mr. Blue Skeleton Leader, cause it's still not working well
         //if(!hit.collider.IsUnityNull())
         //{
         //    this.transform.position += new Vector3(-1, 0);
         //}
+        
         return hit.collider.IsUnityNull();
     }
     
     public void Shoot(Transform parent = null)
     {
         Instantiate(
-            bulletPrefab, 
-            parent == null ? bulletParent.position : parent.position, 
-            russian ? Quaternion.Euler(0,0,90) : Quaternion.Euler(0,0,-90));
+            bulletPrefab,
+            parent == null ? bulletParent.position : parent.position,
+            unitFaction == PlayerFaction.USA ? Quaternion.Euler(0, 0, -90) : Quaternion.Euler(0, 0, 90));
     }
 
     public void OnCollisionEnter2D(Collision2D collision)
@@ -94,8 +99,9 @@ public class GenericUnitScript : MonoBehaviour, IHittable
 
     public virtual void OnDeath()
     {
-        if (russian)
+        if (!IsPlayer(unitFaction))
             kills++;
+        
         Destroy(gameObject);
     }
 

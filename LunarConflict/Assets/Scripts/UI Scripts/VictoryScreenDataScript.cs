@@ -68,7 +68,7 @@ public class VictoryScreenDataScript : MonoBehaviour
         TimeAmount.text += (time % 60 < 10) ? "0" : "";
         TimeAmount.text += (time % 60).ToString();
 
-        RemainingHPAmount.text = leftBaseHP.ToString();
+        RemainingHPAmount.text = baseHP.ToString();
         KilledEnemiesAmount.text = kills.ToString();
         CreatedEntitiesAmount.text = unitsSpawned.ToString();
     }

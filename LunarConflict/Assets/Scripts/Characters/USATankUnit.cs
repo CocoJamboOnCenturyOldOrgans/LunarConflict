@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using static SettingsScript;
 
 public class USATankUnit : GenericUnitScript
 {
@@ -34,7 +35,7 @@ public class USATankUnit : GenericUnitScript
         Instantiate(
             missilePrefab, 
             missileParent.position, 
-            russian ? Quaternion.Euler(0,0,90) : Quaternion.Euler(0,0,-90));
+            unitFaction == PlayerFaction.USA ? Quaternion.Euler(0,0,-90) : Quaternion.Euler(0,0,90));
     }
 
     public void Escape()

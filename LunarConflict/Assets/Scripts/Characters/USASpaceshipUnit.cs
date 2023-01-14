@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using static SettingsScript;
 
 public class USASpaceshipUnit : GenericUnitScript
 {
@@ -32,7 +33,7 @@ public class USASpaceshipUnit : GenericUnitScript
         Instantiate(
             bombPrefab, 
             bombParent.position, 
-            russian ? Quaternion.Euler(0,0,90) : Quaternion.Euler(0,0,-90));
+            unitFaction == PlayerFaction.USA ? Quaternion.Euler(0,0,-90) : Quaternion.Euler(0,0,90));
     }
 
     public void Escape()
