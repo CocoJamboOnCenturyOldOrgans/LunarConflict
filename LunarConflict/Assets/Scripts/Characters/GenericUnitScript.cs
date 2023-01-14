@@ -70,6 +70,12 @@ public class GenericUnitScript : MonoBehaviour, IHittable
             _localScaleX, 
             _mask);
         
+        //Fix that by Yourself Mr. Blue Skeleton Leader, cause it's still not working well
+        //if(!hit.collider.IsUnityNull())
+        //{
+        //    this.transform.position += new Vector3(-1, 0);
+        //}
+        
         return hit.collider.IsUnityNull();
     }
     
@@ -80,9 +86,17 @@ public class GenericUnitScript : MonoBehaviour, IHittable
             parent == null ? bulletParent.position : parent.position,
             unitFaction == PlayerFaction.USA ? Quaternion.Euler(0, 0, -90) : Quaternion.Euler(0, 0, 90));
     }
-    
+
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == this.tag)
+        {
+            Physics2D.IgnoreCollision(collision.collider, GetComponent<Collider2D>());
+        }
+    }
+
     public virtual void OnHit(int damage) => Health -= damage;
-    
+
     public virtual void OnDeath()
     {
         if (!IsPlayer(unitFaction))

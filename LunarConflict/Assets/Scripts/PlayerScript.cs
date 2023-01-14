@@ -42,10 +42,12 @@ public class PlayerScript : MonoBehaviour
     [Header("=====================================================\n")]
 
     public int money;
+    public int income = 10;
 
     private GenericBaseScript _base;
     private GameObject _spawner;
     private GameUIScript _uiScript;
+    private UnitUpgradeScript _unitUpgradeScript;
 
     private GameObject _astronautUnit, _roverUnit, _tankUnit, _spaceshipUnit;
     private AudioClip _astronautSound, _roverSound, _tankSound, _spaceshipSound;
@@ -68,7 +70,9 @@ public class PlayerScript : MonoBehaviour
         
         _base = FindObjectsOfType<GenericBaseScript>().First(x => x.BaseFaction == Faction);
         _spawner = _base.spawner;
+        
         _uiScript = FindObjectOfType<GameUIScript>();
+        _unitUpgradeScript = GetComponent<UnitUpgradeScript>();
         
         _backgroundMusic.volume = PlayerPrefs.GetFloat("MusicVolume", 0.5f);
         _sfxAudioSource.volume = PlayerPrefs.GetFloat("EffectsVolume", 0.5f);
@@ -96,7 +100,7 @@ public class PlayerScript : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(1f);
-            money += 10;
+            money += income;
             _uiScript.UpdateMoney(money);
         }
     }
@@ -120,14 +124,39 @@ public class PlayerScript : MonoBehaviour
 
     private void BuyUnit(GameObject unit, AudioClip unitClip, int cost)
     {
+        UpgradeValues upgradeValues = AssignUpgradeValues(unit);
         if (money >= cost)
         {
-            Instantiate(unit, _spawner.transform.position, _spawner.transform.rotation);
+            var unitSpawned = Instantiate(unit, _spawner.transform.position, _spawner.transform.rotation);
+            var unitScript = unitSpawned.GetComponent<GenericUnitScript>();
+            unitScript.maxHealth = (int)(unitScript.maxHealth * upgradeValues.healthModifier);
+            unitScript.attack *= upgradeValues.damageModifier;
+            unitScript.fireRate *= upgradeValues.fireRateModifier;
+            unitScript.speed *= upgradeValues.speedModifier;
+            unitScript.unitCost = (int)(unitScript.unitCost * upgradeValues.unitCostModifier);
+
             money -= cost;
             _uiScript.UpdateMoney(money);
             _sfxAudioSource.clip = unitClip;
             _sfxAudioSource.Play();
             unitsSpawned++;
         }
+    }
+
+    private UpgradeValues AssignUpgradeValues(GameObject unit)
+    {
+        if (unit == _astronautUnit)
+        {
+            return _unitUpgradeScript.AstronautUpgradeValues;
+        }
+        else if (unit == _roverUnit)
+        {
+            return _unitUpgradeScript.LunarUpgradeValues;
+        }
+        else if (unit == _tankUnit)
+        {
+            return _unitUpgradeScript.TankUpgradeValues;
+        }
+        else throw new Exception();
     }
 }
