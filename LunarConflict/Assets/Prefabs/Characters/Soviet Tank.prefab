@@ -232,7 +232,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de032b035192fd34099ab842a1625c66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitFaction: 2
   unitName: Soviet Tank
   attack: 5
   fireRate: 1
@@ -240,6 +239,7 @@ MonoBehaviour:
   speed: 2
   unitCost: 500
   attackRange: 3
+  russian: 1
   attackMode: 0
   bulletParent: {fileID: 6450322033216921788}
   bulletPrefab: {fileID: 4747252809770462573, guid: fb18d719ca9f0544497313eee22e751d, type: 3}

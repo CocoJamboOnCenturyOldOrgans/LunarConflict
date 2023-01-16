@@ -98,7 +98,7 @@ public class MainMenuScript : MonoBehaviour
 
         kills = 0;
         unitsSpawned = 0;
-        baseHP = 500;
+        leftBaseHP = 500;
         time = 0;
         SceneManager.LoadSceneAsync(1);
     }
