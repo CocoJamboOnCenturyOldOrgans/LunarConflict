@@ -12030,6 +12030,8 @@ MonoBehaviour:
   sovietTheme: {fileID: 8300000, guid: 7424649320b86494cbc3f7878c611bf6, type: 3}
   money: 2000
   income: 10
+  queueCooldown: 5
+  cd: 0
 --- !u!114 &1768758989
 MonoBehaviour:
   m_ObjectHideFlags: 0

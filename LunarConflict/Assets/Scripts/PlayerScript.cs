@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 using static GameRoundData;
@@ -43,11 +44,13 @@ public class PlayerScript : MonoBehaviour
 
     public int money;
     public int income = 10;
+    [SerializeField] private int queueCooldown;
 
     private GenericBaseScript _base;
     private GameObject _spawner;
     private GameUIScript _uiScript;
     private UnitUpgradeScript _unitUpgradeScript;
+    private Queue<Action> _unitsQueue = new();
 
     private GameObject _astronautUnit, _roverUnit, _tankUnit, _spaceshipUnit;
     private AudioClip _astronautSound, _roverSound, _tankSound, _spaceshipSound;
@@ -67,6 +70,7 @@ public class PlayerScript : MonoBehaviour
         
         StartCoroutine(RaiseBudget());
         StartCoroutine(CountTime());
+        StartCoroutine(EmptyUnitsQueue());
         
         _base = FindObjectsOfType<GenericBaseScript>().First(x => x.BaseFaction == Faction);
         _spawner = _base.spawner;
@@ -114,6 +118,29 @@ public class PlayerScript : MonoBehaviour
         }
     }
 
+    private IEnumerator EmptyUnitsQueue()
+    {
+        // IN SECONDS
+        var cooldown = 0f;
+        
+        while (true)
+        {
+            yield return null;
+            
+            if (_unitsQueue.Count <= 0) continue;
+            
+            if (cooldown <= 0)
+            {
+                _unitsQueue.Dequeue().Invoke();
+                cooldown = queueCooldown;
+            }
+            else
+            {
+                cooldown -= Time.deltaTime;
+            }
+        }
+    }
+
     public void BuyAstronaut() => BuyUnit(_astronautUnit, _astronautSound, 50);
 
     public void BuyRover() => BuyUnit(_roverUnit, _roverSound, 100);
@@ -127,19 +154,23 @@ public class PlayerScript : MonoBehaviour
         UpgradeValues upgradeValues = AssignUpgradeValues(unit);
         if (money >= cost)
         {
-            var unitSpawned = Instantiate(unit, _spawner.transform.position, _spawner.transform.rotation);
-            var unitScript = unitSpawned.GetComponent<GenericUnitScript>();
-            unitScript.maxHealth = (int)(unitScript.maxHealth * upgradeValues.healthModifier);
-            unitScript.attack *= upgradeValues.damageModifier;
-            unitScript.fireRate *= upgradeValues.fireRateModifier;
-            unitScript.speed *= upgradeValues.speedModifier;
-            unitScript.unitCost = (int)(unitScript.unitCost * upgradeValues.unitCostModifier);
+            _unitsQueue.Enqueue(() =>
+            {
+                var unitSpawned = Instantiate(unit, _spawner.transform.position, _spawner.transform.rotation);
+                var unitScript = unitSpawned.GetComponent<GenericUnitScript>();
+                unitScript.maxHealth = (int) (unitScript.maxHealth * upgradeValues.healthModifier);
+                unitScript.attack *= upgradeValues.damageModifier;
+                unitScript.fireRate *= upgradeValues.fireRateModifier;
+                unitScript.speed *= upgradeValues.speedModifier;
+                unitScript.unitCost = (int) (unitScript.unitCost * upgradeValues.unitCostModifier); 
+            
+                _sfxAudioSource.clip = unitClip;
+                _sfxAudioSource.Play();
+                unitsSpawned++;
+            });
 
             money -= cost;
             _uiScript.UpdateMoney(money);
-            _sfxAudioSource.clip = unitClip;
-            _sfxAudioSource.Play();
-            unitsSpawned++;
         }
     }
 
