@@ -424,6 +424,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitFaction: 1
+  icon: {fileID: 21300000, guid: c6c5ff291dfa0214aade2492d168737f, type: 3}
   unitName: American Lunar Rover
   attack: 2
   fireRate: 2

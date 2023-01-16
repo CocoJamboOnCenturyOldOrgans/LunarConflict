@@ -7,6 +7,7 @@ using static SettingsScript;
 public class GenericUnitScript : MonoBehaviour, IHittable
 {
     public PlayerFaction unitFaction;
+    public Sprite icon;
     public int Health { get; set; }
     public string unitName;
     public float attack;

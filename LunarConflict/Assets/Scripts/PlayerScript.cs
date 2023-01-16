@@ -44,13 +44,15 @@ public class PlayerScript : MonoBehaviour
 
     public int money;
     public int income = 10;
+    
     [SerializeField] private int queueCooldown;
+    private Queue<Action> _unitsQueue = new();
+    private UnitsQueueUI _unitsQueueUI;
 
     private GenericBaseScript _base;
     private GameObject _spawner;
     private GameUIScript _uiScript;
     private UnitUpgradeScript _unitUpgradeScript;
-    private Queue<Action> _unitsQueue = new();
 
     private GameObject _astronautUnit, _roverUnit, _tankUnit, _spaceshipUnit;
     private AudioClip _astronautSound, _roverSound, _tankSound, _spaceshipSound;
@@ -77,6 +79,7 @@ public class PlayerScript : MonoBehaviour
         
         _uiScript = FindObjectOfType<GameUIScript>();
         _unitUpgradeScript = GetComponent<UnitUpgradeScript>();
+        _unitsQueueUI = FindObjectOfType<UnitsQueueUI>();
         
         _backgroundMusic.volume = PlayerPrefs.GetFloat("MusicVolume", 0.5f);
         _sfxAudioSource.volume = PlayerPrefs.GetFloat("EffectsVolume", 0.5f);
@@ -132,6 +135,7 @@ public class PlayerScript : MonoBehaviour
             if (cooldown <= 0)
             {
                 _unitsQueue.Dequeue().Invoke();
+                _unitsQueueUI.Dequeue();
                 cooldown = queueCooldown;
             }
             else
@@ -151,9 +155,12 @@ public class PlayerScript : MonoBehaviour
 
     private void BuyUnit(GameObject unit, AudioClip unitClip, int cost)
     {
+        if (_unitsQueue.Count >= 5) return;
+        
         UpgradeValues upgradeValues = AssignUpgradeValues(unit);
         if (money >= cost)
         {
+            var unitIcon = unit.GetComponent<GenericUnitScript>().icon;
             _unitsQueue.Enqueue(() =>
             {
                 var unitSpawned = Instantiate(unit, _spawner.transform.position, _spawner.transform.rotation);
@@ -163,7 +170,7 @@ public class PlayerScript : MonoBehaviour
                 unitScript.fireRate *= upgradeValues.fireRateModifier;
                 unitScript.speed *= upgradeValues.speedModifier;
                 unitScript.unitCost = (int) (unitScript.unitCost * upgradeValues.unitCostModifier); 
-            
+                        
                 _sfxAudioSource.clip = unitClip;
                 _sfxAudioSource.Play();
                 unitsSpawned++;
@@ -171,6 +178,7 @@ public class PlayerScript : MonoBehaviour
 
             money -= cost;
             _uiScript.UpdateMoney(money);
+            _unitsQueueUI.Enqueue(unitIcon);
         }
     }
 
