@@ -170,6 +170,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitFaction: 2
+  icon: {fileID: 21300000, guid: 8bc8fa97be9cc164090b66550743ac17, type: 3}
   unitName: Soviet Lunar Rover
   attack: 2
   fireRate: 2

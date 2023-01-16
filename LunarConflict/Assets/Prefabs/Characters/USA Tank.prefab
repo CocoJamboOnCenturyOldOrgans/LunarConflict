@@ -264,6 +264,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitFaction: 1
+  icon: {fileID: 21300000, guid: ccc9fc228dd5e6548819c0b16af86db1, type: 3}
   unitName: American Armored Vehicle
   attack: 5
   fireRate: 1

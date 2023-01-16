@@ -201,6 +201,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitFaction: 1
+  icon: {fileID: 21300000, guid: 366e820d6cc29a94fa906e72041a8fa1, type: 3}
   unitName: American Astronaut
   attack: 1
   fireRate: 1
