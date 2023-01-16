@@ -284,7 +284,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97d929b312ba56f4ead2a0403b4896d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitFaction: 2
   unitName: Soviet Astronaut
   attack: 1
   fireRate: 1
@@ -292,6 +291,7 @@ MonoBehaviour:
   speed: 2
   unitCost: 50
   attackRange: 2
+  russian: 1
   attackMode: 0
   bulletParent: {fileID: 3813118677673339878}
   bulletPrefab: {fileID: 4747252809770462573, guid: fb18d719ca9f0544497313eee22e751d, type: 3}

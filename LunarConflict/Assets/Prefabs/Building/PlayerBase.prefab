@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -6979745722746919288}
   - component: {fileID: -2802963758849720703}
   m_Layer: 3
-  m_Name: USABase
+  m_Name: PlayerBase
   m_TagString: PlayerUnit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -33,7 +33,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2096592403456475291}
-  - {fileID: 9119601377980011907}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -148,41 +147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 977efc92fefef7640901302b7d9b67b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <BaseFaction>k__BackingField: 1
   maxHealth: 500
-  aiUnitPrefab: {fileID: 6156361781352966704, guid: e68a40a4b389e2843b5634bd44eef477, type: 3}
-  spawner: {fileID: 4656175625942361147}
---- !u!1 &4656175625942361147
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 9119601377980011907}
-  m_Layer: 3
-  m_Name: Spawner
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &9119601377980011907
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4656175625942361147}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.9, y: -0.24999997, z: 0}
-  m_LocalScale: {x: -1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 4576200456136188217}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &4576200456192100407
 PrefabInstance:
   m_ObjectHideFlags: 0
