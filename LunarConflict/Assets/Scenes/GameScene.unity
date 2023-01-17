@@ -12531,7 +12531,7 @@ MonoBehaviour:
   sovietUnitTankAudioClip: {fileID: 8300000, guid: a6640f9b691dcf642ae4db7ed8a5b6c1, type: 3}
   usaTheme: {fileID: 8300000, guid: 52102a58311289d49b538a9579ad4d54, type: 3}
   sovietTheme: {fileID: 8300000, guid: 7424649320b86494cbc3f7878c611bf6, type: 3}
-  money: 2000
+  money: 200
   income: 10
   queueCooldown: 3
 --- !u!114 &1768758989

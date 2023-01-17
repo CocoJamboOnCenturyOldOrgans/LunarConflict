@@ -1,11 +1,12 @@
 using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using static SettingsScript;
 
 public class EnemyAIScript : MonoBehaviour
 {
-    private GameObject _unitPrefab;
+    private List<GameObject> _unitPrefab;
     private Transform _spawner;
     private float _secondsBetweenSpawns;
     
@@ -14,17 +15,16 @@ public class EnemyAIScript : MonoBehaviour
         StartCoroutine(SpawnRussianAstronaut());
     }
 
-    public void SetAI(GameObject unitPrefab, Transform spawner, float secondsBetweenSpawns)
+    public void SetAI(List<GameObject> unitPrefab, Transform spawner, float secondsBetweenSpawns)
     {
         _unitPrefab = unitPrefab;
         _spawner = spawner;
         _secondsBetweenSpawns = secondsBetweenSpawns;
-
     }
     
     private IEnumerator SpawnRussianAstronaut()
     {
-        float cooldown = _secondsBetweenSpawns;
+        float cooldown = Random.Range(_secondsBetweenSpawns-2, _secondsBetweenSpawns+2);
         
         while (true)
         {
@@ -37,8 +37,8 @@ public class EnemyAIScript : MonoBehaviour
                 var boxSize = _spawner.transform.localScale * 3;
                 if (Physics2D.OverlapBoxAll(boxPoint, boxSize, 0, LayerMask.GetMask("Unit")).Any(x => !IsPlayer(x.GetComponent<GenericUnitScript>().unitFaction)))
                     continue;
-                
-                Instantiate(_unitPrefab, _spawner.transform.position, _spawner.transform.rotation);
+                int unitRandom = Random.Range(0, _unitPrefab.Count);
+                Instantiate(_unitPrefab[unitRandom], _spawner.transform.position, _spawner.transform.rotation);
                 cooldown = _secondsBetweenSpawns;
             }
             else
