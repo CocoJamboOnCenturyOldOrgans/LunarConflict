@@ -7,28 +7,21 @@ public class GenericBaseScript : MonoBehaviour, IHittable
 {
     public int Health { get; set; }
     
-    [field: SerializeField] public PlayerFaction BaseFaction { get; private set; }
     [SerializeField] private int maxHealth;
-    [SerializeField] private GameObject aiUnitPrefab;
-    
-    public GameObject spawner;
+    [SerializeField] private bool russian;
+
     private GameUIScript _UI;
 
     private void Start()
     {
-        if (IsPlayer(BaseFaction))
+        if (gameObject.CompareTag("PlayerUnit"))
         {
             _UI = FindObjectOfType<GameUIScript>();
             _UI.baseHealthSlider.maxValue = maxHealth;
             _UI.baseHealthSlider.value = maxHealth;
             _UI.baseHealthSlider.onValueChanged.Invoke(_UI.baseHealthSlider.value);
         }
-        else
-        {
-            var ai = gameObject.AddComponent<EnemyAIScript>();
-            ai.SetAI(aiUnitPrefab, transform.GetChild(1), 8);
-        }
-        _UI = IsPlayer(BaseFaction) ? FindObjectOfType<GameUIScript>() : null;
+        _UI = gameObject.CompareTag("PlayerUnit") ? FindObjectOfType<GameUIScript>() : null;
         Health = maxHealth;
     }
     
@@ -39,7 +32,8 @@ public class GenericBaseScript : MonoBehaviour, IHittable
         if (_UI != null)
         {
             _UI.baseHealthSlider.value = Mathf.Max(0, Health);
-            baseHP = Mathf.Max(0, Health);
+            if(!russian)
+                leftBaseHP = Mathf.Max(0, Health);
         }
         
         if (Health <= 0)
@@ -52,7 +46,7 @@ public class GenericBaseScript : MonoBehaviour, IHittable
     {
         Destroy(gameObject);
         Time.timeScale = 0;
-        playerWon = !IsPlayer(BaseFaction);
+        playerWon = ((russian ? true : false) != (Faction == PlayerFaction.USSR ? true : false));
         SceneManager.LoadSceneAsync(2);
     }
 }

@@ -263,7 +263,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e84433963c16c8744b6db517c39cb314, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitFaction: 1
   unitName: American Armored Vehicle
   attack: 5
   fireRate: 1
@@ -271,6 +270,7 @@ MonoBehaviour:
   speed: 2
   unitCost: 200
   attackRange: 5
+  russian: 0
   attackMode: 0
   bulletParent: {fileID: 9066584125171818413}
   bulletPrefab: {fileID: 4747252809770462573, guid: fb18d719ca9f0544497313eee22e751d, type: 3}

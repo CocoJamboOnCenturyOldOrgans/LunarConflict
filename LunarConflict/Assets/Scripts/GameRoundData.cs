@@ -6,7 +6,7 @@ public class GameRoundData : MonoBehaviour
 {
     public static int kills;
     public static int unitsSpawned;
-    public static int baseHP;
+    public static int leftBaseHP;
     public static int time;
     public static bool playerWon;
 }

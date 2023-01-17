@@ -1166,7 +1166,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4576200456136188220, guid: 7defa21c97eab544ca523eb5dec7742c, type: 3}
       propertyPath: m_Name
-      value: USABase
+      value: PlayerBase
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7defa21c97eab544ca523eb5dec7742c, type: 3}
@@ -1960,12 +1960,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3430456645016945706, guid: ecefefa7269d2ea40b1534c5ad101e59, type: 3}
       propertyPath: m_Name
-      value: SovietBase
+      value: EnemyBase
       objectReference: {fileID: 0}
     - target: {fileID: 3430456645016945708, guid: ecefefa7269d2ea40b1534c5ad101e59, type: 3}
       propertyPath: spawner
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 913502015}
     - target: {fileID: 3430456645016945708, guid: ecefefa7269d2ea40b1534c5ad101e59, type: 3}
       propertyPath: astronaut
       value: 
@@ -3730,7 +3730,7 @@ Transform:
   - {fileID: 1040731518}
   - {fileID: 498597476}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &620067838
 GameObject:
@@ -4863,6 +4863,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 800166082}
   m_CullTransparentMesh: 1
+--- !u!1 &811172846
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 811172847}
+  m_Layer: 0
+  m_Name: PlayerSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &811172847
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 811172846}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -6.68, y: -3.32, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &815051979
 GameObject:
   m_ObjectHideFlags: 0
@@ -5710,6 +5741,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 908437648}
   m_CullTransparentMesh: 1
+--- !u!1 &913502015
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 913502016}
+  m_Layer: 0
+  m_Name: EnemySpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &913502016
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 913502015}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 6.72, y: -3.4, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &916104889
 GameObject:
   m_ObjectHideFlags: 0
@@ -12014,20 +12076,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 178a1b69158522148b53e3ddb71a481d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  usaUnitAstronaut: {fileID: 874816796583786693, guid: 06753682be52dba80a8822d2c043999c, type: 3}
-  usaUnitRover: {fileID: 6156361781352966704, guid: e68a40a4b389e2843b5634bd44eef477, type: 3}
-  usaUnitTank: {fileID: 9066584126370463406, guid: c9e5cbec964134b41aa0798e2fb19c3d, type: 3}
-  usaUnitSpaceship: {fileID: 3117304933143873120, guid: 09a804aa0a8569b4cbfe7d2e2ee383b1, type: 3}
-  sovietUnitAstronaut: {fileID: 3813118679460145047, guid: 6f8cde85287a185889a7dba0ef72bd92, type: 3}
-  sovietUnitRover: {fileID: 1622694353147758051, guid: b5b438097d2899d44b99f26c772e4d1f, type: 3}
-  sovietUnitTank: {fileID: 6450322033091494335, guid: 6cb5d125f9d7de142830244a756ae620, type: 3}
-  sovietUnitSpaceship: {fileID: 8521576343617216922, guid: 177433a50d4fbc04f8939f86e4692487, type: 3}
+  unitAstronaut: {fileID: 874816796583786693, guid: 06753682be52dba80a8822d2c043999c, type: 3}
   unitAstronautAudioClip: {fileID: 8300000, guid: b0bfb49f329670f408dfeb1e9dcd294f, type: 3}
+  unitRover: {fileID: 6156361781352966704, guid: e68a40a4b389e2843b5634bd44eef477, type: 3}
   unitRoverAudioClip: {fileID: 8300000, guid: 2b9e5955d6906004d8c19855ebb3b989, type: 3}
-  usaUnitTankAudioClip: {fileID: 8300000, guid: 4323e3dbb8a84f742bde6286c579a168, type: 3}
-  sovietUnitTankAudioClip: {fileID: 8300000, guid: a6640f9b691dcf642ae4db7ed8a5b6c1, type: 3}
-  usaTheme: {fileID: 8300000, guid: 52102a58311289d49b538a9579ad4d54, type: 3}
-  sovietTheme: {fileID: 8300000, guid: 7424649320b86494cbc3f7878c611bf6, type: 3}
+  unitTank: {fileID: 9066584126370463406, guid: c9e5cbec964134b41aa0798e2fb19c3d, type: 3}
+  unitTankAudioClip: {fileID: 8300000, guid: 4323e3dbb8a84f742bde6286c579a168, type: 3}
+  spawner: {fileID: 811172846}
   money: 2000
   income: 10
 --- !u!114 &1768758989
