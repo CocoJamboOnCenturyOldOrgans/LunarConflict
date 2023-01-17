@@ -12,11 +12,11 @@ public class SettingsScript : MonoBehaviour
     
     public static List<Resolution> Resolutions;
     
-    //UI Changers
+    // UI Changers
     public static string UIMoneyMark = "$";
 
-    //Gameplay Changers
-    public static PlayerFaction Faction;
+    // Gameplay Changers
+    public static PlayerFaction Faction = PlayerFaction.USA;
 
     public static bool IsPlayer(PlayerFaction faction) => faction == Faction;
 }
