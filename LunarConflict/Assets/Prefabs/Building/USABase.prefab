@@ -234,7 +234,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <BaseFaction>k__BackingField: 1
   maxHealth: 500
-  aiUnitPrefab: {fileID: 6156361781352966704, guid: e68a40a4b389e2843b5634bd44eef477, type: 3}
+  aiUnitPrefabs:
+  - {fileID: 874816796583786693, guid: 06753682be52dba80a8822d2c043999c, type: 3}
+  - {fileID: 874816796583786693, guid: 06753682be52dba80a8822d2c043999c, type: 3}
+  - {fileID: 6156361781352966704, guid: e68a40a4b389e2843b5634bd44eef477, type: 3}
+  - {fileID: 6156361781352966704, guid: e68a40a4b389e2843b5634bd44eef477, type: 3}
+  - {fileID: 9066584126370463406, guid: c9e5cbec964134b41aa0798e2fb19c3d, type: 3}
   spawner: {fileID: 469880965954178946}
 --- !u!1001 &4576200456192100407
 PrefabInstance:

@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using static GameRoundData;
 using static SettingsScript;
@@ -9,7 +10,7 @@ public class GenericBaseScript : MonoBehaviour, IHittable
     
     [field: SerializeField] public PlayerFaction BaseFaction { get; private set; }
     [SerializeField] private int maxHealth;
-    [SerializeField] private GameObject aiUnitPrefab;
+    [SerializeField] private List<GameObject> aiUnitPrefabs;
     
     public GameObject spawner;
     private GameUIScript _UI;
@@ -26,7 +27,7 @@ public class GenericBaseScript : MonoBehaviour, IHittable
         else
         {
             var ai = gameObject.AddComponent<EnemyAIScript>();
-            ai.SetAI(aiUnitPrefab, transform.GetChild(1), 8);
+            ai.SetAI(aiUnitPrefabs, transform.GetChild(1), 7);
         }
         _UI = IsPlayer(BaseFaction) ? FindObjectOfType<GameUIScript>() : null;
         Health = maxHealth;
