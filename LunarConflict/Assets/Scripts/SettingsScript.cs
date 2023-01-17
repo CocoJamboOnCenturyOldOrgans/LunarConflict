@@ -9,6 +9,14 @@ public class SettingsScript : MonoBehaviour
         USA = 1,
         USSR = 2
     }
+
+    public enum ChoosenMap
+    {
+        None = 0,
+        Flat = 1,
+        Hole = 2,
+        TwoHills = 3
+    }
     
     public static List<Resolution> Resolutions;
     
@@ -17,6 +25,7 @@ public class SettingsScript : MonoBehaviour
 
     //Gameplay Changers
     public static PlayerFaction Faction = Application.isEditor ? PlayerFaction.USA : PlayerFaction.None;
+    public static ChoosenMap Map = Application.isEditor ? ChoosenMap.Flat : ChoosenMap.None;
 
     public static bool IsPlayer(PlayerFaction faction) => faction == Faction;
 }

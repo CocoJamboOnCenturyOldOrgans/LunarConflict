@@ -4,10 +4,15 @@ using static SettingsScript;
 
 public class CameraScript : MonoBehaviour
 {
+    [SerializeField] private Sprite[] Backgrounds = new Sprite[3];
+    private SpriteRenderer BackgroundImage;
+
     private void Start()
     {
         transform.Rotate(Vector3.up, Faction == PlayerFaction.USA ? 0 : 180);
         transform.position = new Vector3(transform.position.x, transform.position.y, Faction == PlayerFaction.USA ? -10 : 10);
+        BackgroundImage = GameObject.Find("SpaceBackGround").GetComponent<SpriteRenderer>();
+        BackgroundImage.sprite = Backgrounds[Random.Range(0, 3)];
     }
 
     [SerializeField] private float cameraSpeed;
