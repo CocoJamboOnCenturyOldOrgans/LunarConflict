@@ -41,8 +41,6 @@ public class UpgradeScript : MonoBehaviour
 
         string entity = pressedButton.name.Substring(0, 5);
         string upgrade = pressedButton.name.Substring(5, 6);
-        int modifier = 0;
-        Int32.TryParse(pressedButton.name.Substring(11, 1), out modifier);
         float upgValue = 0;
 
         UpgradeSystemScript.UnitType entityType = UpgradeSystemScript.UnitType.None;
@@ -60,13 +58,13 @@ public class UpgradeScript : MonoBehaviour
         upgradeType = upgrade == "Speed_" ? UpgradeSystemScript.StatType.Speed : upgradeType;
 
         //Choosing correct value used for upgrade
-        upgValue = upgrade == "Life__" ? 25 : upgValue;
-        upgValue = upgrade == "Attack" ? 10 : upgValue;
-        upgValue = upgrade == "Speed_" ? 5 : upgValue;
+        upgValue = upgrade == "Life__" ? 0.25f : upgValue;
+        upgValue = upgrade == "Attack" ? 0.25f : upgValue;
+        upgValue = upgrade == "Speed_" ? 0.2f : upgValue;
 
         ButtonComp.enabled = false;
         ImgComp.sprite = Bought;
-        upgradeSystemScript.IncreaseUnitStatisticsMultiplier(entityType, upgradeType, modifier * upgValue);
+        upgradeSystemScript.IncreaseUnitStatisticsMultiplier(entityType, upgradeType, upgValue);
         LockAndLoadUnitTree(pressedButton);
     }
 
