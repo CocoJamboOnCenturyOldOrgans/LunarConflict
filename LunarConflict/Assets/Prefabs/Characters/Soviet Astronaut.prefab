@@ -292,7 +292,7 @@ MonoBehaviour:
   maxHealth: 50
   speed: 2
   unitCost: 50
-  attackRange: 2
+  attackRange: 4
   attackMode: 0
   bulletParent: {fileID: 3813118677673339878}
   bulletPrefab: {fileID: 4747252809770462573, guid: fb18d719ca9f0544497313eee22e751d, type: 3}
