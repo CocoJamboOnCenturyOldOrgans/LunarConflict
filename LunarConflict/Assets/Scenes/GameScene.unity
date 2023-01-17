@@ -15463,7 +15463,7 @@ MonoBehaviour:
   - {fileID: 65780231}
   - {fileID: 751598436}
   - {fileID: 980683194}
-  money: 2000
+  money: 200
   income: 10
   queueCooldown: 3
 --- !u!114 &1768758989
