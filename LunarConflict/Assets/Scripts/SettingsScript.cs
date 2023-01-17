@@ -16,7 +16,7 @@ public class SettingsScript : MonoBehaviour
     public static string UIMoneyMark = "$";
 
     //Gameplay Changers
-    public static PlayerFaction Faction;
+    public static PlayerFaction Faction = Application.isEditor ? PlayerFaction.USA : PlayerFaction.None;
 
     public static bool IsPlayer(PlayerFaction faction) => faction == Faction;
 }
