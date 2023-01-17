@@ -64,9 +64,10 @@ public class GenericUnitScript : MonoBehaviour, IHittable
     
     private bool CanWalk()
     {
+        var pos = new Vector3(transform.position.x + raycastOffset.x, transform.position.y + raycastOffset.y, transform.position.z);
         LayerMask mask = LayerMask.GetMask("Unit");
         RaycastHit2D hit = Physics2D.Raycast(
-            transform.position, 
+            pos, 
             _movementDirection, 
             _localScaleX, 
             _mask);

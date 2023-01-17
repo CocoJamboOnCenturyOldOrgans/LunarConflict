@@ -275,7 +275,7 @@ MonoBehaviour:
   attackMode: 0
   bulletParent: {fileID: 9066584125171818413}
   bulletPrefab: {fileID: 4747252809770462573, guid: fb18d719ca9f0544497313eee22e751d, type: 3}
-  raycastOffset: {x: 0, y: -0.25}
+  raycastOffset: {x: 0, y: -0.5}
   bulletParent2: {fileID: 4902416101130997549}
   missileParent: {fileID: 4634179734181846978}
   missilePrefab: {fileID: 4747252809770462573, guid: b100f2a8c589fcd4d8e4a9d2e077ff24, type: 3}
