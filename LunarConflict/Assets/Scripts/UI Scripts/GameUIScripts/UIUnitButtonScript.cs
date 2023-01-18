@@ -5,38 +5,33 @@ using static SettingsScript;
 public class UIUnitButtonScript : MonoBehaviour
 {
     private GameUIScript _uiScript;
-    private GameLogic _gameLogic;
     private PlayerScript _playerScript;
     
     private GenericUnitScript _currentUnit;
-    private Sprite _currentUnitIconBuyable;
-    private Sprite _currentUnitIconNonBuyable;
+    private Sprite _currentUnitIcon;
+    private Color _buyableColor, _unbuyableColor;
     
     private Image _buttonImage;
     
     [SerializeField] private Text unitPriceText;
     
     [SerializeField] private GenericUnitScript unitUsa;
-    [SerializeField] private GenericUnitScript unitRussian;
-    [SerializeField] private Sprite UnitIconBuyableUsa;
-    [SerializeField] private Sprite UnitIconNonBuyableUsa;
-    [SerializeField] private Sprite UnitIconBuyableRussian;
-    [SerializeField] private Sprite UnitIconNonBuyableRussian;
+    [SerializeField] private GenericUnitScript unitRussian; 
+    [SerializeField] private Sprite unitIconUsa;
+    [SerializeField] private Sprite unitIconRussian;
 
     // Start is called before the first frame update
     void Start()
     {
         _uiScript = FindObjectOfType<GameUIScript>();
-        _gameLogic = FindObjectOfType<GameLogic>();
         _playerScript = FindObjectOfType<PlayerScript>();
         _buttonImage = GetComponent<Image>();
         ChangeSide();
     }
     
-    void LateUpdate()
+    void Update()
     {
-        _buttonImage.sprite = _playerScript.money >= _currentUnit.unitCost ? 
-            _currentUnitIconBuyable : _currentUnitIconNonBuyable;
+        _buttonImage.color = _playerScript.money >= _currentUnit.unitCost ? _buyableColor : _unbuyableColor;
         unitPriceText.color = _playerScript.money >= _currentUnit.unitCost ? Color.green : Color.red;
     }
 
@@ -68,12 +63,12 @@ public class UIUnitButtonScript : MonoBehaviour
 
     public void ChangeSide()
     {
-        unitPriceText.text = (Faction == PlayerFaction.USA ? unitUsa.unitCost : unitRussian.unitCost) 
-                             + UIMoneyMark;
+        unitPriceText.text = (Faction == PlayerFaction.USA ? unitUsa.unitCost : unitRussian.unitCost) + UIMoneyMark;
         _currentUnit = Faction == PlayerFaction.USA ? unitUsa : unitRussian;
-        _currentUnitIconBuyable = Faction == PlayerFaction.USA ? 
-            UnitIconBuyableUsa : UnitIconBuyableRussian;
-        _currentUnitIconNonBuyable = Faction == PlayerFaction.USA ? 
-            UnitIconNonBuyableUsa : UnitIconNonBuyableRussian;
+        _currentUnitIcon = Faction == PlayerFaction.USA ? unitIconUsa : unitIconRussian;
+        _buttonImage.sprite = _currentUnitIcon;
+        
+        _buyableColor = _buttonImage.color;
+        _unbuyableColor = new Color(_buyableColor.r, _buyableColor.g, _buyableColor.b, 0.5f);
     }
 }
