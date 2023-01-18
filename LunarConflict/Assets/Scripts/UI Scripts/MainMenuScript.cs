@@ -61,6 +61,7 @@ public class MainMenuScript : MonoBehaviour
         fullscreen.isOn = Screen.fullScreenMode == FullScreenMode.FullScreenWindow;
 
         Faction = PlayerFaction.None;
+        Map = ChoosenMap.None;
         //UnitsStatistics.StatsModifier = _difficultyStatsModificators[1];
 
         musicSlider.value = PlayerPrefs.GetFloat("MusicVolume", 0.5f);;
@@ -82,6 +83,7 @@ public class MainMenuScript : MonoBehaviour
         creditsPanel.SetActive(Panels.Credits == panel);
     }
     public void ChangeSide(int factionID) => Faction = (PlayerFaction)factionID;
+    public void ChangeMap(int mapID) => Map = (ChoosenMap)mapID;
 
     //0 - Easy, 1 - Normal, 2 - Hard, 3 - Impossible
     public void ChangeDifficulty(int diff) => Debug.Log("Changed StatsModifer"); 
@@ -90,9 +92,9 @@ public class MainMenuScript : MonoBehaviour
 
     public void BeginGame()
     {
-        if (Faction == PlayerFaction.None)
+        if (Faction == PlayerFaction.None || Map == ChoosenMap.None)
         {
-            Debug.LogWarning("You haven't yet chosen a fraction or difficulty!");
+            Debug.LogWarning("You haven't yet chosen a fraction, difficulty or map!");
             return;
         }
 

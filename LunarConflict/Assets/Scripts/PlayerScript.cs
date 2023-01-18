@@ -39,7 +39,11 @@ public class PlayerScript : MonoBehaviour
     [Header("Background Music Queue")] 
     [SerializeField] private AudioClip usaTheme;
     [SerializeField] private AudioClip sovietTheme;
-    
+
+    [Header("-----------------------------------------------------")]
+
+    [SerializeField] private GameObject[] GameMaps = new GameObject[3];
+
     [Header("=====================================================\n")]
 
     public int money;
@@ -73,7 +77,11 @@ public class PlayerScript : MonoBehaviour
         StartCoroutine(RaiseBudget());
         StartCoroutine(CountTime());
         StartCoroutine(EmptyUnitsQueue());
-        
+
+        GameMaps[0].SetActive(Map == ChoosenMap.Flat ? true : false);
+        GameMaps[1].SetActive(Map == ChoosenMap.Hole ? true : false);
+        GameMaps[2].SetActive(Map == ChoosenMap.TwoHills ? true : false);
+
         _base = FindObjectsOfType<GenericBaseScript>().First(x => x.BaseFaction == Faction);
         _spawner = _base.spawner;
         

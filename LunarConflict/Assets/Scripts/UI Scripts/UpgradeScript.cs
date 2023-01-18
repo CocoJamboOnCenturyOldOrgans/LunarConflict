@@ -66,29 +66,30 @@ public class UpgradeScript : MonoBehaviour
         ImgComp.sprite = Bought;
         upgradeSystemScript.IncreaseUnitStatisticsMultiplier(entityType, upgradeType, upgValue);
         LockAndLoadUnitTree(pressedButton);
+        Debug.Log(pressedButton.name);
     }
 
     public void LockAndLoadUnitTree(GameObject changer)
     {
         ///Astronauts Tree
         //Second HP
-        Buttons[9].enabled = changer.name == "AstroLife__1" ? true : false;
+        Buttons[9].enabled = changer.name == "AstroLife__1" ? true : Buttons[9].enabled;
         Images[9].sprite = changer.name == "AstroLife__1" ? Available : Images[9].sprite;
 
         ///Rover Tree
         //Second Speed
-        Buttons[10].enabled = changer.name == "RoverSpeed_1" ? true : false;
+        Buttons[10].enabled = changer.name == "RoverSpeed_1" ? true : Buttons[10].enabled;
         Images[10].sprite = changer.name == "RoverSpeed_1" ? Available : Images[10].sprite;
         //Second HP
-        Buttons[11].enabled = changer.name == "RoverLife__2" ? true : false;
+        Buttons[11].enabled = changer.name == "RoverLife__2" ? true : Buttons[11].enabled;
         Images[11].sprite = changer.name == "RoverLife__2" ? Available : Images[11].sprite;
         //Second Attack
-        Buttons[12].enabled = changer.name == "RoverAttack1" ? true : false;
+        Buttons[12].enabled = changer.name == "RoverAttack1" ? true : Buttons[12].enabled;
         Images[12].sprite = changer.name == "RoverAttack1" ? Available : Images[12].sprite;
 
         ///Tank Tree
         //Second HP
-        Buttons[13].enabled = changer.name == "Tank_Life__3" ? true : false;
+        Buttons[13].enabled = changer.name == "Tank_Life__3" ? true : Buttons[13].enabled;
         Images[13].sprite = changer.name == "Tank_Life__3" ? Available : Images[13].sprite;
     }
 
@@ -111,6 +112,7 @@ public class UpgradeScript : MonoBehaviour
         ButtonComp.enabled = false;
         ImgComp.sprite = Bought;
         LockAndLoadTowerTree(pressedButton);
+        Debug.Log(pressedButton.name);
     }
 
     public void LockAndLoadTowerTree(GameObject changer)
