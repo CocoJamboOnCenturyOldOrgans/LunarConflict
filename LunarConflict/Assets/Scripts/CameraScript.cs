@@ -19,13 +19,13 @@ public class CameraScript : MonoBehaviour
     private Vector3 _cameraLookVector3;
     public void Update()
     {
-        transform.position += (Faction == PlayerFaction.USA ? _cameraLookVector3 : -_cameraLookVector3) * (cameraSpeed * Time.deltaTime);
+        transform.position += _cameraLookVector3 * (cameraSpeed * Time.deltaTime);
     }
 
     public void MoveCamera(InputAction.CallbackContext context)
     {
         var vector = context.ReadValue<Vector2>();
-        _cameraLookVector3 = new Vector3(vector.x, vector.y, 0);
+        _cameraLookVector3 = new Vector3(Faction == PlayerFaction.USA ? vector.x : -vector.x, vector.y, 0);
     }
     
 }
