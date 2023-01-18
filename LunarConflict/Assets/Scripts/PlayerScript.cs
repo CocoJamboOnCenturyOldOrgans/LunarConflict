@@ -78,9 +78,9 @@ public class PlayerScript : MonoBehaviour
         StartCoroutine(CountTime());
         StartCoroutine(EmptyUnitsQueue());
 
-        GameMaps[0].SetActive(Map == ChoosenMap.Flat ? true : false);
-        GameMaps[1].SetActive(Map == ChoosenMap.Hole ? true : false);
-        GameMaps[2].SetActive(Map == ChoosenMap.TwoHills ? true : false);
+        GameMaps[0].SetActive(Map == ChoosenMap.Moon);
+        GameMaps[1].SetActive(Map == ChoosenMap.Mars);
+        GameMaps[2].SetActive(Map == ChoosenMap.Weird);
 
         _base = FindObjectsOfType<GenericBaseScript>().First(x => x.BaseFaction == Faction);
         _spawner = _base.spawner;
