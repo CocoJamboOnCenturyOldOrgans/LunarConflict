@@ -1,7 +1,9 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using static SettingsScript;
+using Random = UnityEngine.Random;
 
 public class CameraScript : MonoBehaviour
 {
@@ -23,7 +25,12 @@ public class CameraScript : MonoBehaviour
     private Vector3 _cameraLookVector3;
     public void Update()
     {
-        transform.position += _cameraLookVector3 * (cameraSpeed * Time.deltaTime);
+        var cameraMoveVector = _cameraLookVector3 * (cameraSpeed * Time.deltaTime);
+        var position = transform.position;
+        transform.position = new Vector3(
+            Mathf.Clamp(position.x + cameraMoveVector.x, -3, 18),
+            Mathf.Clamp(position.y + cameraMoveVector.y, -6, 0),
+            position.z);
     }
 
     public void MoveCamera(InputAction.CallbackContext context)
