@@ -14,7 +14,10 @@ public class CameraScript : MonoBehaviour
     private void Start()
     {
         transform.Rotate(Vector3.up, Faction == PlayerFaction.USA ? 0 : 180);
-        transform.position = new Vector3(transform.position.x, transform.position.y, Faction == PlayerFaction.USA ? -10 : 10);
+        transform.position = new Vector3(
+            Faction == PlayerFaction.USA ? 0 : 15,
+            transform.position.y,
+            Faction == PlayerFaction.USA ? -10 : 10);
         _backgroundMinimap = GameObject.Find("BackgroundMinimap").GetComponent<SpriteRenderer>();
         _backgroundMainCamera = GameObject.Find("BackgroundMainCamera").GetComponent<SpriteRenderer>();
         _backgroundMinimap.sprite = backgrounds[Random.Range(0, backgrounds.Count)];
