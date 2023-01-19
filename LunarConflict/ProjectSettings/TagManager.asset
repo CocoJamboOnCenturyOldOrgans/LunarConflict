@@ -8,6 +8,7 @@ TagManager:
   - EnemyUnit
   - Unit
   - UpgradeButton
+  - Base
   layers:
   - Default
   - TransparentFX
@@ -15,7 +16,7 @@ TagManager:
   - Unit
   - Water
   - UI
-  - 
+  - MinimapIgnore
   - 
   - 
   - 
