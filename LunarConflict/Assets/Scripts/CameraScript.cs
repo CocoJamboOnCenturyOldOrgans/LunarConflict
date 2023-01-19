@@ -15,7 +15,7 @@ public class CameraScript : MonoBehaviour
     {
         transform.Rotate(Vector3.up, Faction == PlayerFaction.USA ? 0 : 180);
         transform.position = new Vector3(
-            Faction == PlayerFaction.USA ? 0 : 15,
+            Faction == PlayerFaction.USA ? -7.5f : 7.5f,
             transform.position.y,
             Faction == PlayerFaction.USA ? -10 : 10);
         _backgroundMinimap = GameObject.Find("BackgroundMinimap").GetComponent<SpriteRenderer>();
@@ -31,7 +31,7 @@ public class CameraScript : MonoBehaviour
         var cameraMoveVector = _cameraLookVector3 * (cameraSpeed * Time.deltaTime);
         var position = transform.position;
         transform.position = new Vector3(
-            Mathf.Clamp(position.x + cameraMoveVector.x, -3, 18),
+            Mathf.Clamp(position.x + cameraMoveVector.x, -10, 10),
             Mathf.Clamp(position.y + cameraMoveVector.y, -6, 0),
             position.z);
     }
