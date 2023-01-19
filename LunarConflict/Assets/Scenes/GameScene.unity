@@ -11296,10 +11296,10 @@ MonoBehaviour:
     m_DisabledTrigger: Disabled
   m_Interactable: 1
   m_TargetGraphic: {fileID: 1245746849}
-  m_Template: {fileID: 0}
+  m_Template: {fileID: 994811144}
   m_CaptionText: {fileID: 924372281}
   m_CaptionImage: {fileID: 0}
-  m_ItemText: {fileID: 0}
+  m_ItemText: {fileID: 1851224771}
   m_ItemImage: {fileID: 0}
   m_Value: 0
   m_Options:
