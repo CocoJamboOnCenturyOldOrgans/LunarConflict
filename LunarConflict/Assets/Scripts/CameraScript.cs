@@ -1,7 +1,9 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using static SettingsScript;
+using Random = UnityEngine.Random;
 
 public class CameraScript : MonoBehaviour
 {
@@ -12,7 +14,10 @@ public class CameraScript : MonoBehaviour
     private void Start()
     {
         transform.Rotate(Vector3.up, Faction == PlayerFaction.USA ? 0 : 180);
-        transform.position = new Vector3(transform.position.x, transform.position.y, Faction == PlayerFaction.USA ? -10 : 10);
+        transform.position = new Vector3(
+            Faction == PlayerFaction.USA ? -7.5f : 7.5f,
+            transform.position.y,
+            Faction == PlayerFaction.USA ? -10 : 10);
         _backgroundMinimap = GameObject.Find("BackgroundMinimap").GetComponent<SpriteRenderer>();
         _backgroundMainCamera = GameObject.Find("BackgroundMainCamera").GetComponent<SpriteRenderer>();
         _backgroundMinimap.sprite = backgrounds[Random.Range(0, backgrounds.Count)];
@@ -23,7 +28,12 @@ public class CameraScript : MonoBehaviour
     private Vector3 _cameraLookVector3;
     public void Update()
     {
-        transform.position += _cameraLookVector3 * (cameraSpeed * Time.deltaTime);
+        var cameraMoveVector = _cameraLookVector3 * (cameraSpeed * Time.deltaTime);
+        var position = transform.position;
+        transform.position = new Vector3(
+            Mathf.Clamp(position.x + cameraMoveVector.x, -10, 10),
+            Mathf.Clamp(position.y + cameraMoveVector.y, -6, 0),
+            position.z);
     }
 
     public void MoveCamera(InputAction.CallbackContext context)

@@ -52,6 +52,17 @@
                 {
                     "name": "up",
                     "id": "c70e71ca-552a-45a1-879c-2c20f9eb75cf",
+                    "path": "<Keyboard>/upArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Look",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "up",
+                    "id": "1dc1d70f-abe4-4736-a236-be1e2cc78715",
                     "path": "<Keyboard>/w",
                     "interactions": "",
                     "processors": "",
@@ -63,6 +74,17 @@
                 {
                     "name": "down",
                     "id": "2068b916-a469-405c-a056-3b03c3fa1f7f",
+                    "path": "<Keyboard>/downArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Look",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "53590c2e-6990-456d-ac97-da77a18fdbf9",
                     "path": "<Keyboard>/s",
                     "interactions": "",
                     "processors": "",
@@ -74,6 +96,17 @@
                 {
                     "name": "left",
                     "id": "af157f30-81ad-4ea7-b124-e0d76cb0af3e",
+                    "path": "<Keyboard>/leftArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Look",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "875ec39d-8ece-4c0e-aa93-eb3aea23da5d",
                     "path": "<Keyboard>/a",
                     "interactions": "",
                     "processors": "",
@@ -85,6 +118,17 @@
                 {
                     "name": "right",
                     "id": "ef0b9c28-43a1-4f44-a779-ab39075a619c",
+                    "path": "<Keyboard>/rightArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Look",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "fcc1a52d-bd08-44dc-840c-2cb7371e4c88",
                     "path": "<Keyboard>/d",
                     "interactions": "",
                     "processors": "",

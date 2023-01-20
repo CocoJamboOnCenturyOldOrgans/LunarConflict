@@ -1737,7 +1737,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Two Hills
+  m_Text: Weird
 --- !u!222 &403301608
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2320,7 +2320,7 @@ GameObject:
   - component: {fileID: 539306239}
   - component: {fileID: 539306238}
   m_Layer: 5
-  m_Name: HoleMap
+  m_Name: MarsMap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3217,7 +3217,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Flat
+  m_Text: Moon
 --- !u!222 &738690471
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3933,7 +3933,7 @@ GameObject:
   - component: {fileID: 1057135238}
   - component: {fileID: 1057135237}
   m_Layer: 5
-  m_Name: FlatMap
+  m_Name: MoonMap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7115,7 +7115,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Crater
+  m_Text: Mars
 --- !u!222 &1761308496
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7293,7 +7293,7 @@ GameObject:
   - component: {fileID: 1812273068}
   - component: {fileID: 1812273067}
   m_Layer: 5
-  m_Name: HillsMap
+  m_Name: WeirdMap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8484,10 +8484,10 @@ RectTransform:
   m_Father: {fileID: 1845649684}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1920, y: 1080}
+  m_SizeDelta: {x: 1920, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2073272215
 MonoBehaviour:

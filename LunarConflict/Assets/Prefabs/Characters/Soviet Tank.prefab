@@ -239,7 +239,7 @@ MonoBehaviour:
   fireRate: 1
   maxHealth: 100
   speed: 2
-  unitCost: 500
+  unitCost: 200
   attackRange: 5
   attackMode: 0
   bulletParent: {fileID: 6450322033216921788}

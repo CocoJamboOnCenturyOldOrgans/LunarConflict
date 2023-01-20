@@ -170,6 +170,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitFaction: 1
+  icon: {fileID: 0}
   unitName: American Spaceship
   attack: 2
   fireRate: 2
