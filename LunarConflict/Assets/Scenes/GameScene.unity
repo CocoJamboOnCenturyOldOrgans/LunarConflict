@@ -4263,6 +4263,7 @@ MonoBehaviour:
   baseHealthValue: {fileID: 824782128}
   resolutionSelector: {fileID: 1245746848}
   fullscreen: {fileID: 772482675}
+  defaultFocus: {fileID: 1393833081}
   musicSlider: {fileID: 656349607}
   musicValue: {fileID: 1723255477}
   effectsSlider: {fileID: 1298047736}
