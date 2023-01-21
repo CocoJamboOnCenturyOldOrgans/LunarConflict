@@ -1738,14 +1738,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 469880965954178946, guid: 7defa21c97eab544ca523eb5dec7742c, type: 3}
-      propertyPath: m_Layer
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2096592403456475291, guid: 7defa21c97eab544ca523eb5dec7742c, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.901
-      objectReference: {fileID: 0}
     - target: {fileID: 4576200456136188217, guid: 7defa21c97eab544ca523eb5dec7742c, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -1793,14 +1785,6 @@ PrefabInstance:
     - target: {fileID: 4576200456136188220, guid: 7defa21c97eab544ca523eb5dec7742c, type: 3}
       propertyPath: m_Name
       value: USABase
-      objectReference: {fileID: 0}
-    - target: {fileID: 6128995041619633884, guid: 7defa21c97eab544ca523eb5dec7742c, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 1.138
-      objectReference: {fileID: 0}
-    - target: {fileID: 6736611353229603941, guid: 7defa21c97eab544ca523eb5dec7742c, type: 3}
-      propertyPath: m_Layer
-      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7defa21c97eab544ca523eb5dec7742c, type: 3}
