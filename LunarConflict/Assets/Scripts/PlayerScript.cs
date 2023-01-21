@@ -216,6 +216,10 @@ public class PlayerScript : MonoBehaviour
         {
             return _unitUpgradeScript.TankUpgradeValues;
         }
-        else throw new Exception();
+        else if (unit == _spaceshipUnit)
+        {
+            return _unitUpgradeScript.SpaceshipUpgradeValues;
+        }
+        else throw new Exception("AssignUpgradeValues did an oopsie");
     }
 }
