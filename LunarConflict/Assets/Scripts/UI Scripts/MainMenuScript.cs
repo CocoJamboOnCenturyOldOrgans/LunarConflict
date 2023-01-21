@@ -86,7 +86,7 @@ public class MainMenuScript : MonoBehaviour
     public void ChangeMap(int mapID) => Map = (ChoosenMap)mapID;
 
     //0 - Easy, 1 - Normal, 2 - Hard, 3 - Impossible
-    public void ChangeDifficulty(int diff) => Debug.Log("Changed StatsModifer"); 
+    public void ChangeDifficulty(int diff) => AIDiff = (AIDifficulty)diff; 
     //UnitsStatistics.StatsModifier = _difficultyStatsModificators[diff];
 
 
