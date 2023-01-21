@@ -20,6 +20,7 @@ public class MainMenuScript : MonoBehaviour
     private readonly float[] _difficultyStatsModificators = { 0.7f, 1.0f, 1.5f, 2.0f };
     [SerializeField] private Dropdown resolutionSelector;
     [SerializeField] private Toggle fullscreen;
+    [SerializeField] private Button defaultFocus;
 
     public Text musicValue;
     public Slider musicSlider;
@@ -68,6 +69,7 @@ public class MainMenuScript : MonoBehaviour
         musicValue.text = SliderHelperScript.ConvertToPercentageValue(musicSlider.value);
         effectsSlider.value = PlayerPrefs.GetFloat("EffectsVolume", 0.5f);;
         effectsValue.text = SliderHelperScript.ConvertToPercentageValue(effectsSlider.value);
+        defaultFocus.Select();
     }
 
     public void StartGameFunction() => ChangePanel(Panels.Game);

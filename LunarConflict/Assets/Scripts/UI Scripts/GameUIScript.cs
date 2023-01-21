@@ -16,6 +16,7 @@ public class GameUIScript : MonoBehaviour
     
     [SerializeField] private Dropdown resolutionSelector;
     [SerializeField] private Toggle fullscreen;
+    [SerializeField] private Button defaultFocus;
 
     public Slider musicSlider;
     public Text musicValue;
@@ -63,6 +64,7 @@ public class GameUIScript : MonoBehaviour
 
         // SET TIME SCALE TO NORMAL ON EACH SCENE CHANGE
         SceneManager.activeSceneChanged += (scene1, scene2) => Time.timeScale = 1.0f;;
+        defaultFocus.Select();
     }
     public void ShowSettings()
     {

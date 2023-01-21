@@ -7,6 +7,8 @@ using static SettingsScript;
 
 public class VictoryScreenDataScript : MonoBehaviour
 {
+    [SerializeField] private Button defaultFocus;
+    
     public Text TimeAmount;
     public Text RemainingHPAmount;
     public Text KilledEnemiesAmount;
@@ -71,6 +73,7 @@ public class VictoryScreenDataScript : MonoBehaviour
         RemainingHPAmount.text = baseHP.ToString();
         KilledEnemiesAmount.text = kills.ToString();
         CreatedEntitiesAmount.text = unitsSpawned.ToString();
+        defaultFocus.Select();
     }
 
     public void BackToMenu()
