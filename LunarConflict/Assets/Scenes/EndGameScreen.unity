@@ -1664,6 +1664,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 633835661b7fce044a1851e68b308ee5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defaultFocus: {fileID: 260273767}
   TimeAmount: {fileID: 555521712}
   RemainingHPAmount: {fileID: 510321153}
   KilledEnemiesAmount: {fileID: 1905371349}

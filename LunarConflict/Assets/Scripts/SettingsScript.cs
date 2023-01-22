@@ -17,6 +17,15 @@ public class SettingsScript : MonoBehaviour
         Mars = 2,
         Weird = 3
     }
+
+    public enum AIDifficulty
+    {
+        None = 0,
+        Easy = 1,
+        Medium = 2,
+        Hard = 3,
+        Impossible = 4
+    }
     
     public static List<Resolution> Resolutions;
     
@@ -26,6 +35,7 @@ public class SettingsScript : MonoBehaviour
     //Gameplay Changers
     public static PlayerFaction Faction = Application.isEditor ? PlayerFaction.USA : PlayerFaction.None;
     public static ChoosenMap Map = Application.isEditor ? ChoosenMap.Weird : ChoosenMap.None;
-
+    public static AIDifficulty AIDiff = Application.isEditor ? AIDifficulty.Medium : AIDifficulty.None;
+    
     public static bool IsPlayer(PlayerFaction faction) => faction == Faction;
 }

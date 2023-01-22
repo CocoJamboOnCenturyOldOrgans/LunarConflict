@@ -9,10 +9,32 @@ public class EnemyAIScript : MonoBehaviour
     private List<GameObject> _unitPrefab;
     private Transform _spawner;
     private float _secondsBetweenSpawns;
+    private UpgradeValues _unitStatsModifiers;
     
     void Start()
     {
         StartCoroutine(SpawnRussianAstronaut());
+        float statModifier = 1f;
+        switch (AIDiff)
+        {
+            case AIDifficulty.Easy:
+                statModifier = 0.75f;
+                break;
+            //case AIDifficulty.Medium already covered
+            case AIDifficulty.Hard:
+                statModifier = 1.25f;
+                break;
+            case AIDifficulty.Impossible:
+                statModifier = 1.5f;
+                break;
+        }
+
+        _unitStatsModifiers = new UpgradeValues(
+            statModifier,
+            statModifier,
+            statModifier,
+            statModifier,
+            statModifier); //This looks brilliant
     }
 
     public void SetAI(List<GameObject> unitPrefab, Transform spawner, float secondsBetweenSpawns)
@@ -22,7 +44,7 @@ public class EnemyAIScript : MonoBehaviour
         _secondsBetweenSpawns = secondsBetweenSpawns;
     }
     
-    private IEnumerator SpawnRussianAstronaut()
+    private IEnumerator SpawnRussianAstronaut() //SpawnUnit
     {
         float cooldown = Random.Range(_secondsBetweenSpawns-2, _secondsBetweenSpawns+2);
         
@@ -38,7 +60,13 @@ public class EnemyAIScript : MonoBehaviour
                 if (Physics2D.OverlapBoxAll(boxPoint, boxSize, 0, LayerMask.GetMask("Unit")).Any(x => !IsPlayer(x.GetComponent<GenericUnitScript>().unitFaction)))
                     continue;
                 int unitRandom = Random.Range(0, _unitPrefab.Count);
-                Instantiate(_unitPrefab[unitRandom], _spawner.transform.position, _spawner.transform.rotation);
+                var unitSpawned = Instantiate(_unitPrefab[unitRandom], _spawner.transform.position, _spawner.transform.rotation);
+                var unitScript = unitSpawned.GetComponent<GenericUnitScript>();
+                unitScript.maxHealth = (int) (unitScript.maxHealth * _unitStatsModifiers.healthModifier);
+                unitScript.attack *= _unitStatsModifiers.damageModifier;
+                unitScript.fireRate *= _unitStatsModifiers.fireRateModifier;
+                unitScript.speed *= _unitStatsModifiers.speedModifier;
+                unitScript.unitCost = (int) (unitScript.unitCost * _unitStatsModifiers.unitCostModifier);
                 cooldown = _secondsBetweenSpawns;
             }
             else

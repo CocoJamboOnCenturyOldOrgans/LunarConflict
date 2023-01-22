@@ -1738,10 +1738,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2096592403456475291, guid: 7defa21c97eab544ca523eb5dec7742c, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.901
-      objectReference: {fileID: 0}
     - target: {fileID: 4576200456136188217, guid: 7defa21c97eab544ca523eb5dec7742c, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -4267,6 +4263,7 @@ MonoBehaviour:
   baseHealthValue: {fileID: 824782128}
   resolutionSelector: {fileID: 1245746848}
   fullscreen: {fileID: 772482675}
+  defaultFocus: {fileID: 1393833081}
   musicSlider: {fileID: 656349607}
   musicValue: {fileID: 1723255477}
   effectsSlider: {fileID: 1298047736}
@@ -11713,6 +11710,22 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 6c3e1dec-0d8f-4efc-8e26-4e126fdcd5f5
     m_ActionName: UI/TrackedDeviceOrientation
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 512734608}
+        m_TargetAssemblyTypeName: GameUIScript, Assembly-CSharp
+        m_MethodName: ShowSettings
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 73891a7b-9fe2-4e15-a0df-cce820265486
+    m_ActionName: Player/Pause[/Keyboard/escape]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player

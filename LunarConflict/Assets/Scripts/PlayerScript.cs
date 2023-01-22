@@ -145,7 +145,13 @@ public class PlayerScript : MonoBehaviour
                 // CHECK IF THERE IS ENOUGH SPACE TO SPAWN THE UNIT
                 var boxPoint = new Vector2(_spawner.transform.position.x, _spawner.transform.position.y);
                 var boxSize = _spawner.transform.localScale * 3;
-                if (Physics2D.OverlapBoxAll(boxPoint, boxSize, 0, LayerMask.GetMask("Unit")).Any(x => IsPlayer(x.GetComponent<GenericUnitScript>().unitFaction)))
+                if (Physics2D.OverlapBoxAll(
+                        boxPoint,
+                        boxSize,
+                        0,
+                        LayerMask.GetMask("Unit")).Any(
+                            x => IsPlayer(
+                                x.GetComponent<GenericUnitScript>().unitFaction)))
                     continue;
                 
                 _unitsQueue.Dequeue().Invoke();
@@ -210,6 +216,10 @@ public class PlayerScript : MonoBehaviour
         {
             return _unitUpgradeScript.TankUpgradeValues;
         }
-        else throw new Exception();
+        else if (unit == _spaceshipUnit)
+        {
+            return _unitUpgradeScript.SpaceshipUpgradeValues;
+        }
+        else throw new Exception("AssignUpgradeValues did an oopsie");
     }
 }
