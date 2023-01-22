@@ -7,9 +7,9 @@ using UnityEngine.SceneManagement;
 public class GenericBaseScript : MonoBehaviour, IHittable
 {
     public int Health { get; set; }
+    public int maxHealth;
     
     [field: SerializeField] public PlayerFaction BaseFaction { get; private set; }
-    [SerializeField] private int maxHealth;
     [SerializeField] private List<GameObject> aiUnitPrefabs;
     
     public GameObject spawner;

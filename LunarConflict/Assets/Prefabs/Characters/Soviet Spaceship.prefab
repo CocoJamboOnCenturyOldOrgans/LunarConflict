@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 8521576343617216917}
   - component: {fileID: 8521576343617216916}
   - component: {fileID: 2990230234408446293}
+  - component: {fileID: 2824272119521667628}
   m_Layer: 3
   m_Name: Soviet Spaceship
   m_TagString: EnemyUnit
@@ -217,6 +218,19 @@ MonoBehaviour:
   bombPrefab: {fileID: 4747252809770462573, guid: b100f2a8c589fcd4d8e4a9d2e077ff24, type: 3}
   retreatSpeed: 8
   rotationSpeed: 30
+--- !u!114 &2824272119521667628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8521576343617216922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3f41e2e39a8f3f4495b72f9b8c6c828, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hpSliderParent: {fileID: 7095870749028973205, guid: 4688755eec84699448ce542fe1210aab, type: 3}
 --- !u!1 &8521576345604669592
 GameObject:
   m_ObjectHideFlags: 0
