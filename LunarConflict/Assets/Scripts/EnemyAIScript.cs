@@ -60,7 +60,14 @@ public class EnemyAIScript : MonoBehaviour
                 if (Physics2D.OverlapBoxAll(boxPoint, boxSize, 0, LayerMask.GetMask("Unit")).Any(x => !IsPlayer(x.GetComponent<GenericUnitScript>().unitFaction)))
                     continue;
                 int unitRandom = Random.Range(0, _unitPrefab.Count);
-                var unitSpawned = Instantiate(_unitPrefab[unitRandom], _spawner.transform.position, _spawner.transform.rotation);
+                var unitPrefab = _unitPrefab[unitRandom];
+                var unitSpawned = Instantiate
+                    (
+                        unitPrefab, 
+                        _spawner.transform.position + (unitPrefab.GetComponent<GenericSpaceshipScript>() != null ? new Vector3(0, 1.75f) : Vector3.zero),
+                        _spawner.transform.rotation
+                    );
+                
                 var unitScript = unitSpawned.GetComponent<GenericUnitScript>();
                 unitScript.maxHealth = (int) (unitScript.maxHealth * _unitStatsModifiers.healthModifier);
                 unitScript.attack *= _unitStatsModifiers.damageModifier;

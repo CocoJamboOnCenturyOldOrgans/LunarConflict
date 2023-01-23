@@ -3362,7 +3362,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &447251512
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3465,9 +3465,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: GameUIScript, Assembly-CSharp
-        m_MethodName: SpawnEntityD
+      - m_Target: {fileID: 1768758988}
+        m_TargetAssemblyTypeName: PlayerScript, Assembly-CSharp
+        m_MethodName: BuySpaceship
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3490,10 +3490,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitPriceText: {fileID: 1499606888}
-  unitUsa: {fileID: 7779528170484288204, guid: e68a40a4b389e2843b5634bd44eef477, type: 3}
-  unitRussian: {fileID: -6819897368678102410, guid: b5b438097d2899d44b99f26c772e4d1f, type: 3}
-  unitIconUsa: {fileID: 0}
-  unitIconRussian: {fileID: 0}
+  unitUsa: {fileID: 6018246281853252158, guid: 09a804aa0a8569b4cbfe7d2e2ee383b1, type: 3}
+  unitRussian: {fileID: 2990230234408446293, guid: 177433a50d4fbc04f8939f86e4692487, type: 3}
+  unitIconUsa: {fileID: 21300000, guid: de3875d118455684885f8ea20c099127, type: 3}
+  unitIconRussian: {fileID: 21300000, guid: 28ecaeb342b01274e8afb89afe9ad64e, type: 3}
 --- !u!114 &447251517
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13383,7 +13383,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1499606887
 RectTransform:
   m_ObjectHideFlags: 0

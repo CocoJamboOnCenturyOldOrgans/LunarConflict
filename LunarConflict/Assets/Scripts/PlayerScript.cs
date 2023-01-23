@@ -183,7 +183,13 @@ public class PlayerScript : MonoBehaviour
             var unitIcon = unit.GetComponent<GenericUnitScript>().icon;
             _unitsQueue.Enqueue(() =>
             {
-                var unitSpawned = Instantiate(unit, _spawner.transform.position, _spawner.transform.rotation);
+                var unitSpawned = Instantiate
+                    (
+                        unit, 
+                        _spawner.transform.position + (unit == _spaceshipUnit ? new Vector3(0, 1.75f) : Vector3.zero), 
+                        _spawner.transform.rotation
+                    );
+            
                 var unitScript = unitSpawned.GetComponent<GenericUnitScript>();
                 unitScript.maxHealth = (int) (unitScript.maxHealth * upgradeValues.healthModifier);
                 unitScript.attack *= upgradeValues.damageModifier;

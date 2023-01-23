@@ -245,6 +245,7 @@ MonoBehaviour:
   - {fileID: 6156361781352966704, guid: e68a40a4b389e2843b5634bd44eef477, type: 3}
   - {fileID: 6156361781352966704, guid: e68a40a4b389e2843b5634bd44eef477, type: 3}
   - {fileID: 9066584126370463406, guid: c9e5cbec964134b41aa0798e2fb19c3d, type: 3}
+  - {fileID: 3117304933143873120, guid: 09a804aa0a8569b4cbfe7d2e2ee383b1, type: 3}
   spawner: {fileID: 469880965954178946}
 --- !u!114 &-8717322246738272513
 MonoBehaviour:
