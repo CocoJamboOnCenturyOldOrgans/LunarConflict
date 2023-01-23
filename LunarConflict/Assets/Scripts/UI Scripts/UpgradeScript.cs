@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using static SettingsScript;
 
 public class UpgradeScript : MonoBehaviour
 {
@@ -11,62 +12,99 @@ public class UpgradeScript : MonoBehaviour
     //13.01.2023 20:56:22 Not anymore "Prototype" :d
 
     [SerializeField] private Button[] Buttons = new Button[18];
-    [SerializeField] private Image[] Images = new Image[18];
+
+    [SerializeField] private Image[] TreeImages = new Image[5];
+    [SerializeField] private Sprite[] TreeSprites = new Sprite[10];         //0-4 USA | 5-9 Soviet
+
+    [SerializeField] private Image[] UpgradeImages = new Image[18];
+    [SerializeField] private Sprite[] UpgradeSprites = new Sprite[20];      //0-8 USA | 9-17 Soviet | 18-19 Both
 
     public Sprite Locked;
-    public Sprite Available;
-    public Sprite Bought;
+    int altSprite = SettingsScript.Faction == SettingsScript.PlayerFaction.USA ? 0 : 9;
+
+    [SerializeField] private Text CostField;
+    [SerializeField] private Text DescriptionField;
 
     [SerializeField] private UpgradeSystemScript upgradeSystemScript;
+    [SerializeField] private PlayerScript playerScript;
+    private GameUIScript _uiScript;
+
     private void Start()
     {
-        for(int i = 0; i < 9; i++)
+        _uiScript = GetComponent<GameUIScript>();
+        CostField.text = "";
+        DescriptionField.text = "";
+        //Setting Tree Image according to Faction
+        for (int i = 0; i < 4; i++)
         {
-            Buttons[i].enabled = true;
-            Images[i].sprite = Available;
+            TreeImages[i].sprite = SettingsScript.Faction == SettingsScript.PlayerFaction.USA ? TreeSprites[i] : TreeSprites[i + 5];
         }
-        for (int i = 9; i < 18; i++)
+        TreeImages[4].sprite = SettingsScript.Faction == SettingsScript.PlayerFaction.USA ? TreeSprites[4] : TreeSprites[9];
+
+        //Setting other images in Tree according to Faction
+        for (int i = 0; i < 8; i++)
         {
-            Buttons[i].enabled = i != 16 ? false : true;
-            Images[i].sprite = i != 16 ? Locked : Available;
+            UpgradeImages[i].sprite = UpgradeSprites[i + altSprite];
+            UpgradeImages[i].color = Color.black;
         }
+        UpgradeImages[9].sprite = Locked;
+        Buttons[9].enabled = false;
+        for (int i = 0; i < 6; i++)
+        {
+            UpgradeImages[i + 10].sprite = Locked;
+            Buttons[i + 10].enabled = false;
+        }
+        UpgradeImages[8].sprite = UpgradeSprites[18];
+        UpgradeImages[8].color = Color.black;
+        UpgradeImages[16].sprite = UpgradeSprites[19];
+        UpgradeImages[16].color = Color.black;
+        UpgradeImages[17].sprite = Locked;
+        Buttons[17].enabled = false;
     }
 
     //ASTRONAUT, ROVER, TANK AND SHIP TREE FUNCTIONS
     //##############################################################################
     public void UpgradeUnit(GameObject pressedButton)
     {
-        Button ButtonComp = pressedButton.GetComponent<Button>();
-        Image ImgComp = pressedButton.GetComponent<Image>();
+        GenericUpgradeButtonsScript DescriptionReader = pressedButton.GetComponent<GenericUpgradeButtonsScript>();
 
-        string entity = pressedButton.name.Substring(0, 5);
-        string upgrade = pressedButton.name.Substring(5, 6);
-        float upgValue = 0;
+        if(playerScript.money >= DescriptionReader.cost)
+        {
+            Button ButtonComp = pressedButton.GetComponent<Button>();
+            Image ImgComp = pressedButton.GetComponent<Image>();
 
-        UpgradeSystemScript.UnitType entityType = UpgradeSystemScript.UnitType.None;
-        UpgradeSystemScript.StatType upgradeType = UpgradeSystemScript.StatType.None;
+            string entity = pressedButton.name.Substring(0, 5);
+            string upgrade = pressedButton.name.Substring(5, 6);
+            float upgValue = 0;
 
-        //Choosing correct Entity from Enum list
-        entityType = entity == "Astro" ? UpgradeSystemScript.UnitType.Astronaut : entityType;
-        entityType = entity == "Rover" ? UpgradeSystemScript.UnitType.LunarRover : entityType;
-        entityType = entity == "Tank_" ? UpgradeSystemScript.UnitType.Tank : entityType;
-        //entityType = entity == "Ship_" ? UpgradeSystemScript.UnitType.Spaceship : entityType;
+            UpgradeSystemScript.UnitType entityType = UpgradeSystemScript.UnitType.None;
+            UpgradeSystemScript.StatType upgradeType = UpgradeSystemScript.StatType.None;
 
-        //Choosing correct Upgrade from Enum list
-        upgradeType = upgrade == "Life__" ? UpgradeSystemScript.StatType.Health : upgradeType;
-        upgradeType = upgrade == "Attack" ? UpgradeSystemScript.StatType.Damage : upgradeType;
-        upgradeType = upgrade == "Speed_" ? UpgradeSystemScript.StatType.Speed : upgradeType;
+            //Choosing correct Entity from Enum list
+            entityType = entity == "Astro" ? UpgradeSystemScript.UnitType.Astronaut : entityType;
+            entityType = entity == "Rover" ? UpgradeSystemScript.UnitType.LunarRover : entityType;
+            entityType = entity == "Tank_" ? UpgradeSystemScript.UnitType.Tank : entityType;
+            //entityType = entity == "Ship_" ? UpgradeSystemScript.UnitType.Spaceship : entityType;
 
-        //Choosing correct value used for upgrade
-        upgValue = upgrade == "Life__" ? 0.25f : upgValue;
-        upgValue = upgrade == "Attack" ? 0.25f : upgValue;
-        upgValue = upgrade == "Speed_" ? 0.2f : upgValue;
+            //Choosing correct Upgrade from Enum list
+            upgradeType = upgrade == "Life__" ? UpgradeSystemScript.StatType.Health : upgradeType;
+            upgradeType = upgrade == "Attack" ? UpgradeSystemScript.StatType.Damage : upgradeType;
+            upgradeType = upgrade == "Speed_" ? UpgradeSystemScript.StatType.Speed : upgradeType;
 
-        ButtonComp.enabled = false;
-        ImgComp.sprite = Bought;
-        upgradeSystemScript.IncreaseUnitStatisticsMultiplier(entityType, upgradeType, upgValue);
-        LockAndLoadUnitTree(pressedButton);
-        Debug.Log(pressedButton.name);
+            //Choosing correct value used for upgrade
+            upgValue = upgrade == "Life__" ? 0.25f : upgValue;
+            upgValue = upgrade == "Attack" ? 0.25f : upgValue;
+            upgValue = upgrade == "Speed_" ? 0.2f : upgValue;
+
+            ButtonComp.enabled = false;
+            ImgComp.color = Color.white;
+            DescriptionReader.showCost = false;
+            CostField.text = "Cost: BOUGHT";
+            playerScript.money -= DescriptionReader.cost;
+            _uiScript.UpdateMoney(playerScript.money);
+            upgradeSystemScript.IncreaseUnitStatisticsMultiplier(entityType, upgradeType, upgValue);
+            LockAndLoadUnitTree(pressedButton);
+        }
     }
 
     public void LockAndLoadUnitTree(GameObject changer)
@@ -74,45 +112,58 @@ public class UpgradeScript : MonoBehaviour
         ///Astronauts Tree
         //Second HP
         Buttons[9].enabled = changer.name == "AstroLife__1" ? true : Buttons[9].enabled;
-        Images[9].sprite = changer.name == "AstroLife__1" ? Available : Images[9].sprite;
+        UpgradeImages[9].sprite = changer.name == "AstroLife__1" ? UpgradeSprites[0 + altSprite] : UpgradeImages[9].sprite;
+        UpgradeImages[9].color = changer.name == "AstroLife__1" ? Color.black : UpgradeImages[9].color;
 
         ///Rover Tree
         //Second Speed
         Buttons[10].enabled = changer.name == "RoverSpeed_1" ? true : Buttons[10].enabled;
-        Images[10].sprite = changer.name == "RoverSpeed_1" ? Available : Images[10].sprite;
+        UpgradeImages[10].sprite = changer.name == "RoverSpeed_1" ? UpgradeSprites[2 + altSprite] : UpgradeImages[10].sprite;
+        UpgradeImages[10].color = changer.name == "RoverSpeed_1" ? Color.black : UpgradeImages[10].color;
         //Second HP
         Buttons[11].enabled = changer.name == "RoverLife__2" ? true : Buttons[11].enabled;
-        Images[11].sprite = changer.name == "RoverLife__2" ? Available : Images[11].sprite;
+        UpgradeImages[11].sprite = changer.name == "RoverLife__2" ? UpgradeSprites[3 + altSprite] :UpgradeImages[11].sprite;
+        UpgradeImages[11].color = changer.name == "RoverLife__2" ? Color.black : UpgradeImages[11].color;
         //Second Attack
         Buttons[12].enabled = changer.name == "RoverAttack1" ? true : Buttons[12].enabled;
-        Images[12].sprite = changer.name == "RoverAttack1" ? Available : Images[12].sprite;
+        UpgradeImages[12].sprite = changer.name == "RoverAttack1" ? UpgradeSprites[4 + altSprite] : UpgradeImages[12].sprite;
+        UpgradeImages[12].color = changer.name == "RoverAttack1" ? Color.black : UpgradeImages[12].color;
 
         ///Tank Tree
         //Second HP
         Buttons[13].enabled = changer.name == "Tank_Life__3" ? true : Buttons[13].enabled;
-        Images[13].sprite = changer.name == "Tank_Life__3" ? Available : Images[13].sprite;
+        UpgradeImages[13].sprite = changer.name == "Tank_Life__3" ? UpgradeSprites[5 + altSprite] : UpgradeImages[13].sprite;
+        UpgradeImages[13].color = changer.name == "Tank_Life__3" ? Color.black : UpgradeImages[13].color;
     }
 
     //TOWERS TREE FUNCTIONS
     //##############################################################################
     public void BuildTowers(GameObject pressedButton)
     {
-        Button ButtonComp = pressedButton.GetComponent<Button>();
-        Image ImgComp = pressedButton.GetComponent<Image>();
+        GenericUpgradeButtonsScript DescriptionReader = pressedButton.GetComponent<GenericUpgradeButtonsScript>();
 
-        string defenceType = pressedButton.name.Substring(5, 5);
+        if (playerScript.money >= DescriptionReader.cost)
+        {
+            Button ButtonComp = pressedButton.GetComponent<Button>();
+            Image ImgComp = pressedButton.GetComponent<Image>();
 
-        UpgradeSystemScript.TowerType towerType = UpgradeSystemScript.TowerType.None;
+            string defenceType = pressedButton.name.Substring(5, 5);
 
-        //Choosing correct Tower from Enum list
-        towerType = defenceType == "Light" ? UpgradeSystemScript.TowerType.Light : towerType;
-        towerType = defenceType == "Heavy" ? UpgradeSystemScript.TowerType.Heavy : towerType;
-        towerType = defenceType == "Oblit" ? UpgradeSystemScript.TowerType.Obliterate : towerType;
+            UpgradeSystemScript.TowerType towerType = UpgradeSystemScript.TowerType.None;
 
-        ButtonComp.enabled = false;
-        ImgComp.sprite = Bought;
-        LockAndLoadTowerTree(pressedButton);
-        Debug.Log(pressedButton.name);
+            //Choosing correct Tower from Enum list
+            towerType = defenceType == "Light" ? UpgradeSystemScript.TowerType.Light : towerType;
+            towerType = defenceType == "Heavy" ? UpgradeSystemScript.TowerType.Heavy : towerType;
+            towerType = defenceType == "Oblit" ? UpgradeSystemScript.TowerType.Obliterate : towerType;
+
+            ButtonComp.enabled = false;
+            ImgComp.color = Color.white;
+            DescriptionReader.showCost = false;
+            CostField.text = "Cost: BOUGHT";
+            playerScript.money -= DescriptionReader.cost;
+            _uiScript.UpdateMoney(playerScript.money);
+            LockAndLoadTowerTree(pressedButton);
+        }
     }
 
     public void LockAndLoadTowerTree(GameObject changer)
@@ -120,43 +171,84 @@ public class UpgradeScript : MonoBehaviour
         ///Tower Tree
         //First Level Light
         Buttons[7].enabled = changer.name == "TowerLight1" ? false : Buttons[7].enabled;
-        Images[7].sprite = changer.name == "TowerLight1" ? Locked : Images[7].sprite;
-        Buttons[14].enabled = changer.name == "TowerLight1" ? true : Buttons[14].enabled;
-        Images[14].sprite = changer.name == "TowerLight1" ? Available : Images[14].sprite;
-        Buttons[15].enabled = changer.name == "TowerLight1" ? true : Buttons[15].enabled;
-        Images[15].sprite = changer.name == "TowerLight1" ? Available : Images[15].sprite;
+        UpgradeImages[7].sprite = changer.name == "TowerLight1" ? Locked : UpgradeImages[7].sprite;
+        UpgradeImages[7].color = changer.name == "TowerLight1" ? Color.white : UpgradeImages[7].color;
         //First Level Heavy
         Buttons[6].enabled = changer.name == "TowerHeavy1" ? false : Buttons[6].enabled;
-        Images[6].sprite = changer.name == "TowerHeavy1" ? Locked : Images[6].sprite;
-        Buttons[14].enabled = changer.name == "TowerHeavy1" ? true : Buttons[14].enabled;
-        Images[14].sprite = changer.name == "TowerHeavy1" ? Available : Images[14].sprite;
-        Buttons[15].enabled = changer.name == "TowerHeavy1" ? true : Buttons[15].enabled;
-        Images[15].sprite = changer.name == "TowerHeavy1" ? Available : Images[15].sprite;
-        
+        UpgradeImages[6].sprite = changer.name == "TowerHeavy1" ? Locked : UpgradeImages[6].sprite;
+        UpgradeImages[6].color = changer.name == "TowerHeavy1" ? Color.white : UpgradeImages[6].color;
+        //First Level Both
+        if (changer.name == "TowerLight1" || changer.name == "TowerHeavy1")
+        {
+            Buttons[14].enabled = true;
+            UpgradeImages[14].sprite = UpgradeSprites[6 + altSprite];
+            UpgradeImages[14].color = Color.black;
+            Buttons[15].enabled = true;
+            UpgradeImages[15].sprite = UpgradeSprites[7 + altSprite];
+            UpgradeImages[15].color = Color.black;
+        }
+
         //Second Level Light
         Buttons[15].enabled = changer.name == "TowerLight2" ? false : Buttons[15].enabled;
-        Images[15].sprite = changer.name == "TowerLight2" ? Locked : Images[15].sprite;
-        Buttons[17].enabled = changer.name == "TowerLight2" ? true : Buttons[17].enabled;
-        Images[17].sprite = changer.name == "TowerLight2" ? Available : Images[17].sprite;
-
+        UpgradeImages[15].sprite = changer.name == "TowerLight2" ? Locked : UpgradeImages[15].sprite;
+        UpgradeImages[15].color = changer.name == "TowerLight2" ? Color.white : UpgradeImages[15].color;
         //Second Level Heavy
         Buttons[14].enabled = changer.name == "TowerHeavy2" ? false : Buttons[14].enabled;
-        Images[14].sprite = changer.name == "TowerHeavy2" ? Locked : Images[14].sprite;
-        Buttons[17].enabled = changer.name == "TowerHeavy2" ? true : Buttons[17].enabled;
-        Images[17].sprite = changer.name == "TowerHeavy2" ? Available : Images[17].sprite;
+        UpgradeImages[14].sprite = changer.name == "TowerHeavy2" ? Locked : UpgradeImages[14].sprite;
+        UpgradeImages[14].color = changer.name == "TowerHeavy2" ? Color.white : UpgradeImages[14].color;
+        //Second Level Both
+        if (changer.name == "TowerLight2" || changer.name == "TowerHeavy2")
+        {
+            Buttons[17].enabled = true;
+            UpgradeImages[17].sprite = UpgradeSprites[8 + altSprite];
+            UpgradeImages[17].color = Color.black;
+        }
     }
 
     //BASE FUNCTIONS
     //##############################################################################
-    public void UpgradeBank()
+    public void UpgradeBank(GameObject pressedButton)
     {
-        Images[8].sprite = Bought;
-        Buttons[8].enabled = false;
+        GenericUpgradeButtonsScript DescriptionReader = pressedButton.GetComponent<GenericUpgradeButtonsScript>();
+
+        if (playerScript.money >= DescriptionReader.cost)
+        {
+            Buttons[8].enabled = false;
+            DescriptionReader.showCost = false;
+            CostField.text = "Cost: BOUGHT";
+            playerScript.money -= DescriptionReader.cost;
+            _uiScript.UpdateMoney(playerScript.money);
+            UpgradeImages[8].color = Color.white;
+        }
     }
 
-    public void UpgradeFactory()
+    public void UpgradeFactory(GameObject pressedButton)
     {
-        Images[16].sprite = Bought;
-        Buttons[16].enabled = false;
+        GenericUpgradeButtonsScript DescriptionReader = pressedButton.GetComponent<GenericUpgradeButtonsScript>();
+
+        if (playerScript.money >= DescriptionReader.cost)
+        {
+            Buttons[16].enabled = false;
+            DescriptionReader.showCost = false;
+            CostField.text = "Cost: BOUGHT";
+            playerScript.money -= DescriptionReader.cost;
+            _uiScript.UpdateMoney(playerScript.money);
+            UpgradeImages[16].color = Color.white;
+        }
+    }
+
+    //DESCRIPTION FUNCTION
+    //##############################################################################
+    public void ShowDescription(GameObject changer)
+    {
+        GenericUpgradeButtonsScript DescriptionReader = changer.GetComponent<GenericUpgradeButtonsScript>();
+        CostField.text = DescriptionReader.showCost == true ? "Cost: " + DescriptionReader.cost.ToString() + UIMoneyMark : "Cost: BOUGHT";
+        DescriptionField.text = DescriptionReader.description.ToString();
+    }
+
+    public void HideDescription()
+    {
+        CostField.text = "";
+        DescriptionField.text = "";
     }
 }

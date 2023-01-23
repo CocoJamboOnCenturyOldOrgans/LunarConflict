@@ -18,6 +18,21 @@ public class GameUIScript : MonoBehaviour
     [SerializeField] private Toggle fullscreen;
     [SerializeField] private Button defaultFocus;
 
+    [SerializeField] private Image topPanelTheme;
+    [SerializeField] private Image queuePanelTheme;
+    [SerializeField] private Image downPanelTheme;
+    [SerializeField] private Image mapPanelTheme;
+    [SerializeField] private Image[] buttonTheme = new Image[3];
+    [SerializeField] private Image entitiesPanelTheme;
+    [SerializeField] private Image statsHeaderTheme;
+    [SerializeField] private Image statsPanelTheme;
+    [SerializeField] private Image descriptionHeaderTheme;
+    [SerializeField] private Image descriptionPanelTheme;
+    [SerializeField] private Image settingsPanelTheme;
+    [SerializeField] private Image settingsInnerPanelTheme;
+    [SerializeField] private Image upgradePanelTheme;
+    [SerializeField] private Image upgradeInnerPanelTheme;
+
     public Slider musicSlider;
     public Text musicValue;
     public Slider effectsSlider;
@@ -42,6 +57,8 @@ public class GameUIScript : MonoBehaviour
         effectsValue.text = Mathf.RoundToInt(effectsSlider.value * 100) + "%";
         
         bottomPanel = GetComponent<BottomPanelObjectScript>();
+
+        ChangeGameTheme();
 
         // This is a safety mechanism to not throw ArgumentNullException
         // during testing inside Unity Editor
@@ -76,6 +93,48 @@ public class GameUIScript : MonoBehaviour
     {
         upgradePanel.SetActive(true);
         Time.timeScale = 0f;
+    }
+
+    public void ChangeGameTheme()
+    {
+        if(SettingsScript.Faction == PlayerFaction.USA)
+        {
+            topPanelTheme.color = new Color(1f, 1f, 1f);
+            queuePanelTheme.color = new Color(1f, 1f, 1f);
+            downPanelTheme.color = new Color(0.76f, 0.76f, 0.76f);
+            mapPanelTheme.color = new Color(0.91f, 0.91f, 0.91f);
+            buttonTheme[0].color = new Color(1f, 1f, 1f);
+            buttonTheme[1].color = new Color(1f, 1f, 1f);
+            buttonTheme[2].color = new Color(1f, 1f, 1f);
+            entitiesPanelTheme.color = new Color(0.91f, 0.91f, 0.91f);
+            statsHeaderTheme.color = new Color(1f, 1f, 1f);
+            statsPanelTheme.color = new Color(0.91f, 0.91f, 0.91f);
+            descriptionHeaderTheme.color = new Color(1f, 1f, 1f);
+            descriptionPanelTheme.color = new Color(0.91f, 0.91f, 0.91f);
+            settingsPanelTheme.color = new Color(0.76f, 0.76f, 0.76f);
+            settingsInnerPanelTheme.color = new Color(0.91f, 0.91f, 0.91f);
+            upgradePanelTheme.color = new Color(0.76f, 0.76f, 0.76f);
+            upgradeInnerPanelTheme.color = new Color(0.91f, 0.91f, 0.91f);
+        }
+        else
+        {
+            topPanelTheme.color = new Color(0.68f, 0.13f, 0.2f);
+            queuePanelTheme.color = new Color(1f, 0.62f, 0.13f);
+            downPanelTheme.color = new Color(0.55f, 0.16f, 0.21f);
+            mapPanelTheme.color = new Color(1f, 0.62f, 0.13f);
+            buttonTheme[0].color = new Color(1f, 0.62f, 0.13f);
+            buttonTheme[1].color = new Color(1f, 0.62f, 0.13f);
+            buttonTheme[2].color = new Color(1f, 0.62f, 0.13f);
+            entitiesPanelTheme.color = new Color(0.84f, 0.52f, 0.11f);
+            statsHeaderTheme.color = new Color(1f, 0.62f, 0.13f);
+            statsPanelTheme.color = new Color(0.84f, 0.52f, 0.11f);
+            descriptionHeaderTheme.color = new Color(1f, 0.62f, 0.13f);
+            descriptionPanelTheme.color = new Color(0.84f, 0.52f, 0.11f);
+            settingsPanelTheme.color = new Color(0.55f, 0.16f, 0.21f);
+            settingsInnerPanelTheme.color = new Color(0.84f, 0.52f, 0.11f);
+            upgradePanelTheme.color = new Color(0.55f, 0.16f, 0.21f);
+            upgradeInnerPanelTheme.color = new Color(0.84f, 0.52f, 0.11f);
+        }
     }
 
     public void OnBaseHealthChanged() => baseHealthValue.text = baseHealthSlider.value.ToString();
