@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2675245334570236344}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.032, y: -0.148, z: 0}
+  m_LocalPosition: {x: -0.032, y: -0.149, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -61,8 +61,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8521576343617216922}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -12, y: 0, z: 10}
-  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_LocalPosition: {x: 0, y: 0, z: 10}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8521576345604669593}
@@ -156,7 +156,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8521576343617216922}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -202,20 +202,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitFaction: 2
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 28ecaeb342b01274e8afb89afe9ad64e, type: 3}
   unitName: 'Soviet Spaceship '
   attack: 3
   fireRate: 2
   maxHealth: 75
   speed: 2
   unitCost: 500
-  attackRange: 3
-  attackMode: 0
+  attackRange: 4
   bulletParent: {fileID: 8521576345604669593}
   bulletPrefab: {fileID: 4747252809770462573, guid: fb18d719ca9f0544497313eee22e751d, type: 3}
   raycastOffset: {x: 0, y: 0}
   bombParent: {fileID: 5467276878707785974}
-  bombPrefab: {fileID: 4747252809770462573, guid: b100f2a8c589fcd4d8e4a9d2e077ff24, type: 3}
+  bombPrefab: {fileID: 4747252809770462573, guid: 55c3f7fa277901b4bab6e6d02adefbcc, type: 3}
   retreatSpeed: 8
   rotationSpeed: 30
 --- !u!114 &2824272119521667628
@@ -230,6 +229,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3f41e2e39a8f3f4495b72f9b8c6c828, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hpSliderOffset: {x: 0, y: 0}
   hpSliderParent: {fileID: 7095870749028973205, guid: 4688755eec84699448ce542fe1210aab, type: 3}
 --- !u!1 &8521576345604669592
 GameObject:

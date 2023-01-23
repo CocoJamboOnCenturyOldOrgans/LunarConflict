@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 using static SettingsScript;
 
-public class USASpaceshipUnit : GenericUnitScript
+public class USASpaceshipUnit : GenericSpaceshipScript
 {
     private Rigidbody2D _rb;
     private BoxCollider2D _col;
@@ -28,12 +28,14 @@ public class USASpaceshipUnit : GenericUnitScript
             transform.Translate(Vector3.right * (speed * retreatSpeed * Time.deltaTime));
     }
 
-    public void DropBomb()
+    protected override void DropBomb()
     {
         Instantiate(
             bombPrefab, 
             bombParent.position, 
             unitFaction == PlayerFaction.USA ? Quaternion.Euler(0,0,-90) : Quaternion.Euler(0,0,90));
+        
+        base.DropBomb();
     }
 
     public void Escape()
