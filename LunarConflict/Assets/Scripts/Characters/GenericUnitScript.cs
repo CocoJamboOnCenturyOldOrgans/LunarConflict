@@ -16,13 +16,13 @@ public class GenericUnitScript : MonoBehaviour, IHittable
     public float speed;
     public int unitCost;
     [SerializeField] protected int attackRange;
-    [SerializeField] protected bool attackMode = false;
     [SerializeField] protected Transform bulletParent;
     [SerializeField] protected GameObject bulletPrefab;
-    [SerializeField] private Vector2 raycastOffset;
-    
+    [SerializeField] protected Vector2 raycastOffset;
+
+    protected bool attackMode;
+    protected LayerMask mask;
     private Animator _animator;
-    private LayerMask _mask;
     private Vector2 _movementDirection;
     private float _localScaleX;
 
@@ -32,7 +32,7 @@ public class GenericUnitScript : MonoBehaviour, IHittable
     {
         Health = maxHealth;
         _animator = GetComponent<Animator>();
-        _mask = LayerMask.GetMask("Unit");
+        mask = LayerMask.GetMask("Unit");
         _animator.SetBool("play", true);
         _movementDirection = unitFaction == PlayerFaction.USA ? Vector2.right : Vector2.left;
         _localScaleX = transform.localScale.x;
@@ -59,9 +59,9 @@ public class GenericUnitScript : MonoBehaviour, IHittable
             pos, 
             _movementDirection,
             attackRange, 
-            _mask);
+            mask);
 
-        return hit.Any(x => 
+        return attackMode = hit.Any(x => 
             (x.collider.TryGetComponent<GenericUnitScript>(out var unitScript) && unitScript.unitFaction != unitFaction) ||
             (x.collider.TryGetComponent<GenericBaseScript>(out var baseScript) && baseScript.BaseFaction != unitFaction));
     }
@@ -74,7 +74,7 @@ public class GenericUnitScript : MonoBehaviour, IHittable
             pos, 
             _movementDirection, 
             _localScaleX, 
-            _mask);
+            this.mask);
         return hit.collider.IsUnityNull();
     }
     

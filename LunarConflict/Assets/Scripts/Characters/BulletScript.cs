@@ -3,6 +3,14 @@ using UnityEngine;
 
 public class BulletScript : MonoBehaviour
 {
+    private enum BulletType
+    {
+        Missile,
+        AirMissile,
+        Bullet
+    }
+
+    [SerializeField] private BulletType bulletType;
     [SerializeField] private int speed;
     [SerializeField] private int damage;
 
@@ -14,7 +22,12 @@ public class BulletScript : MonoBehaviour
         StartCoroutine(Disappear());
     }
 
-    void FixedUpdate() => transform.Translate(Vector3.up * (speed * Time.deltaTime));
+    void FixedUpdate()
+    {
+        if (bulletType == BulletType.AirMissile) return;
+        
+        transform.Translate(Vector3.up * (speed * Time.deltaTime));
+    }
 
     private void OnTriggerEnter2D(Collider2D col)
     {
