@@ -11,16 +11,18 @@ public class UpgradeScript : MonoBehaviour
     //13.01.2023 And this is still here as "Prototype" :-D
     //13.01.2023 20:56:22 Not anymore "Prototype" :d
 
-    [SerializeField] private Button[] Buttons = new Button[18];
+    [SerializeField] private Button[] Buttons = new Button[16];
 
-    [SerializeField] private Image[] TreeImages = new Image[5];
-    [SerializeField] private Sprite[] TreeSprites = new Sprite[10];         //0-4 USA | 5-9 Soviet
+    [SerializeField] private Image[] TreeImages = new Image[4];
+    [SerializeField] private Sprite[] TreeSpritesUSA = new Sprite[4];
+    [SerializeField] private Sprite[] TreeSpritesSoviet = new Sprite[4];
 
-    [SerializeField] private Image[] UpgradeImages = new Image[18];
-    [SerializeField] private Sprite[] UpgradeSprites = new Sprite[20];      //0-8 USA | 9-17 Soviet | 18-19 Both
+    [SerializeField] private Image[] UpgradeImages = new Image[16];
+    [SerializeField] private Sprite[] UpgradeSpritesUSA = new Sprite[8];
+    [SerializeField] private Sprite[] UpgradeSpritesSoviet = new Sprite[8];
+    [SerializeField] private Sprite ObliterateTower;
 
     public Sprite Locked;
-    int altSprite = SettingsScript.Faction == SettingsScript.PlayerFaction.USA ? 0 : 9;
 
     [SerializeField] private Text CostField;
     [SerializeField] private Text DescriptionField;
@@ -37,29 +39,24 @@ public class UpgradeScript : MonoBehaviour
         //Setting Tree Image according to Faction
         for (int i = 0; i < 4; i++)
         {
-            TreeImages[i].sprite = SettingsScript.Faction == SettingsScript.PlayerFaction.USA ? TreeSprites[i] : TreeSprites[i + 5];
+            TreeImages[i].sprite = SettingsScript.Faction == SettingsScript.PlayerFaction.USA ? TreeSpritesUSA[i] : TreeSpritesSoviet[i];
         }
-        TreeImages[4].sprite = SettingsScript.Faction == SettingsScript.PlayerFaction.USA ? TreeSprites[4] : TreeSprites[9];
 
         //Setting other images in Tree according to Faction
         for (int i = 0; i < 8; i++)
         {
-            UpgradeImages[i].sprite = UpgradeSprites[i + altSprite];
+            UpgradeImages[i].sprite = SettingsScript.Faction == SettingsScript.PlayerFaction.USA ? UpgradeSpritesUSA[i] : UpgradeSpritesSoviet[i];
             UpgradeImages[i].color = Color.black;
         }
-        UpgradeImages[9].sprite = Locked;
-        Buttons[9].enabled = false;
-        for (int i = 0; i < 6; i++)
+        UpgradeImages[8].sprite = Locked;
+        Buttons[8].enabled = false;
+        for (int i = 9; i < 15; i++)
         {
-            UpgradeImages[i + 10].sprite = Locked;
-            Buttons[i + 10].enabled = false;
+            UpgradeImages[i].sprite = Locked;
+            Buttons[i].enabled = false;
         }
-        UpgradeImages[8].sprite = UpgradeSprites[18];
-        UpgradeImages[8].color = Color.black;
-        UpgradeImages[16].sprite = UpgradeSprites[19];
-        UpgradeImages[16].color = Color.black;
-        UpgradeImages[17].sprite = Locked;
-        Buttons[17].enabled = false;
+        UpgradeImages[15].sprite = Locked;
+        Buttons[15].enabled = false;
     }
 
     //ASTRONAUT, ROVER, TANK AND SHIP TREE FUNCTIONS
@@ -111,29 +108,29 @@ public class UpgradeScript : MonoBehaviour
     {
         ///Astronauts Tree
         //Second HP
-        Buttons[9].enabled = changer.name == "AstroLife__1" ? true : Buttons[9].enabled;
-        UpgradeImages[9].sprite = changer.name == "AstroLife__1" ? UpgradeSprites[0 + altSprite] : UpgradeImages[9].sprite;
-        UpgradeImages[9].color = changer.name == "AstroLife__1" ? Color.black : UpgradeImages[9].color;
+        Buttons[8].enabled = changer.name == "AstroLife__1" ? true : Buttons[8].enabled;
+        UpgradeImages[8].sprite = changer.name == "AstroLife__1" ? (SettingsScript.Faction == SettingsScript.PlayerFaction.USA ? UpgradeSpritesUSA[0] : UpgradeSpritesSoviet[0]) : UpgradeImages[8].sprite;
+        UpgradeImages[8].color = changer.name == "AstroLife__1" ? Color.black : UpgradeImages[8].color;
 
         ///Rover Tree
         //Second Speed
-        Buttons[10].enabled = changer.name == "RoverSpeed_1" ? true : Buttons[10].enabled;
-        UpgradeImages[10].sprite = changer.name == "RoverSpeed_1" ? UpgradeSprites[2 + altSprite] : UpgradeImages[10].sprite;
-        UpgradeImages[10].color = changer.name == "RoverSpeed_1" ? Color.black : UpgradeImages[10].color;
+        Buttons[9].enabled = changer.name == "RoverSpeed_1" ? true : Buttons[9].enabled;
+        UpgradeImages[9].sprite = changer.name == "RoverSpeed_1" ? (SettingsScript.Faction == SettingsScript.PlayerFaction.USA ? UpgradeSpritesUSA[2] : UpgradeSpritesSoviet[2]) : UpgradeImages[9].sprite;
+        UpgradeImages[9].color = changer.name == "RoverSpeed_1" ? Color.black : UpgradeImages[9].color;
         //Second HP
-        Buttons[11].enabled = changer.name == "RoverLife__2" ? true : Buttons[11].enabled;
-        UpgradeImages[11].sprite = changer.name == "RoverLife__2" ? UpgradeSprites[3 + altSprite] :UpgradeImages[11].sprite;
-        UpgradeImages[11].color = changer.name == "RoverLife__2" ? Color.black : UpgradeImages[11].color;
+        Buttons[10].enabled = changer.name == "RoverLife__2" ? true : Buttons[10].enabled;
+        UpgradeImages[10].sprite = changer.name == "RoverLife__2" ? (SettingsScript.Faction == SettingsScript.PlayerFaction.USA ? UpgradeSpritesUSA[3] : UpgradeSpritesSoviet[3]) : UpgradeImages[10].sprite;
+        UpgradeImages[10].color = changer.name == "RoverLife__2" ? Color.black : UpgradeImages[10].color;
         //Second Attack
-        Buttons[12].enabled = changer.name == "RoverAttack1" ? true : Buttons[12].enabled;
-        UpgradeImages[12].sprite = changer.name == "RoverAttack1" ? UpgradeSprites[4 + altSprite] : UpgradeImages[12].sprite;
-        UpgradeImages[12].color = changer.name == "RoverAttack1" ? Color.black : UpgradeImages[12].color;
+        Buttons[11].enabled = changer.name == "RoverAttack1" ? true : Buttons[11].enabled;
+        UpgradeImages[11].sprite = changer.name == "RoverAttack1" ? (SettingsScript.Faction == SettingsScript.PlayerFaction.USA ? UpgradeSpritesUSA[4] : UpgradeSpritesSoviet[4]) : UpgradeImages[11].sprite;
+        UpgradeImages[11].color = changer.name == "RoverAttack1" ? Color.black : UpgradeImages[11].color;
 
         ///Tank Tree
         //Second HP
-        Buttons[13].enabled = changer.name == "Tank_Life__3" ? true : Buttons[13].enabled;
-        UpgradeImages[13].sprite = changer.name == "Tank_Life__3" ? UpgradeSprites[5 + altSprite] : UpgradeImages[13].sprite;
-        UpgradeImages[13].color = changer.name == "Tank_Life__3" ? Color.black : UpgradeImages[13].color;
+        Buttons[12].enabled = changer.name == "Tank_Life__3" ? true : Buttons[12].enabled;
+        UpgradeImages[12].sprite = changer.name == "Tank_Life__3" ? (SettingsScript.Faction == SettingsScript.PlayerFaction.USA ? UpgradeSpritesUSA[5] : UpgradeSpritesSoviet[5]) : UpgradeImages[12].sprite;
+        UpgradeImages[12].color = changer.name == "Tank_Life__3" ? Color.black : UpgradeImages[12].color;
     }
 
     //TOWERS TREE FUNCTIONS
@@ -180,60 +177,28 @@ public class UpgradeScript : MonoBehaviour
         //First Level Both
         if (changer.name == "TowerLight1" || changer.name == "TowerHeavy1")
         {
+            Buttons[13].enabled = true;
+            UpgradeImages[13].sprite = SettingsScript.Faction == SettingsScript.PlayerFaction.USA ? UpgradeSpritesUSA[6] : UpgradeSpritesSoviet[6];
+            UpgradeImages[13].color = Color.black;
             Buttons[14].enabled = true;
-            UpgradeImages[14].sprite = UpgradeSprites[6 + altSprite];
+            UpgradeImages[14].sprite = SettingsScript.Faction == SettingsScript.PlayerFaction.USA ? UpgradeSpritesUSA[7] : UpgradeSpritesSoviet[7];
             UpgradeImages[14].color = Color.black;
-            Buttons[15].enabled = true;
-            UpgradeImages[15].sprite = UpgradeSprites[7 + altSprite];
-            UpgradeImages[15].color = Color.black;
         }
 
         //Second Level Light
-        Buttons[15].enabled = changer.name == "TowerLight2" ? false : Buttons[15].enabled;
-        UpgradeImages[15].sprite = changer.name == "TowerLight2" ? Locked : UpgradeImages[15].sprite;
-        UpgradeImages[15].color = changer.name == "TowerLight2" ? Color.white : UpgradeImages[15].color;
+        Buttons[14].enabled = changer.name == "TowerLight2" ? false : Buttons[14].enabled;
+        UpgradeImages[14].sprite = changer.name == "TowerLight2" ? Locked : UpgradeImages[14].sprite;
+        UpgradeImages[14].color = changer.name == "TowerLight2" ? Color.white : UpgradeImages[14].color;
         //Second Level Heavy
-        Buttons[14].enabled = changer.name == "TowerHeavy2" ? false : Buttons[14].enabled;
-        UpgradeImages[14].sprite = changer.name == "TowerHeavy2" ? Locked : UpgradeImages[14].sprite;
-        UpgradeImages[14].color = changer.name == "TowerHeavy2" ? Color.white : UpgradeImages[14].color;
+        Buttons[13].enabled = changer.name == "TowerHeavy2" ? false : Buttons[13].enabled;
+        UpgradeImages[13].sprite = changer.name == "TowerHeavy2" ? Locked : UpgradeImages[13].sprite;
+        UpgradeImages[13].color = changer.name == "TowerHeavy2" ? Color.white : UpgradeImages[13].color;
         //Second Level Both
         if (changer.name == "TowerLight2" || changer.name == "TowerHeavy2")
         {
-            Buttons[17].enabled = true;
-            UpgradeImages[17].sprite = UpgradeSprites[8 + altSprite];
-            UpgradeImages[17].color = Color.black;
-        }
-    }
-
-    //BASE FUNCTIONS
-    //##############################################################################
-    public void UpgradeBank(GameObject pressedButton)
-    {
-        GenericUpgradeButtonsScript DescriptionReader = pressedButton.GetComponent<GenericUpgradeButtonsScript>();
-
-        if (playerScript.money >= DescriptionReader.cost)
-        {
-            Buttons[8].enabled = false;
-            DescriptionReader.showCost = false;
-            CostField.text = "Cost: BOUGHT";
-            playerScript.money -= DescriptionReader.cost;
-            _uiScript.UpdateMoney(playerScript.money);
-            UpgradeImages[8].color = Color.white;
-        }
-    }
-
-    public void UpgradeFactory(GameObject pressedButton)
-    {
-        GenericUpgradeButtonsScript DescriptionReader = pressedButton.GetComponent<GenericUpgradeButtonsScript>();
-
-        if (playerScript.money >= DescriptionReader.cost)
-        {
-            Buttons[16].enabled = false;
-            DescriptionReader.showCost = false;
-            CostField.text = "Cost: BOUGHT";
-            playerScript.money -= DescriptionReader.cost;
-            _uiScript.UpdateMoney(playerScript.money);
-            UpgradeImages[16].color = Color.white;
+            Buttons[15].enabled = true;
+            UpgradeImages[15].sprite = ObliterateTower;
+            UpgradeImages[15].color = Color.black;
         }
     }
 

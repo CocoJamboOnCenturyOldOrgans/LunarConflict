@@ -18,11 +18,14 @@ public class GameUIScript : MonoBehaviour
     [SerializeField] private Toggle fullscreen;
     [SerializeField] private Button defaultFocus;
 
+    [Header("-----------------------------------------------------")]
+    [Header("Theme Section")]
+
     [SerializeField] private Image topPanelTheme;
     [SerializeField] private Image queuePanelTheme;
     [SerializeField] private Image downPanelTheme;
     [SerializeField] private Image mapPanelTheme;
-    [SerializeField] private Image[] buttonTheme = new Image[3];
+    [SerializeField] private Image[] buttonTheme = new Image[8];
     [SerializeField] private Image entitiesPanelTheme;
     [SerializeField] private Image statsHeaderTheme;
     [SerializeField] private Image statsPanelTheme;
@@ -32,6 +35,17 @@ public class GameUIScript : MonoBehaviour
     [SerializeField] private Image settingsInnerPanelTheme;
     [SerializeField] private Image upgradePanelTheme;
     [SerializeField] private Image upgradeInnerPanelTheme;
+
+    private Color[] colorsUSA = { new Color(1f, 1f, 1f),
+                                  new Color(0.76f, 0.76f, 0.76f),
+                                  new Color(0.91f, 0.91f, 0.91f)};
+
+    private Color[] colorsSoviet = { new Color(0.68f, 0.13f, 0.2f),
+                                     new Color(1f, 0.62f, 0.13f),
+                                     new Color(0.55f, 0.16f, 0.21f),
+                                     new Color(0.84f, 0.52f, 0.11f)};
+
+    [Header("-----------------------------------------------------")]
 
     public Slider musicSlider;
     public Text musicValue;
@@ -99,41 +113,39 @@ public class GameUIScript : MonoBehaviour
     {
         if(SettingsScript.Faction == PlayerFaction.USA)
         {
-            topPanelTheme.color = new Color(1f, 1f, 1f);
-            queuePanelTheme.color = new Color(1f, 1f, 1f);
-            downPanelTheme.color = new Color(0.76f, 0.76f, 0.76f);
-            mapPanelTheme.color = new Color(0.91f, 0.91f, 0.91f);
-            buttonTheme[0].color = new Color(1f, 1f, 1f);
-            buttonTheme[1].color = new Color(1f, 1f, 1f);
-            buttonTheme[2].color = new Color(1f, 1f, 1f);
-            entitiesPanelTheme.color = new Color(0.91f, 0.91f, 0.91f);
-            statsHeaderTheme.color = new Color(1f, 1f, 1f);
-            statsPanelTheme.color = new Color(0.91f, 0.91f, 0.91f);
-            descriptionHeaderTheme.color = new Color(1f, 1f, 1f);
-            descriptionPanelTheme.color = new Color(0.91f, 0.91f, 0.91f);
-            settingsPanelTheme.color = new Color(0.76f, 0.76f, 0.76f);
-            settingsInnerPanelTheme.color = new Color(0.91f, 0.91f, 0.91f);
-            upgradePanelTheme.color = new Color(0.76f, 0.76f, 0.76f);
-            upgradeInnerPanelTheme.color = new Color(0.91f, 0.91f, 0.91f);
+            topPanelTheme.color = colorsUSA[0];
+            queuePanelTheme.color = colorsUSA[0];
+            downPanelTheme.color = colorsUSA[1];
+            mapPanelTheme.color = colorsUSA[2];
+            for(int i = 0; i < 8; i++)
+                buttonTheme[i].color = colorsUSA[0];
+            entitiesPanelTheme.color = colorsUSA[2];
+            statsHeaderTheme.color = colorsUSA[0];
+            statsPanelTheme.color = colorsUSA[2];
+            descriptionHeaderTheme.color = colorsUSA[0];
+            descriptionPanelTheme.color = colorsUSA[2];
+            settingsPanelTheme.color = colorsUSA[1];
+            settingsInnerPanelTheme.color = colorsUSA[2];
+            upgradePanelTheme.color = colorsUSA[1];
+            upgradeInnerPanelTheme.color = colorsUSA[2];
         }
         else
         {
-            topPanelTheme.color = new Color(0.68f, 0.13f, 0.2f);
-            queuePanelTheme.color = new Color(1f, 0.62f, 0.13f);
-            downPanelTheme.color = new Color(0.55f, 0.16f, 0.21f);
-            mapPanelTheme.color = new Color(1f, 0.62f, 0.13f);
-            buttonTheme[0].color = new Color(1f, 0.62f, 0.13f);
-            buttonTheme[1].color = new Color(1f, 0.62f, 0.13f);
-            buttonTheme[2].color = new Color(1f, 0.62f, 0.13f);
-            entitiesPanelTheme.color = new Color(0.84f, 0.52f, 0.11f);
-            statsHeaderTheme.color = new Color(1f, 0.62f, 0.13f);
-            statsPanelTheme.color = new Color(0.84f, 0.52f, 0.11f);
-            descriptionHeaderTheme.color = new Color(1f, 0.62f, 0.13f);
-            descriptionPanelTheme.color = new Color(0.84f, 0.52f, 0.11f);
-            settingsPanelTheme.color = new Color(0.55f, 0.16f, 0.21f);
-            settingsInnerPanelTheme.color = new Color(0.84f, 0.52f, 0.11f);
-            upgradePanelTheme.color = new Color(0.55f, 0.16f, 0.21f);
-            upgradeInnerPanelTheme.color = new Color(0.84f, 0.52f, 0.11f);
+            topPanelTheme.color = colorsSoviet[0];
+            queuePanelTheme.color = colorsSoviet[1];
+            downPanelTheme.color = colorsSoviet[2];
+            mapPanelTheme.color = colorsSoviet[1];
+            for(int i = 0; i < 8; i++)
+                buttonTheme[i].color = colorsSoviet[1];
+            entitiesPanelTheme.color = colorsSoviet[3];;
+            statsHeaderTheme.color = colorsSoviet[1];
+            statsPanelTheme.color = colorsSoviet[3];;
+            descriptionHeaderTheme.color = colorsSoviet[1];
+            descriptionPanelTheme.color = colorsSoviet[3];;
+            settingsPanelTheme.color = colorsSoviet[2];
+            settingsInnerPanelTheme.color = colorsSoviet[3];;
+            upgradePanelTheme.color = colorsSoviet[2];
+            upgradeInnerPanelTheme.color = colorsSoviet[3];;
         }
     }
 
