@@ -75,13 +75,6 @@ public class GenericUnitScript : MonoBehaviour, IHittable
             _movementDirection, 
             _localScaleX, 
             _mask);
-        
-        //Fix that by Yourself Mr. Blue Skeleton Leader, cause it's still not working well
-        //if(!hit.collider.IsUnityNull())
-        //{
-        //    this.transform.position += new Vector3(-1, 0);
-        //}
-        
         return hit.collider.IsUnityNull();
     }
     

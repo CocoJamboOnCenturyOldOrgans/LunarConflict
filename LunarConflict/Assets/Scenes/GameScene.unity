@@ -1617,8 +1617,61 @@ PrefabInstance:
       propertyPath: m_Name
       value: USABase
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7486815407032020059, guid: 7defa21c97eab544ca523eb5dec7742c, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 4409417403613435324, guid: 7defa21c97eab544ca523eb5dec7742c, type: 3}
+    - {fileID: 1683707302964764971, guid: 7defa21c97eab544ca523eb5dec7742c, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 7defa21c97eab544ca523eb5dec7742c, type: 3}
+--- !u!1 &171243363 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3684281639675009977, guid: 7defa21c97eab544ca523eb5dec7742c, type: 3}
+  m_PrefabInstance: {fileID: 166133315}
+  m_PrefabAsset: {fileID: 0}
+--- !u!61 &171243367
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 171243363}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.7, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.32, y: 0.1}
+    newSize: {x: 0.32, y: 0.1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.2, y: 1}
+  m_EdgeRadius: 0
+--- !u!114 &171243368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 171243363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5a4f07f99d4acceb89b2dfb8a7dced3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  towerFaction: 1
+  attack: 0
+  bulletPrefab: {fileID: 4747252809770462573, guid: fb18d719ca9f0544497313eee22e751d, type: 3}
+  bulletParent: {fileID: 555710698}
 --- !u!1 &179021353
 GameObject:
   m_ObjectHideFlags: 0
@@ -4841,6 +4894,11 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!4 &555710698 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3007435898172111543, guid: 7defa21c97eab544ca523eb5dec7742c, type: 3}
+  m_PrefabInstance: {fileID: 166133315}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &592406094 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4712850032461499673, guid: 51ef3bc009feb0d48ba6a1ed1a60e68a, type: 3}
