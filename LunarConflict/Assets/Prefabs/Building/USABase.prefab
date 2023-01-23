@@ -97,6 +97,7 @@ GameObject:
   - component: {fileID: 7813470349232755059}
   - component: {fileID: -6979745722746919288}
   - component: {fileID: -2802963758849720703}
+  - component: {fileID: -8717322246738272513}
   m_Layer: 3
   m_Name: USABase
   m_TagString: Base
@@ -233,8 +234,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 977efc92fefef7640901302b7d9b67b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <BaseFaction>k__BackingField: 1
   maxHealth: 500
+  <BaseFaction>k__BackingField: 1
   aiUnitPrefabs:
   - {fileID: 874816796583786693, guid: 06753682be52dba80a8822d2c043999c, type: 3}
   - {fileID: 874816796583786693, guid: 06753682be52dba80a8822d2c043999c, type: 3}
@@ -245,6 +246,20 @@ MonoBehaviour:
   - {fileID: 6156361781352966704, guid: e68a40a4b389e2843b5634bd44eef477, type: 3}
   - {fileID: 9066584126370463406, guid: c9e5cbec964134b41aa0798e2fb19c3d, type: 3}
   spawner: {fileID: 469880965954178946}
+--- !u!114 &-8717322246738272513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4576200456136188220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3f41e2e39a8f3f4495b72f9b8c6c828, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hpSliderOffset: {x: 60, y: 40}
+  hpSliderParent: {fileID: 7095870749028973205, guid: 27d90761ad827dd4b84054da47609efa, type: 3}
 --- !u!1001 &4576200456192100407
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: -7848472303809717126}
   - component: {fileID: -5835483425736104962}
   - component: {fileID: -2643876596380674755}
+  - component: {fileID: -5190456825754667599}
   m_Layer: 3
   m_Name: SovietBase
   m_TagString: Base
@@ -149,8 +150,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 977efc92fefef7640901302b7d9b67b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <BaseFaction>k__BackingField: 2
   maxHealth: 500
+  <BaseFaction>k__BackingField: 2
   aiUnitPrefabs:
   - {fileID: 3813118679460145047, guid: 6f8cde85287a185889a7dba0ef72bd92, type: 3}
   - {fileID: 3813118679460145047, guid: 6f8cde85287a185889a7dba0ef72bd92, type: 3}
@@ -161,6 +162,20 @@ MonoBehaviour:
   - {fileID: 1622694353147758051, guid: b5b438097d2899d44b99f26c772e4d1f, type: 3}
   - {fileID: 6450322033091494335, guid: 6cb5d125f9d7de142830244a756ae620, type: 3}
   spawner: {fileID: 6731607052571236164}
+--- !u!114 &-5190456825754667599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3430456645016945706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3f41e2e39a8f3f4495b72f9b8c6c828, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hpSliderOffset: {x: 60, y: 40}
+  hpSliderParent: {fileID: 7095870749028973205, guid: 27d90761ad827dd4b84054da47609efa, type: 3}
 --- !u!1 &6731607052571236164
 GameObject:
   m_ObjectHideFlags: 0

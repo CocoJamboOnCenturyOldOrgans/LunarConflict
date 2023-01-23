@@ -26,6 +26,8 @@ public class GenericUnitScript : MonoBehaviour, IHittable
     private Vector2 _movementDirection;
     private float _localScaleX;
 
+    private HealthBarDisplayer _healthBarDisplayer;
+
     protected virtual void Start()
     {
         Health = maxHealth;
@@ -35,6 +37,8 @@ public class GenericUnitScript : MonoBehaviour, IHittable
         _movementDirection = unitFaction == PlayerFaction.USA ? Vector2.right : Vector2.left;
         _localScaleX = transform.localScale.x;
         speed = unitFaction == PlayerFaction.USA ? speed : speed * -1;
+
+        _healthBarDisplayer = GetComponent<HealthBarDisplayer>();
     }
 
     protected virtual void Update()
@@ -101,6 +105,8 @@ public class GenericUnitScript : MonoBehaviour, IHittable
 
     public virtual void OnDeath()
     {
+        _healthBarDisplayer.DestroySlider();
+        
         if (!IsPlayer(unitFaction))
             kills++;
         

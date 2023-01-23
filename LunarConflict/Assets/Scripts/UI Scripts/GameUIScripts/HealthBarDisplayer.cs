@@ -3,52 +3,55 @@ using UnityEngine.UI;
 
 public class HealthBarDisplayer : MonoBehaviour
 {
-    [SerializeField] private Slider hpSlider;
+    [SerializeField] private Vector2 hpSliderOffset;
     
+    [SerializeField] private Transform hpSliderParent;
+    private GameObject _currentHpSliderParent;
+    private Slider _currentHpSlider;
+    
+    private Transform _dynamicUI;
     private Camera _camera;
+    private BoxCollider2D _coll;
+    
     private GenericUnitScript _unit;
+    private GenericBaseScript _base;
 
     private void Start()
     {
-        _camera = Camera.main;
-    }
+        _unit = GetComponent<GenericUnitScript>();
+        _base = GetComponent<GenericBaseScript>();
 
-    private void Update()
-    {
-        DetectCollider();
-    }
-
-    private void DetectCollider()
-    {
-        var hit = Physics2D.GetRayIntersection(_camera.ScreenPointToRay(Input.mousePosition));
-        var coll = hit.collider;
-
-        if (coll != null && coll.TryGetComponent(out _unit))
+        if (_unit == null && (_base == null || (_base != null && SettingsScript.IsPlayer(_base.BaseFaction))))
         {
-            var unitWorldPos = _camera.WorldToScreenPoint(_unit.transform.position);
-            var collBounds = Mathf.Abs(_camera.WorldToScreenPoint(coll.bounds.max).y) + 30;
-
-            hpSlider.transform.parent.position = new Vector3(
-                    unitWorldPos.x,
-                    collBounds,
-                    unitWorldPos.z
-                );
-            
-            UpdateSliderValue();
-
-            if (!hpSlider.gameObject.activeInHierarchy)
-                hpSlider.gameObject.SetActive(true);
-        }
-        else if(hpSlider.gameObject.activeInHierarchy)
-        {
-            hpSlider.gameObject.SetActive(false);
+            Destroy(this);
+            return;
         }
         
+        
+        _camera = Camera.main;
+        _coll = GetComponent<BoxCollider2D>();
+        
+        _dynamicUI = GameObject.Find("DynamicUI").transform;
+        _currentHpSliderParent = Instantiate(hpSliderParent, _dynamicUI).gameObject;
+        _currentHpSlider = _currentHpSliderParent.GetComponentInChildren<Slider>();
     }
 
-    private void UpdateSliderValue()
+    private void LateUpdate()
     {
-        hpSlider.maxValue = _unit.maxHealth;
-        hpSlider.value = _unit.Health;
+        var unitWorldPos = _camera.WorldToScreenPoint(transform.position);
+        var collBounds = Mathf.Abs(_camera.WorldToScreenPoint(_coll.bounds.max).y) + 30;
+
+        _currentHpSliderParent.transform.position = new Vector3(
+            unitWorldPos.x + hpSliderOffset.x,
+            collBounds + hpSliderOffset.y,
+            unitWorldPos.z
+        );
+            
+        _currentHpSlider.maxValue = _unit != null ? _unit.maxHealth : _base.maxHealth;
+        _currentHpSlider.value = _unit != null ? _unit.Health : _base.Health;
+
+        if (!_currentHpSliderParent.activeInHierarchy) _currentHpSliderParent.SetActive(true);
     }
+
+    public void DestroySlider() => Destroy(_currentHpSliderParent);
 }
