@@ -3100,6 +3100,10 @@ PrefabInstance:
       propertyPath: aiUnitPrefabs.Array.data[12]
       value: 
       objectReference: {fileID: 8521576343617216922, guid: 177433a50d4fbc04f8939f86e4692487, type: 3}
+    - target: {fileID: 2073223024677226863, guid: ecefefa7269d2ea40b1534c5ad101e59, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3430456645016945706, guid: ecefefa7269d2ea40b1534c5ad101e59, type: 3}
       propertyPath: m_Name
       value: SovietBase
@@ -3131,6 +3135,14 @@ PrefabInstance:
     - target: {fileID: 3430456645016945710, guid: ecefefa7269d2ea40b1534c5ad101e59, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4493285557685437356, guid: ecefefa7269d2ea40b1534c5ad101e59, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 4493285557685437356, guid: ecefefa7269d2ea40b1534c5ad101e59, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.012
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ecefefa7269d2ea40b1534c5ad101e59, type: 3}
