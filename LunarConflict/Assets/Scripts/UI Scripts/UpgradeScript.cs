@@ -32,8 +32,9 @@ public class UpgradeScript : MonoBehaviour
     [SerializeField] private PlayerScript playerScript;
     
     private GameUIScript _uiScript;
-    
-    [Header("Line Colors")]
+
+    [Header("Line Colors")] 
+    private bool _upgradeBought;
     [SerializeField] private Color32 greenLineColor;
     [SerializeField] private Color32 redLineColor;
     [SerializeField] private Color32 purpleLineColor;
@@ -72,8 +73,9 @@ public class UpgradeScript : MonoBehaviour
     public void UpgradeUnit(GameObject pressedButton)
     {
         GenericUpgradeButtonsScript DescriptionReader = pressedButton.GetComponent<GenericUpgradeButtonsScript>();
+        _upgradeBought = playerScript.money >= DescriptionReader.cost;
 
-        if(playerScript.money >= DescriptionReader.cost)
+        if(_upgradeBought)
         {
             Button ButtonComp = pressedButton.GetComponent<Button>();
             Image ImgComp = pressedButton.GetComponent<Image>();
@@ -116,18 +118,36 @@ public class UpgradeScript : MonoBehaviour
 
     public void ChangeLineColorToGreen(GameObject linesParent)
     {
+        if (!_upgradeBought) return;
+        
         var images = linesParent.GetComponentsInChildren<Image>().ToList();
-        images.ForEach(x => x.CrossFadeColor(greenLineColor, crossFadeColorSpeed, true, false));
+        images.ForEach(x =>
+        { 
+            x.CrossFadeColor(greenLineColor, crossFadeColorSpeed, true, false);
+            x.color = greenLineColor;
+        });
     }
     public void ChangeLineColorToRed(GameObject linesParent)
     {
+        if (!_upgradeBought) return;
+        
         var images = linesParent.GetComponentsInChildren<Image>().ToList();
-        images.ForEach(x => x.CrossFadeColor(redLineColor, crossFadeColorSpeed, true, false));
+        images.ForEach(x =>
+        {
+            x.CrossFadeColor(redLineColor, crossFadeColorSpeed, true, false);
+            x.color = redLineColor;
+        });
     }
     public void ChangeLineColorToPurple(GameObject linesParent)
     {
+        if (!_upgradeBought) return;
+        
         var images = linesParent.GetComponentsInChildren<Image>().ToList();
-        images.ForEach(x => x.CrossFadeColor(purpleLineColor, crossFadeColorSpeed, true, false));
+        images.ForEach(x =>
+        { 
+            x.CrossFadeColor(purpleLineColor, crossFadeColorSpeed, true, false);
+            x.color = purpleLineColor;
+        });
     }
 
     #endregion
