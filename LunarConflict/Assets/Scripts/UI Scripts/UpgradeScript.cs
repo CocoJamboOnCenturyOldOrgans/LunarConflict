@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 using static SettingsScript;
@@ -29,7 +30,14 @@ public class UpgradeScript : MonoBehaviour
 
     [SerializeField] private UpgradeSystemScript upgradeSystemScript;
     [SerializeField] private PlayerScript playerScript;
+    
     private GameUIScript _uiScript;
+    
+    [Header("Line Colors")]
+    [SerializeField] private Color32 greenLineColor;
+    [SerializeField] private Color32 redLineColor;
+    [SerializeField] private Color32 purpleLineColor;
+    [SerializeField] private float crossFadeColorSpeed = 0.5f;
 
     private void Start()
     {
@@ -103,6 +111,26 @@ public class UpgradeScript : MonoBehaviour
             LockAndLoadUnitTree(pressedButton);
         }
     }
+
+    #region Line Color Change Methods
+
+    public void ChangeLineColorToGreen(GameObject linesParent)
+    {
+        var images = linesParent.GetComponentsInChildren<Image>().ToList();
+        images.ForEach(x => x.CrossFadeColor(greenLineColor, crossFadeColorSpeed, true, false));
+    }
+    public void ChangeLineColorToRed(GameObject linesParent)
+    {
+        var images = linesParent.GetComponentsInChildren<Image>().ToList();
+        images.ForEach(x => x.CrossFadeColor(redLineColor, crossFadeColorSpeed, true, false));
+    }
+    public void ChangeLineColorToPurple(GameObject linesParent)
+    {
+        var images = linesParent.GetComponentsInChildren<Image>().ToList();
+        images.ForEach(x => x.CrossFadeColor(purpleLineColor, crossFadeColorSpeed, true, false));
+    }
+
+    #endregion
 
     public void LockAndLoadUnitTree(GameObject changer)
     {
