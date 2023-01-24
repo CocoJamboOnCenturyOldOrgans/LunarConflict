@@ -18,7 +18,7 @@ public class BulletScript : MonoBehaviour
 
     void Start()
     {
-        _ignoreTag = transform.rotation.z < 0 ? "PlayerUnit" : "EnemyUnit";
+        _ignoreTag = transform.rotation.eulerAngles.z > 180 ? "PlayerUnit" : "EnemyUnit";
         StartCoroutine(Disappear());
     }
 
