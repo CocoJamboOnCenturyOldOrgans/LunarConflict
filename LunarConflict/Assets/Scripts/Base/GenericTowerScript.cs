@@ -31,7 +31,10 @@ public class GenericTowerScript : MonoBehaviour
     {
         if (!_target.IsUnityNull())
         {
-            _pivot.right = _target.position - transform.position;
+            _pivot.right = _target.position + 
+                           (towerFaction == PlayerFaction.USA ? 
+                               -transform.position : 
+                               transform.position);
             return true;
         }
 

@@ -113,7 +113,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4576200456136188220}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.75, y: -1.805, z: 0}
+  m_LocalPosition: {x: -15, y: -2.3, z: 0}
   m_LocalScale: {x: 4, y: 4, z: 4}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -246,6 +246,7 @@ MonoBehaviour:
   - {fileID: 6156361781352966704, guid: e68a40a4b389e2843b5634bd44eef477, type: 3}
   - {fileID: 9066584126370463406, guid: c9e5cbec964134b41aa0798e2fb19c3d, type: 3}
   - {fileID: 3117304933143873120, guid: 09a804aa0a8569b4cbfe7d2e2ee383b1, type: 3}
+  - {fileID: 3117304933143873120, guid: 09a804aa0a8569b4cbfe7d2e2ee383b1, type: 3}
   spawner: {fileID: 469880965954178946}
 --- !u!114 &-8717322246738272513
 MonoBehaviour:
@@ -271,18 +272,6 @@ PrefabInstance:
     - target: {fileID: 2493157731893102764, guid: 3dd0a72c93bb03f40ae134b8dca05393, type: 3}
       propertyPath: m_RootOrder
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2493157731893102764, guid: 3dd0a72c93bb03f40ae134b8dca05393, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.375
-      objectReference: {fileID: 0}
-    - target: {fileID: 2493157731893102764, guid: 3dd0a72c93bb03f40ae134b8dca05393, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.375
-      objectReference: {fileID: 0}
-    - target: {fileID: 2493157731893102764, guid: 3dd0a72c93bb03f40ae134b8dca05393, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.375
       objectReference: {fileID: 0}
     - target: {fileID: 2493157731893102764, guid: 3dd0a72c93bb03f40ae134b8dca05393, type: 3}
       propertyPath: m_LocalPosition.y
@@ -319,14 +308,6 @@ PrefabInstance:
     - target: {fileID: 2493157731893102764, guid: 3dd0a72c93bb03f40ae134b8dca05393, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2493157731893102764, guid: 3dd0a72c93bb03f40ae134b8dca05393, type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2493157731893102765, guid: 3dd0a72c93bb03f40ae134b8dca05393, type: 3}
-      propertyPath: m_SortingOrder
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2493157731893102767, guid: 3dd0a72c93bb03f40ae134b8dca05393, type: 3}
       propertyPath: m_Name
