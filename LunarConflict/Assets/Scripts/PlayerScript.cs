@@ -48,6 +48,7 @@ public class PlayerScript : MonoBehaviour
 
     public int money;
     public int income = 10;
+    public bool hasFactory = false;
     
     [SerializeField] private int queueCooldown;
     private Queue<Action> _unitsQueue = new();
@@ -175,10 +176,14 @@ public class PlayerScript : MonoBehaviour
         _roverSound,
         _roverUnit.GetComponent<GenericUnitScript>().unitCost);
 
-    public void BuyTank() => BuyUnit(
-        _tankUnit,
-        _tankSound,
-        _tankUnit.GetComponent<GenericUnitScript>().unitCost);
+    public void BuyTank()
+    {
+        if (!hasFactory) return;
+        BuyUnit(
+            _tankUnit,
+            _tankSound,
+            _tankUnit.GetComponent<GenericUnitScript>().unitCost);
+    }
     
     public void BuySpaceship() => BuyUnit(
         _spaceshipUnit,
