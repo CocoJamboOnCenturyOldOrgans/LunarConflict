@@ -146,7 +146,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   towerFaction: 0
-  attack: 0
+  attack: 15
   bulletPrefab: {fileID: 4747252809770462573, guid: b100f2a8c589fcd4d8e4a9d2e077ff24, type: 3}
   bulletParent: {fileID: 2625286830666907085}
 --- !u!1 &3431234974758127063

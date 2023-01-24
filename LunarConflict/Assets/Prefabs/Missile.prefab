@@ -147,8 +147,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bc6c0a51bc6b944da3540260325cf79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bulletType: 0
   speed: 10
-  damage: 30
+  damage: 15
 --- !u!1 &6117972697443278153
 GameObject:
   m_ObjectHideFlags: 0

@@ -12,7 +12,7 @@ public class BulletScript : MonoBehaviour
 
     [SerializeField] private BulletType bulletType;
     [SerializeField] private int speed;
-    [SerializeField] private int damage;
+    public int damage;
 
     private string _ignoreTag;
 

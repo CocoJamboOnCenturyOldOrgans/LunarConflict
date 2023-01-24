@@ -7,7 +7,7 @@ using static SettingsScript;
 public class GenericTowerScript : MonoBehaviour
 {
     public PlayerFaction towerFaction;
-    public float attack;
+    public int attack;
 
     private Animator _animator;
     private Transform _pivot;
@@ -31,11 +31,11 @@ public class GenericTowerScript : MonoBehaviour
     {
         if (!_target.IsUnityNull())
         {
-            _pivot.right = _target.position + 
-                           (towerFaction == PlayerFaction.USA ? 
-                               -transform.position : 
-                               transform.position);
-            return true;
+            if (towerFaction == PlayerFaction.USA)
+                _pivot.right = _target.position - transform.position;
+            else
+                _pivot.right = -(_target.position - transform.position);
+                return true;
         }
 
         return false;
@@ -43,10 +43,13 @@ public class GenericTowerScript : MonoBehaviour
     
     public void Shoot(Transform parent = null)
     {
-        Instantiate(
+        var bullet = Instantiate(
             bulletPrefab,
             parent == null ? bulletParent.position : parent.position,
-            Quaternion.Euler(0, 0, _pivot.rotation.eulerAngles.z - 90));
+            towerFaction == PlayerFaction.USA ? 
+                Quaternion.Euler(0, 0, _pivot.rotation.eulerAngles.z - 90) : 
+                Quaternion.Euler(0, 0, _pivot.rotation.eulerAngles.z + 90));
+        bullet.GetComponent<BulletScript>().damage = attack;
     }
 
     public void OnTriggerEnter2D(Collider2D col)
@@ -57,9 +60,12 @@ public class GenericTowerScript : MonoBehaviour
         }
     }
 
-    public void OnTriggerExit2D(Collider2D other)
+    public void OnTriggerExit2D(Collider2D col)
     {
-        _target = null;
-        _pivot.rotation = Quaternion.AngleAxis(0, Vector3.forward);
+        if (!col.gameObject.CompareTag(_ignoreTag))
+        {
+            _target = null;
+            _pivot.rotation = Quaternion.AngleAxis(0, Vector3.forward);
+        }
     }
 }

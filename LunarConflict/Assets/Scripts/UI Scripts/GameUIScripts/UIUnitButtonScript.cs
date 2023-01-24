@@ -38,7 +38,10 @@ public class UIUnitButtonScript : MonoBehaviour
     public void OnMouseEnter()
     {
         _uiScript.bottomPanel.unitName.text = Faction == PlayerFaction.USA ? unitUsa.unitName : unitRussian.unitName;
-        _uiScript.bottomPanel.attack.value = Faction == PlayerFaction.USA ? unitUsa.attack : unitRussian.attack;
+        if(unitUsa.name == "USA Tank")
+            _uiScript.bottomPanel.attack.value = Faction == PlayerFaction.USA ? unitUsa.attack * 3 : unitRussian.attack * 3;
+        else
+            _uiScript.bottomPanel.attack.value = Faction == PlayerFaction.USA ? unitUsa.attack : unitRussian.attack;
         _uiScript.bottomPanel.fireRate.value = Faction == PlayerFaction.USA ? unitUsa.fireRate : unitRussian.fireRate;
         _uiScript.bottomPanel.hp.value = Faction == PlayerFaction.USA ? unitUsa.maxHealth : unitRussian.maxHealth;
         _uiScript.bottomPanel.speed.value = Faction == PlayerFaction.USA ? unitUsa.speed : unitRussian.speed;

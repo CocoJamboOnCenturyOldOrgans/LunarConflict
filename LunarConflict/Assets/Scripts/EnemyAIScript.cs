@@ -70,7 +70,7 @@ public class EnemyAIScript : MonoBehaviour
                 
                 var unitScript = unitSpawned.GetComponent<GenericUnitScript>();
                 unitScript.maxHealth = (int) (unitScript.maxHealth * _unitStatsModifiers.healthModifier);
-                unitScript.attack *= _unitStatsModifiers.damageModifier;
+                unitScript.attack *= (int) _unitStatsModifiers.damageModifier;
                 unitScript.fireRate *= _unitStatsModifiers.fireRateModifier;
                 unitScript.speed *= _unitStatsModifiers.speedModifier;
                 unitScript.unitCost = (int) (unitScript.unitCost * _unitStatsModifiers.unitCostModifier);

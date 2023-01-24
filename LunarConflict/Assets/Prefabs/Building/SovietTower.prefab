@@ -120,7 +120,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   towerFaction: 2
-  attack: 0
+  attack: 10
   bulletPrefab: {fileID: 4747252809770462573, guid: fb18d719ca9f0544497313eee22e751d, type: 3}
   bulletParent: {fileID: 1794586064541045241}
 --- !u!61 &8441636939791846265

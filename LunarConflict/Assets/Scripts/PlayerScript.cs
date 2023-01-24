@@ -192,7 +192,7 @@ public class PlayerScript : MonoBehaviour
             
                 var unitScript = unitSpawned.GetComponent<GenericUnitScript>();
                 unitScript.maxHealth = (int) (unitScript.maxHealth * upgradeValues.healthModifier);
-                unitScript.attack *= upgradeValues.damageModifier;
+                unitScript.attack *= (int) upgradeValues.damageModifier;
                 unitScript.fireRate *= upgradeValues.fireRateModifier;
                 unitScript.speed *= upgradeValues.speedModifier;
                 unitScript.unitCost = (int) (unitScript.unitCost * upgradeValues.unitCostModifier); 
