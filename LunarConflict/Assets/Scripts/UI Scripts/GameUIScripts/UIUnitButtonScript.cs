@@ -80,7 +80,6 @@ public class UIUnitButtonScript : MonoBehaviour
 
     public void UpdateUIInfo()
     {
-        Debug.Log("XDDD");
         if (_isTank && !_playerScript.hasFactory)
         {
             unitPriceText.text = "N/A";

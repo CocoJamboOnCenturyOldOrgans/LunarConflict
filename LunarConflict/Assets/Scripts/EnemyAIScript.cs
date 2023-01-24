@@ -7,12 +7,17 @@ using static SettingsScript;
 public class EnemyAIScript : MonoBehaviour
 {
     private List<GameObject> _unitPrefab;
+    private List<GameObject> _availablePrefabs;
     private Transform _spawner;
-    private float _secondsBetweenSpawns;
+    private float _secondsBetweenSpawns, _secondsToNextPhase = 60;
+    private int _currentPhase;
+    private float _currentSecondsToNextPhase;
     private UpgradeValues _unitStatsModifiers;
     
     void Start()
     {
+        _availablePrefabs = _unitPrefab.Where(x => !x.name.Contains("Tank") && !x.name.Contains("Spaceship")).ToList();
+        
         StartCoroutine(SpawnRussianAstronaut());
         float statModifier = 1f;
         switch (AIDiff)
@@ -35,6 +40,10 @@ public class EnemyAIScript : MonoBehaviour
             statModifier,
             statModifier,
             statModifier); //This looks brilliant
+        
+        _secondsToNextPhase *= (2 - statModifier);
+        Debug.Log(_secondsToNextPhase);
+        _currentSecondsToNextPhase = _secondsToNextPhase;
     }
 
     public void SetAI(List<GameObject> unitPrefab, Transform spawner, float secondsBetweenSpawns)
@@ -51,6 +60,22 @@ public class EnemyAIScript : MonoBehaviour
         while (true)
         {
             yield return null;
+
+            if (_currentSecondsToNextPhase <= 0 && _currentPhase == 0)
+            {
+                _availablePrefabs = _unitPrefab.Where(x => !x.name.Contains("Spaceship")).ToList();
+                _currentPhase++;
+                _currentSecondsToNextPhase = _secondsToNextPhase;
+            }
+            else if (_currentSecondsToNextPhase <= 0 && _currentPhase == 1)
+            {
+                _availablePrefabs = _unitPrefab;
+                _currentPhase++;
+            }
+            else if (_currentSecondsToNextPhase >= 0)
+            {
+                _currentSecondsToNextPhase -= Time.deltaTime;
+            }
             
             if (cooldown <= 0)
             {
@@ -59,8 +84,8 @@ public class EnemyAIScript : MonoBehaviour
                 var boxSize = _spawner.transform.localScale * 3;
                 if (Physics2D.OverlapBoxAll(boxPoint, boxSize, 0, LayerMask.GetMask("Unit")).Any(x => !IsPlayer(x.GetComponent<GenericUnitScript>().unitFaction)))
                     continue;
-                int unitRandom = Random.Range(0, _unitPrefab.Count);
-                var unitPrefab = _unitPrefab[unitRandom];
+                int unitRandom = Random.Range(0, _availablePrefabs.Count);
+                var unitPrefab = _availablePrefabs[unitRandom];
                 var unitSpawned = Instantiate
                     (
                         unitPrefab, 
