@@ -10,7 +10,7 @@ public class GenericUnitScript : MonoBehaviour, IHittable
     public Sprite icon;
     public int Health { get; set; }
     public string unitName;
-    public float attack;
+    public int attack;
     public float fireRate;
     public int maxHealth;
     public float speed;
@@ -75,22 +75,18 @@ public class GenericUnitScript : MonoBehaviour, IHittable
             _movementDirection, 
             _localScaleX, 
             this.mask);
-        
-        //Fix that by Yourself Mr. Blue Skeleton Leader, cause it's still not working well
-        //if(!hit.collider.IsUnityNull())
-        //{
-        //    this.transform.position += new Vector3(-1, 0);
-        //}
-        
         return hit.collider.IsUnityNull();
     }
     
     public void Shoot(Transform parent = null)
     {
-        Instantiate(
+        var bullet = Instantiate(
             bulletPrefab,
             parent == null ? bulletParent.position : parent.position,
-            unitFaction == PlayerFaction.USA ? Quaternion.Euler(0, 0, -90) : Quaternion.Euler(0, 0, 90));
+            unitFaction == PlayerFaction.USA ? 
+                Quaternion.Euler(0, 0, -90) : 
+                Quaternion.Euler(0, 0, 90));
+        bullet.GetComponent<BulletScript>().damage = attack;
     }
 
     public void OnCollisionEnter2D(Collision2D collision)

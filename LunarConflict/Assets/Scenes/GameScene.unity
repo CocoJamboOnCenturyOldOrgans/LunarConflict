@@ -554,7 +554,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 1000
+  m_MaxValue: 150
   m_WholeNumbers: 0
   m_Value: 0
   m_OnValueChanged:
@@ -1650,34 +1650,6 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4576200456136188217, guid: 7defa21c97eab544ca523eb5dec7742c, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -15
-      objectReference: {fileID: 0}
-    - target: {fileID: 4576200456136188217, guid: 7defa21c97eab544ca523eb5dec7742c, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -2.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4576200456136188217, guid: 7defa21c97eab544ca523eb5dec7742c, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4576200456136188217, guid: 7defa21c97eab544ca523eb5dec7742c, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4576200456136188217, guid: 7defa21c97eab544ca523eb5dec7742c, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4576200456136188217, guid: 7defa21c97eab544ca523eb5dec7742c, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4576200456136188217, guid: 7defa21c97eab544ca523eb5dec7742c, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4576200456136188217, guid: 7defa21c97eab544ca523eb5dec7742c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
@@ -1693,7 +1665,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: USABase
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7486815407032020059, guid: 7defa21c97eab544ca523eb5dec7742c, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 4409417403613435324, guid: 7defa21c97eab544ca523eb5dec7742c, type: 3}
+    - {fileID: 1683707302964764971, guid: 7defa21c97eab544ca523eb5dec7742c, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 7defa21c97eab544ca523eb5dec7742c, type: 3}
 --- !u!1 &179021353
 GameObject:
@@ -3110,6 +3088,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -2643876596380674755, guid: ecefefa7269d2ea40b1534c5ad101e59, type: 3}
+      propertyPath: aiUnitPrefabs.Array.data[10]
+      value: 
+      objectReference: {fileID: 8521576343617216922, guid: 177433a50d4fbc04f8939f86e4692487, type: 3}
+    - target: {fileID: -2643876596380674755, guid: ecefefa7269d2ea40b1534c5ad101e59, type: 3}
+      propertyPath: aiUnitPrefabs.Array.data[11]
+      value: 
+      objectReference: {fileID: 8521576343617216922, guid: 177433a50d4fbc04f8939f86e4692487, type: 3}
+    - target: {fileID: -2643876596380674755, guid: ecefefa7269d2ea40b1534c5ad101e59, type: 3}
+      propertyPath: aiUnitPrefabs.Array.data[12]
+      value: 
+      objectReference: {fileID: 8521576343617216922, guid: 177433a50d4fbc04f8939f86e4692487, type: 3}
     - target: {fileID: 3430456645016945706, guid: ecefefa7269d2ea40b1534c5ad101e59, type: 3}
       propertyPath: m_Name
       value: SovietBase
@@ -12142,7 +12132,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 100
+  m_MaxValue: 30
   m_WholeNumbers: 0
   m_Value: 0
   m_OnValueChanged:
@@ -16123,7 +16113,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 2
+  m_MaxValue: 3
   m_WholeNumbers: 0
   m_Value: 0
   m_OnValueChanged:

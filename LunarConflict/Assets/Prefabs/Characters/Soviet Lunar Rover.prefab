@@ -173,13 +173,12 @@ MonoBehaviour:
   unitFaction: 2
   icon: {fileID: 21300000, guid: 8bc8fa97be9cc164090b66550743ac17, type: 3}
   unitName: Soviet Lunar Rover
-  attack: 2
+  attack: 10
   fireRate: 2
   maxHealth: 100
   speed: 3
   unitCost: 100
   attackRange: 4
-  attackMode: 0
   bulletParent: {fileID: 1622694353575732448}
   bulletPrefab: {fileID: 4747252809770462573, guid: fb18d719ca9f0544497313eee22e751d, type: 3}
   raycastOffset: {x: 0, y: 0}
@@ -196,6 +195,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3f41e2e39a8f3f4495b72f9b8c6c828, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hpSliderOffset: {x: 0, y: 0}
   hpSliderParent: {fileID: 7095870749028973205, guid: 4688755eec84699448ce542fe1210aab, type: 3}
 --- !u!1 &1622694353217183889
 GameObject:

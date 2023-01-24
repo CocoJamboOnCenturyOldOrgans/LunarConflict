@@ -204,9 +204,9 @@ MonoBehaviour:
   unitFaction: 2
   icon: {fileID: 21300000, guid: 28ecaeb342b01274e8afb89afe9ad64e, type: 3}
   unitName: 'Soviet Spaceship '
-  attack: 3
+  attack: 10
   fireRate: 2
-  maxHealth: 75
+  maxHealth: 30
   speed: 2
   unitCost: 500
   attackRange: 4

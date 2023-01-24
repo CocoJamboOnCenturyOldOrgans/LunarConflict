@@ -12,13 +12,13 @@ public class BulletScript : MonoBehaviour
 
     [SerializeField] private BulletType bulletType;
     [SerializeField] private int speed;
-    [SerializeField] private int damage;
+    public int damage;
 
     private string _ignoreTag;
 
     void Start()
     {
-        _ignoreTag = transform.rotation.z < 0 ? "PlayerUnit" : "EnemyUnit";
+        _ignoreTag = transform.rotation.eulerAngles.z > 180 ? "PlayerUnit" : "EnemyUnit";
         StartCoroutine(Disappear());
     }
 
