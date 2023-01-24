@@ -1,4 +1,5 @@
 using System;
+using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
 using static GameRoundData;
@@ -8,6 +9,7 @@ public class GenericTowerScript : MonoBehaviour
 {
     public PlayerFaction towerFaction;
     public int attack;
+    private float _fireRate = 1;
 
     private Animator _animator;
     private Transform _pivot;
@@ -50,6 +52,13 @@ public class GenericTowerScript : MonoBehaviour
                 Quaternion.Euler(0, 0, _pivot.rotation.eulerAngles.z - 90) : 
                 Quaternion.Euler(0, 0, _pivot.rotation.eulerAngles.z + 90));
         bullet.GetComponent<BulletScript>().damage = attack;
+    }
+
+    public void UpgradeTower(int damageUpg, float fireRateUpg)
+    {
+        attack += damageUpg;
+        _fireRate += fireRateUpg;
+        _animator.SetFloat("fireRate", _fireRate);
     }
 
     public void OnTriggerEnter2D(Collider2D col)

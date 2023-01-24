@@ -4638,6 +4638,8 @@ MonoBehaviour:
   DescriptionField: {fileID: 939693256}
   upgradeSystemScript: {fileID: 1768758991}
   playerScript: {fileID: 1768758988}
+  obliterationTowerSprite: {fileID: -1645334230, guid: f805f6fa2b1059541beaf05d2cac9742, type: 3}
+  obliterationTowerAnimator: {fileID: 22100000, guid: 7fc2d1ce3fb4e0a47bc7b093efec2fd2, type: 2}
   greenLineColor:
     serializedVersion: 2
     rgba: 4281586792
@@ -10610,8 +10612,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 500
   showCost: 1
-  description: Build Light Tower in second base slot which attacks often but having
-    low damage output.
+  description: Repurpose the tower to be more versatile dealing a little more damage
+    and firing faster.
 --- !u!114 &980385037
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14757,8 +14759,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 1000
   showCost: 1
-  description: Build the Obliteration Tower in the final base slot. It has high fire
-    rate and medium damage output.
+  description: Replace the tower with a much more powerful Obliteration Tower that
+    deals more damage and fires faster.
 --- !u!114 &1435637501
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18864,8 +18866,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 500
   showCost: 1
-  description: Build Heavy Tower in second base slot which attacks rarely but having
-    high damage output.
+  description: Repurpose the tower to deal much more damage at the expense of fire
+    rate.
 --- !u!114 &1736289479
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22609,8 +22611,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 300
   showCost: 1
-  description: Build Heavy Tower in first base slot which attacks rarely but having
-    high damage output.
+  description: Repurpose the tower to deal much more damage at the expense of fire
+    rate.
 --- !u!114 &2037197542
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24564,8 +24566,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 300
   showCost: 1
-  description: Build Light Tower in first base slot which attacks often but having
-    low damage output.
+  description: Repurpose the tower to be more versatile dealing a little more damage
+    and firing faster.
 --- !u!114 &2131751193
 MonoBehaviour:
   m_ObjectHideFlags: 0
