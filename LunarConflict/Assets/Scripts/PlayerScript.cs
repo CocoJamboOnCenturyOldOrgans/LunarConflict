@@ -114,7 +114,7 @@ public class PlayerScript : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(0.8f);
             money += income;
             _uiScript.UpdateMoney(money);
         }
@@ -165,13 +165,25 @@ public class PlayerScript : MonoBehaviour
         }
     }
 
-    public void BuyAstronaut() => BuyUnit(_astronautUnit, _astronautSound, 50);
+    public void BuyAstronaut() => BuyUnit(
+        _astronautUnit,
+        _astronautSound,
+        _astronautUnit.GetComponent<GenericUnitScript>().unitCost);
 
-    public void BuyRover() => BuyUnit(_roverUnit, _roverSound, 100);
+    public void BuyRover() => BuyUnit(
+        _roverUnit,
+        _roverSound,
+        _roverUnit.GetComponent<GenericUnitScript>().unitCost);
 
-    public void BuyTank() => BuyUnit(_tankUnit, _tankSound, 200);
+    public void BuyTank() => BuyUnit(
+        _tankUnit,
+        _tankSound,
+        _tankUnit.GetComponent<GenericUnitScript>().unitCost);
     
-    public void BuySpaceship() => BuyUnit(_spaceshipUnit, _spaceshipSound, 500);
+    public void BuySpaceship() => BuyUnit(
+        _spaceshipUnit,
+        _spaceshipSound,
+        _spaceshipUnit.GetComponent<GenericUnitScript>().unitCost);
 
     private void BuyUnit(GameObject unit, AudioClip unitClip, int cost)
     {

@@ -3438,7 +3438,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d64366dfcbc84b64194f30f4774a855f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cost: 400
+  cost: 200
   showCost: 1
   description: Increase Rover's movement speed.
 --- !u!114 &426881196
@@ -5174,7 +5174,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d64366dfcbc84b64194f30f4774a855f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cost: 250
+  cost: 150
   showCost: 1
   description: Increase Astronaut's damage.
 --- !u!114 &536632378
@@ -5807,7 +5807,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d64366dfcbc84b64194f30f4774a855f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cost: 800
+  cost: 400
   showCost: 1
   description: Increase Tank's health badly.
 --- !u!114 &611483920
@@ -6161,7 +6161,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d64366dfcbc84b64194f30f4774a855f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cost: 500
+  cost: 300
   showCost: 1
   description: Increase Tank's Health.
 --- !u!114 &620067844
@@ -10608,7 +10608,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d64366dfcbc84b64194f30f4774a855f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cost: 700
+  cost: 500
   showCost: 1
   description: Build Light Tower in second base slot which attacks often but having
     low damage output.
@@ -14548,7 +14548,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d64366dfcbc84b64194f30f4774a855f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cost: 600
+  cost: 300
   showCost: 1
   description: Increase Rover's damage.
 --- !u!114 &1411826539
@@ -14755,7 +14755,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d64366dfcbc84b64194f30f4774a855f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cost: 2000
+  cost: 1000
   showCost: 1
   description: Build the Obliteration Tower in the final base slot. It has high fire
     rate and medium damage output.
@@ -15423,7 +15423,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d64366dfcbc84b64194f30f4774a855f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cost: 200
+  cost: 150
   showCost: 1
   description: Increase Rover's movement speed slightly.
 --- !u!114 &1500921050
@@ -15981,7 +15981,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d64366dfcbc84b64194f30f4774a855f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cost: 300
+  cost: 200
   showCost: 1
   description: Increase Rover's damage slightly.
 --- !u!114 &1526950042
@@ -18862,7 +18862,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d64366dfcbc84b64194f30f4774a855f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cost: 1000
+  cost: 500
   showCost: 1
   description: Build Heavy Tower in second base slot which attacks rarely but having
     high damage output.
@@ -19144,7 +19144,7 @@ MonoBehaviour:
   - {fileID: 65780231}
   - {fileID: 751598436}
   - {fileID: 980683194}
-  money: 15000
+  money: 200
   income: 10
   queueCooldown: 3
 --- !u!114 &1768758989
@@ -21776,7 +21776,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d64366dfcbc84b64194f30f4774a855f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cost: 200
+  cost: 100
   showCost: 1
   description: Increase Astronaut's health slightly.
 --- !u!114 &1989610490
@@ -22064,7 +22064,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d64366dfcbc84b64194f30f4774a855f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cost: 350
+  cost: 150
   showCost: 1
   description: Increase Astronaut's health.
 --- !u!114 &2005156745
@@ -22607,7 +22607,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d64366dfcbc84b64194f30f4774a855f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cost: 500
+  cost: 300
   showCost: 1
   description: Build Heavy Tower in first base slot which attacks rarely but having
     high damage output.
@@ -23225,7 +23225,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d64366dfcbc84b64194f30f4774a855f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cost: 250
+  cost: 200
   showCost: 1
   description: Increase Rover's health slightly.
 --- !u!114 &2066639187
@@ -23742,7 +23742,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d64366dfcbc84b64194f30f4774a855f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cost: 500
+  cost: 250
   showCost: 1
   description: Increase Rover's health.
 --- !u!114 &2086983444
