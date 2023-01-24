@@ -19118,7 +19118,7 @@ MonoBehaviour:
   - {fileID: 65780231}
   - {fileID: 751598436}
   - {fileID: 980683194}
-  money: 200
+  money: 10000
   income: 10
   queueCooldown: 3
 --- !u!114 &1768758989
