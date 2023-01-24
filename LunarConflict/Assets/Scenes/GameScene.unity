@@ -4638,6 +4638,8 @@ MonoBehaviour:
   DescriptionField: {fileID: 939693256}
   upgradeSystemScript: {fileID: 1768758991}
   playerScript: {fileID: 1768758988}
+  obliterationTowerSprite: {fileID: -1645334230, guid: f805f6fa2b1059541beaf05d2cac9742, type: 3}
+  obliterationTowerAnimator: {fileID: 22100000, guid: 7fc2d1ce3fb4e0a47bc7b093efec2fd2, type: 2}
   greenLineColor:
     serializedVersion: 2
     rgba: 4281586792
