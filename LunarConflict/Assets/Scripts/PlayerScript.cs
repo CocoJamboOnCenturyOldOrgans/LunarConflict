@@ -203,7 +203,7 @@ public class PlayerScript : MonoBehaviour
                 var unitSpawned = Instantiate
                     (
                         unit, 
-                        _spawner.transform.position + (unit == _spaceshipUnit ? new Vector3(0, 1.75f) : Vector3.zero), 
+                        _spawner.transform.position + (unit == _spaceshipUnit ? new Vector3(0, 1.85f) : Vector3.zero), 
                         _spawner.transform.rotation
                     );
             

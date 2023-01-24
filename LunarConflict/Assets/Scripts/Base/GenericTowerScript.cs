@@ -14,6 +14,7 @@ public class GenericTowerScript : MonoBehaviour
     private Animator _animator;
     private Transform _pivot;
     private Transform _target;
+    private BoxCollider2D _collider2D;
     private string _ignoreTag;
     
     [SerializeField] protected GameObject bulletPrefab;
@@ -22,6 +23,7 @@ public class GenericTowerScript : MonoBehaviour
     {
         _animator = GetComponent<Animator>();
         _pivot = transform.parent;
+        _collider2D = GetComponent<BoxCollider2D>();
         _ignoreTag = towerFaction == PlayerFaction.USA ? "PlayerUnit" : "EnemyUnit";
     }
     protected void Update()

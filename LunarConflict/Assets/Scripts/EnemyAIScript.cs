@@ -64,13 +64,14 @@ public class EnemyAIScript : MonoBehaviour
                 var unitSpawned = Instantiate
                     (
                         unitPrefab, 
-                        _spawner.transform.position + (unitPrefab.GetComponent<GenericSpaceshipScript>() != null ? new Vector3(0, 1.75f) : Vector3.zero),
+                        //I don't have any clue why AI is spawning ships lower
+                        //_spawner.transform.position + (unitPrefab.GetComponent<GenericSpaceshipScript>() != null ? new Vector3(0, 1.85f) : Vector3.zero),
+                        _spawner.transform.position + (unitPrefab.GetComponent<GenericSpaceshipScript>() != null ? new Vector3(0, 2.10f) : Vector3.zero),
                         _spawner.transform.rotation
                     );
-                
                 var unitScript = unitSpawned.GetComponent<GenericUnitScript>();
                 unitScript.maxHealth = (int) (unitScript.maxHealth * _unitStatsModifiers.healthModifier);
-                unitScript.attack *= (int) _unitStatsModifiers.damageModifier;
+                unitScript.attack = (int) (unitScript.attack * _unitStatsModifiers.damageModifier);
                 unitScript.fireRate *= _unitStatsModifiers.fireRateModifier;
                 unitScript.speed *= _unitStatsModifiers.speedModifier;
                 unitScript.unitCost = (int) (unitScript.unitCost * _unitStatsModifiers.unitCostModifier);

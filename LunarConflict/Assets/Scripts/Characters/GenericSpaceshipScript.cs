@@ -14,7 +14,7 @@ public class GenericSpaceshipScript : GenericUnitScript
         {
             _bombCooldown -= Time.deltaTime;
         }
-        else if (CanDropBomb())
+        else if (CanDropBomb() && Health > 0)
         {
             DropBomb();
         }
