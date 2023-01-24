@@ -8,7 +8,8 @@ using static SettingsScript;
 public class GenericTowerScript : MonoBehaviour
 {
     public PlayerFaction towerFaction;
-    public int attack, fireRate = 1;
+    public int attack;
+    private float _fireRate = 1;
 
     private Animator _animator;
     private Transform _pivot;
@@ -53,11 +54,11 @@ public class GenericTowerScript : MonoBehaviour
         bullet.GetComponent<BulletScript>().damage = attack;
     }
 
-    public void UpgradeTower(float damageUpg, float fireRateUpg)
+    public void UpgradeTower(int damageUpg, float fireRateUpg)
     {
-        attack = Mathf.CeilToInt(attack + damageUpg);
-        fireRate = Mathf.CeilToInt(fireRate + fireRateUpg);
-        _animator.SetFloat("fireRate", fireRate);
+        attack += damageUpg;
+        _fireRate += fireRateUpg;
+        _animator.SetFloat("fireRate", _fireRate);
     }
 
     public void OnTriggerEnter2D(Collider2D col)
