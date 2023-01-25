@@ -187,8 +187,9 @@ public class UpgradeScript : MonoBehaviour
     public void BuildTowers(GameObject pressedButton)
     {
         GenericUpgradeButtonsScript DescriptionReader = pressedButton.GetComponent<GenericUpgradeButtonsScript>();
+        _upgradeBought = playerScript.money >= DescriptionReader.cost;
 
-        if (playerScript.money >= DescriptionReader.cost)
+        if (_upgradeBought)
         {
             Button ButtonComp = pressedButton.GetComponent<Button>();
             Image ImgComp = pressedButton.GetComponent<Image>();
